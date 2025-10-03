@@ -1,0 +1,34 @@
+{
+  "user_input": "Build the tst workbooks for hydrogen.",
+  "author": "Dante",
+  "tags": [
+    "tst",
+    "workbooks",
+    "hydrogen",
+    "demand"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "00:50:37",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "hydrogen"
+      },
+      "function_kwargs": {},
+      "description": "Build the TST workbooks for the 'hydrogen' carrier.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Build the tst workbooks for hydrogen.', select the most appropriate entity for this operation.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

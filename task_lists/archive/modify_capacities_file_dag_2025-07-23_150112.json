@@ -1,0 +1,35 @@
+{
+  "user_input": "Modify the H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv file and set all values, which aren\u2019t 0, to 999. Name the new file Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv",
+  "author": "Dante",
+  "tags": [
+    "modify",
+    "data",
+    "file",
+    "csv"
+  ],
+  "date_created": "2025-07-23",
+  "time_created": "15:01:27",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "modify_data_file",
+      "function_name": "modify_data_file",
+      "function_args": {
+        "plexos_file_path": "",
+        "input_file_path": "H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv",
+        "user_input": "set all values that aren\u2019t 0 to 999",
+        "output_file_path": ""
+      },
+      "function_kwargs": {},
+      "description": "Open and modify the file 'H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv' by setting all values that are not 0 to 999, and save the modified data in a new file adding UNLIMITED as an extension.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "log_and_continue"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "user_input": "add a cateogory called 'Geothermal' the in generators class, in the sectoral model Model",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "category",
+    "generators",
+    "Geothermal",
+    "Model"
+  ],
+  "date_created": "2025-07-12",
+  "time_created": "20:52:31",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+  "tasks": [
+    {
+      "task_name": "create_geothermal_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a category called 'Geothermal' in the generators class within the sectoral model 'Model'.",
+      "target_level": "category",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{   "default_model": "gpt-5-mini",
+    "tasks": [
+
+                {"id": "choose_search_depth",
+                "description": "Determine the search depth based on user input.",
+                "function": "get_search_depth",
+                "inputs": {
+                    "user_input": "tasks.task_context.outputs.user_input",
+                    "context": "dag_context.context",
+                    "model": "base_model"
+                },
+                "outputs": {
+                    "search_depth": "result"
+                }
+                },
+
+                {"id": "choose_class_group",
+                    "description": "Determine the class group from user input.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.context",
+                        "item_type_for_get_item_id": "t_class_group",
+                        "item_id_column": "class_group_id",
+                        "item_name_column": "name",
+                        "extra_notes": {"default_notes":"Class Group are at energy carrier level. It is not concerned with the property being modified"},
+                        "model": "base_model"
+                    
+                    },
+                    "outputs": {
+                        "class_group_id": "result.id",
+                        "class_group_name": "result.name"
+                    }
+                },
+
+                {"id": "get_active_classes",
+                    "description": "Retrieve all active classes in the PLEXOS model.",
+                    "function": "get_active_classes",
+                    "inputs": {
+                        "db": "db"
+                    },
+                    "outputs": {
+                        "active_classes": "result"
+                    }
+                },
+
+                {"id": "choose_class",
+                    "description": "Determine the primary class for the operation.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.context",
+                        "item_type_for_get_item_id": "t_class",
+                        "grp": "tasks.choose_class_group.outputs.class_group_id",
+                        "strategy_action": "tasks.task_context.outputs.strategy_action",
+                        "item_id_column": "class_id",
+                        "item_name_column": "name",
+                        "all_class_objects": "tasks.get_active_classes.outputs.active_classes",
+                        "model": "base_model",
+                        "extra_notes": {"default_notes":""}
+                    },
+                    "outputs": {
+                        "class_id": "result.id",
+                        "class_name": "result.name"
+                    }
+                },
+
+                {"id": "read_all_categories_for_class",
+                    "description": "read all categories for the determined class.",
+                    "function": "get_categories",
+                    "inputs": {
+                        "db": "db",
+                        "nClassId": "tasks.choose_class.outputs.class_id"
+                    },
+                    "outputs": {
+                        "raw_categories_list": "result"
+                                }
+                },
+
+                {"id": "choose_category",
+                "description": "LLM selects an existing category or suggests a new one.",
+                "function": "choose_source_item",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "context": "dag_context.context",
+                            "action": "tasks.task_context.outputs.strategy_action",
+                            "item_set": "tasks.read_all_categories_for_class.outputs.raw_categories_list",
+                            "item_type": "Category",
+                            "model": "base_model", 
+                            "extra_notes": {"default_notes":""}
+                            },
+                "outputs": {
+                            "final_category_name": "result.selected_name",
+                            "category_selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            },
+                "type": "LLM API Call"
+                },
+                
+                {"id": "read_all_objects_in_category",
+                "description": "read all objects for the determined category. Returns list_of_objects and the original_item for pipeline execution.",
+                "type": "plexos_api_call",
+                "function": "get_objects_in_category",
+                "condition": "tasks.choose_category.outputs.category_selection_type != undertermined",
+                "inputs": {
+                            "db": "db",
+                            "nClassId": "tasks.choose_class.outputs.class_id",
+                            "strCategory": "tasks.choose_category.outputs.final_category_name"
+                            },
+                "outputs": {
+                            "list_of_objects": "result"
+                            }
+                },
+
+                {"id": "read_all_objects_in_class",
+                "description": "read all objects for the determined class. Returns list_of_objects and the original_item for pipeline execution.",
+                "type": "plexos_api_call",
+                "condition": "tasks.choose_category.outputs.category_selection_type == undertermined",
+                "function": "get_objects_in_class", 
+                "inputs": {
+                            "db": "db",
+                            "nClassId": "tasks.choose_class.outputs.class_id"
+                            },
+                "outputs": {
+                            "list_of_objects": "result"
+                            }
+                },
+
+                {"id": "choose_objects",
+                "description": "LLM determines original object for pipeline execution.",
+                "function": "choose_object_subset",
+                "type": "LLM API Call",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "object_set": "tasks.read_all_objects_in_category.outputs.list_of_objects",
+                            "object_type": "tasks.choose_class.outputs.class_name",
+                            "selected_level": "tasks.task_context.outputs.target_level",
+                            "operation_type": "tasks.task_context.outputs.strategy_action",
+                            "model": "base_model",
+                            "context": "dag_context.context",
+                            "all_class_objects": "None", 
+                            "extra_notes": {"default_notes":"locals.task_def.extra_notes"}
+                            },
+                "outputs": {
+                            "list_of_objects": "result.list_of_objects",
+                            "selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            }
+                },
+
+                {"id": "perform_hierarchy_traversal",
+                    "description": "Perform hierarchy traversal to find related objects.",
+                    "function": "traverse_object_hierarchy",
+                    "inputs": {
+                        "db": "db",
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.context",
+                        "starting_objects": "tasks.choose_objects.outputs.list_of_objects",
+                        "class_id": "tasks.choose_class.outputs.class_id",
+                        "class_name": "tasks.choose_class.outputs.class_name",
+                        "depth_level": "tasks.capture_loop_current_depth.outputs.captured_depth_value",
+                        "operation_type": "tasks.task_context.outputs.strategy_action",
+                        "target_level": "tasks.task_context.outputs.target_level",
+                        "extra_notes": {"default_notes":"locals.task_def.extra_notes"},
+                        "model": "base_model"
+                    },
+                    "outputs": {
+                        "all_objects": "result.related_objects",
+                        "traversal_reasoning": "result.reasoning"
+                    }
+                },
+
+                {"id": "iterate_over_objects",
+                "description": "Iterate each object in the category and run the pipeline_execution steps.",
+                "type": "loop",
+                "condition": "tasks.choose_objects.outputs.list_of_objects != null",
+                "iterate_on": "tasks.perform_hierarchy_traversal.outputs.all_objects",
+                "loop_variable_name": "current_object",
+                "tasks": [
+                            {"id": "capture_loop_current_object",
+                                "description": "Captures the 'current_object' value from the outer loop.",
+                                "type": "function_call", 
+                                "function": "passthrough", 
+                                "inputs": {
+                                    "value": "loop.current_object"
+                                },
+                                "outputs": {
+                                    "captured_object_value": "result"
+                                }
+                            },
+
+                            {"id": "read_all_object_collections",
+                            "description": "read all collections for the object", 
+                            "type": "plexos_api_call",
+                            "function": "get_collections",
+                            "inputs": {
+                                        "db": "db",
+                                        "object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                        "class_name": "tasks.choose_class.outputs.class_name",
+                                        "class_id": "tasks.choose_class.outputs.class_id",
+                                        "list_of_objects": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                        "object_list_id": "tasks.choose_objects.outputs.object_id"
+                                        },
+                            "outputs": {
+                                        "collections_list": "result"
+                                        }
+                            },         
+
+                            {"id": "iterate_over_collections",
+                            "description": "Iterate over collections to find the one containing the original object.",
+                            "type": "loop",
+                            "condition": "tasks.choose_collections.outputs.list_of_collections != null",
+                            "iterate_on": "tasks.choose_collections.outputs.list_of_collections",
+                            "loop_variable_name": "chosen_collections",
+                            "tasks": [
+                                        {"id": "capture_loop_current_collections",
+                                            "description": "Captures the 'current_membership' value from the inner loop.",
+                                            "type": "function_call", 
+                                            "function": "passthrough", 
+                                            "inputs": {
+                                                "value": "loop.chosen_collections"
+                                            },
+                                            "outputs": {
+                                                "captured_membership_value": "result"
+                                            }
+                                        },
+                                                    
+                                        {"id": "extract_object_properties_from_solution",
+                                        "description": "Get properties of the original object from the membership.",
+                                        "function": "get_properties_table_to_dict",
+                                        "type": "plexos_api_call",
+                                        "inputs": {
+                                                    "db": "db",
+                                                    "collection_id_list": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                    "all_collections_data": "tasks.read_all_object_collections.outputs.collections_list",
+                                                    "class_name": "tasks.choose_class.outputs.class_name",
+                                                    "collection_name": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                    "target_level": "tasks.task_context.outputs.target_level",
+                                                    "strategy_action": "tasks.task_context.outputs.strategy_action",
+                                                    "user_input": "tasks.task_context.outputs.user_input",
+                                                    "context": "dag_context.context"
+                                                    },
+                                        "outputs": {
+                                                    "properties_list": "result"
+                                                    }  
+                                        }
+                                    ]
+                            }
+                        ]
+                }
+            ]
+}

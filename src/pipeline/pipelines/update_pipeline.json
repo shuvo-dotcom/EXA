@@ -1,0 +1,209 @@
+{
+    "pipeline_name": "PLEXOS Advanced Update Pipeline",
+    "description": "Performs complex updates on object memberships (collections) or properties, ensuring data integrity by preserving and recreating downstream data.",
+    "initial_context": {
+        "user_input": "Update the 'Max Capacity' of the 'Solar PV - Bavaria' generator in its 'System.Generator' membership to 600 MW for the 'High Solar' scenario.",
+        "plexos_model_location": "C:\\Users\\ENTSOE\\Projects\\Sectoral Model\\TJ_Sectorial_Model_V22.xml",
+        "target_level": "Property",
+        "action": "Update",
+        "action_details": {
+            "attributes_to_update": {
+                "value": "600",
+                "scenario": "High Solar"
+            }
+        },
+        "plexos_architecture_note": "In PLEXOS, properties are assigned to memberships within collections, not directly to objects. Deleting a membership cascades to delete all its associated properties.",
+        "static_context_strings": {
+            "default_llm_context": "You are an expert in PLEXOS modeling, executing a detailed update request. Precision is critical.",
+            "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the list.",
+            "new_membership_context": "The user wants to change an object's membership. Identify the new parent or child object for the collection."
+        }
+    },
+    "tasks": [
+        {
+            "id": "read_plexos_model",
+            "description": "Read the PLEXOS model into memory.",
+            "function": "load_model",
+            "inputs": { "model_location": "initial_context.plexos_model_location" },
+            "outputs": { "db_connection": "result" },
+            "type": "Read"
+        },
+        {
+            "id": "choose_class_group",
+            "description": "Choose the relevant class group.",
+            "function": "get_plexos_table_and_llm_pick_item_id",
+            "inputs": { "user_input": "initial_context.user_input", "item_type_for_get_item_id": "t_class_group" },
+            "outputs": { "class_group_id": "result.id" },
+            "type": "Choose"
+        },
+        {
+            "id": "choose_class",
+            "description": "Choose the relevant class.",
+            "function": "get_plexos_table_and_llm_pick_item_id",
+            "inputs": {
+                "user_input": "initial_context.user_input", "item_type_for_get_item_id": "t_class",
+                "get_item_id_filters": { "grp": "tasks.choose_class_group.outputs.class_group_id" }
+            },
+            "outputs": { "class_id": "result.id", "class_name": "result.name" },
+            "type": "Choose"
+        },
+        {
+            "id": "choose_category",
+            "description": "Choose the category containing the target entity.",
+            "function": "choose_item",
+            "inputs": {
+                "user_input": "initial_context.user_input", "item_type": "Category",
+                "item_set_function": "get_plexos_categories_by_class",
+                "inputs_for_item_set_function": { "db": "tasks.read_plexos_model.outputs.db_connection", "nClassId": "tasks.choose_class.outputs.class_id" }
+            },
+            "outputs": { "category_name": "result.selected_name" },
+            "type": "Choose"
+        },
+        {
+            "id": "choose_object",
+            "description": "Choose the specific object for the operation.",
+            "function": "choose_item",
+            "inputs": {
+                "user_input": "initial_context.user_input", "item_type": "Object",
+                "item_set_function": "get_plexos_objects",
+                "inputs_for_item_set_function": {
+                    "db": "tasks.read_plexos_model.outputs.db_connection", "nClassId": "tasks.choose_class.outputs.class_id", "strCategory": "tasks.choose_category.outputs.category_name"
+                }
+            },
+            "outputs": { "object_name": "result.selected_name" },
+            "type": "Choose"
+        },
+        {
+            "id": "choose_target_membership",
+            "description": "Choose the specific membership (collection) to update.",
+            "function": "choose_item",
+            "inputs": {
+                "user_input": "initial_context.user_input", "item_type": "Membership",
+                "item_set_function": "get_object_collections",
+                "inputs_for_item_set_function": {
+                    "db": "tasks.read_plexos_model.outputs.db_connection", "object_name": "tasks.choose_object.outputs.object_name", "class_name": "tasks.choose_class.outputs.class_name"
+                }
+            },
+            "outputs": { "membership_to_update": "result.selected_item" },
+            "type": "Choose"
+        },
+        {
+            "id": "execute_collection_update_path",
+            "description": "Executes the logic for changing an object's membership in a collection.",
+            "condition": "initial_context.target_level == 'Collection'",
+            "tasks": [
+                {
+                    "id": "choose_new_membership_details",
+                    "description": "Determine the new parent/child for the membership.",
+                    "function": "determine_new_membership_target",
+                    "inputs": { "user_input": "initial_context.user_input", "current_membership": "tasks.choose_target_membership.outputs.membership_to_update" },
+                    "outputs": { "new_membership_spec": "result" },
+                    "type": "Choose"
+                },
+                {
+                    "id": "read_properties_from_old_membership",
+                    "description": "Read all properties from the old membership before deletion.",
+                    "function": "get_properties_from_membership",
+                    "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection", "membership_id": "tasks.choose_target_membership.outputs.membership_to_update.membership_id" },
+                    "outputs": { "extracted_properties": "result" },
+                    "type": "Read"
+                },
+                {
+                    "id": "delete_old_membership",
+                    "description": "Delete the original membership.",
+                    "function": "delete_membership",
+                    "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection", "membership_id": "tasks.choose_target_membership.outputs.membership_to_update.membership_id" },
+                    "type": "Delete"
+                },
+                {
+                    "id": "create_new_membership",
+                    "description": "Create the new membership with the updated target.",
+                    "function": "create_membership",
+                    "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection", "membership_spec": "tasks.choose_new_membership_details.outputs.new_membership_spec" },
+                    "outputs": { "new_membership_id": "result.id" },
+                    "type": "Create"
+                },
+                {
+                    "id": "recreate_properties_on_new_membership",
+                    "description": "Loop through extracted properties and recreate them on the new membership.",
+                    "type": "Loop",
+                    "iterate_on": "tasks.read_properties_from_old_membership.outputs.extracted_properties",
+                    "loop_variable_name": "property_to_recreate",
+                    "tasks": [
+                        {
+                            "id": "add_property_to_new_membership",
+                            "function": "add_property_to_membership",
+                            "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection", "membership_id": "tasks.create_new_membership.outputs.new_membership_id", "property_details": "loop.property_to_recreate" },
+                            "type": "Create"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "execute_property_update_path",
+            "description": "Executes the logic for updating a single property's attributes.",
+            "condition": "initial_context.target_level == 'Property'",
+            "tasks": [
+                {
+                    "id": "read_properties_from_target_membership",
+                    "description": "Read all available properties from the target membership.",
+                    "function": "get_properties_from_membership",
+                    "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection", "membership_id": "tasks.choose_target_membership.outputs.membership_to_update.membership_id" },
+                    "outputs": { "available_properties": "result" },
+                    "type": "Read"
+                },
+                {
+                    "id": "choose_property_to_update",
+                    "description": "Choose the specific property to update from the list of available properties.",
+                    "function": "choose_item",
+                    "inputs": {
+                        "user_input": "initial_context.user_input", 
+                        "item_type": "Property",
+                        "item_set": "tasks.read_properties_from_target_membership.outputs.available_properties",
+                        "llm_context": "initial_context.static_context_strings.entity_selection_context"
+                    },
+                    "outputs": { "property_to_update": "result.selected_item" },
+                    "type": "Choose"
+                },
+                {
+                    "id": "get_updated_property_attributes",
+                    "description": "Merge old attributes with new ones to create the final attribute set.",
+                    "function": "merge_attributes",
+                    "inputs": {
+                        "base_attributes": "tasks.choose_property_to_update.outputs.property_to_update",
+                        "updates": "initial_context.action_details.attributes_to_update"
+                    },
+                    "outputs": { "final_attributes": "result" },
+                    "type": "Update"
+                },
+                {
+                    "id": "create_updated_property",
+                    "description": "Add the property with the new/updated attributes.",
+                    "function": "add_property_to_membership",
+                    "inputs": {
+                        "db": "tasks.read_plexos_model.outputs.db_connection",
+                        "membership_id": "tasks.choose_target_membership.outputs.membership_to_update.membership_id",
+                        "property_details": "tasks.get_updated_property_attributes.outputs.final_attributes"
+                    },
+                    "type": "Create"
+                },
+                {
+                    "id": "conditionally_delete_old_property",
+                    "description": "Delete the old property entry if the scenario was not changed.",
+                    "condition": "tasks.get_updated_property_attributes.outputs.final_attributes.scenario == tasks.choose_property_to_update.outputs.property_to_update.scenario",
+                    "function": "delete_property",
+                    "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection", "property_id": "tasks.choose_property_to_update.outputs.property_to_update.property_data_id" },
+                    "type": "Delete"
+                }
+            ]
+        },
+        {
+            "id": "close_plexos_database",
+            "description": "Close the PLEXOS database connection.",
+            "function": "close_model",
+            "inputs": { "db": "tasks.read_plexos_model.outputs.db_connection" },
+            "type": "Update"
+        }
+    ]
+}

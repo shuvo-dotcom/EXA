@@ -1,0 +1,48 @@
+{
+  "user_input": "Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "TYNDP2026",
+    "hydrogen",
+    "demand_profile",
+    "hourly",
+    "split",
+    "TST"
+  ],
+  "date_created": "2025-08-16",
+  "time_created": "12:15:27",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly hydrogen demand profiles for the TYNDP 2026 Scenarios using the 'NT', 'NT_HE' and 'NT_LE' scenarios for the years 2030, 2035, 2040, and 2050.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050.' determine the appropriate parameters for generating hourly demand profiles.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes of the generated demand profiles to allow for detailed node-level analyses.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request to split the nodes from the generated demand profiles.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Convert the hourly hydrogen demand profiles into the TST format required by the TYNDP study team.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request to convert the demand profiles to TST format.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "user_input": "Search the shared file repository for the Energy Transition Model (ETM) data file that contains Dutch hydrogen demand projections for the year 2040.",
+  "author": "Dante",
+  "tags": [
+    "search",
+    "file",
+    "ETM",
+    "hydrogen",
+    "2020s",
+    "demand"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "18:08:19",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified file search operation based on the user's request within the shared repository, returning the file location if found.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "find_etm_hydrogen_2040_file",
+      "function_name": "find_file",
+      "function_args": {
+        "user_input": "Energy Transition Model (ETM) Dutch hydrogen demand projections 2040"
+      },
+      "description": "Search the shared file repository for the ETM data file containing Dutch hydrogen demand projections for the year 2040.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's request: 'Search the shared file repository for the Energy Transition Model (ETM) data file that contains Dutch hydrogen demand projections for the year 2040.', select the most appropriate file.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "user_input": "Please create hourly Hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now",
+  "author": "DAG-Builder",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "profiles",
+    "TYNDP2026",
+    "tst-export",
+    "no-plexos-db"
+  ],
+  "date_created": "2025-09-02",
+  "time_created": "20:31:02",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Generate hourly Hydrogen demand profiles for TYNDP 2026 scenarios (NT, NT_HE, NT_LE) and years 2030, 2035, 2040, 2050. Split nodes as requested and export outputs to TST format. Do not access any PLEXOS database.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Create hourly Hydrogen demand profiles for TYNDP 2026 scenarios 'NT', 'NT_HE', and 'NT_LE' for years 2030, 2035, 2040, and 2050. Split the nodes. Do not access any PLEXOS database."
+      },
+      "function_kwargs": {},
+      "description": "Create hourly Hydrogen demand profiles for TYNDP 2026 scenarios 'NT', 'NT_HE', and 'NT_LE' for years 2030, 2035, 2040, and 2050, and split the nodes.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "From the user's request, resolve scenarios ['NT','NT_HE','NT_LE'], years [2030, 2035, 2040, 2050], and enable node splitting. No PLEXOS database access is required.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {},
+      "function_kwargs": {},
+      "description": "Export the generated hourly Hydrogen demand profiles to the TST (TYNDP study team) standard format.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Use outputs from 'main_demand_processer_v2' to build TST workbooks covering all specified scenarios and years.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

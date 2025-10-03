@@ -1,0 +1,46 @@
+{
+  "user_input": "Create a PLEXOS structure for region IS00 in the electricity category with class group transmission: create the IS00 node and add its membership and properties, then create the IS00 Geothermal category and the IS00 Geothermal Generator object, with their respective memberships and properties.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "object",
+    "create",
+    "region"
+  ],
+  "date_created": "2025-07-12",
+  "time_created": "21:27:11",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "create_region_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create the IS00 node in the electricity category with class group transmission, and add its membership and properties.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_geothermal_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create the IS00 Geothermal category for region IS00 and add its membership and properties.",
+      "target_level": "category",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_geothermal_generator",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create the IS00 Geothermal Generator object and add its membership and properties.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

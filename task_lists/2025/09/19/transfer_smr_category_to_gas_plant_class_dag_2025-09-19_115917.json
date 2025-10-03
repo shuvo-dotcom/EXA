@@ -1,0 +1,32 @@
+{
+  "user_input": "Transfer the SMR category in the Generator class to the Gas Plant Class",
+  "author": "AutoDAG",
+  "tags": [
+    "crud",
+    "category",
+    "update",
+    "transfer",
+    "class",
+    "SMR"
+  ],
+  "date_created": "2025-09-19",
+  "time_created": "11:59:42",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "update_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the 'SMR' category by changing its Class association from 'Generator' to 'Gas Plant'. Preserve the category name and all existing objects, memberships, properties, and attributes.",
+      "target_level": "category",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Transfer the SMR category in the Generator class to the Gas Plant Class', locate the Category named 'SMR' currently under Class 'Generator' and update its Class to 'Gas Plant'. If multiple 'SMR' categories exist, select the one in the 'Generator' class.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

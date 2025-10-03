@@ -1,0 +1,71 @@
+{
+  "user_input": "Create hydrogen demand time series for TYNDP 2026 scenarios in the Netherlands for year 2040, split the demand by network nodes, and export the results to a TST workbook",
+  "author": "AI Assistant",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "TYNDP",
+    "export",
+    "time series",
+    "netherlands",
+    "2040"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "21:31:49",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "generate_hydrogen_demand_ts",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hydrogen demand time series for TYNDP 2026 in the Netherlands for the year 2040."
+      },
+      "function_kwargs": {},
+      "description": "Generate hydrogen demand time series for TYNDP 2026 in the Netherlands for the year 2040.",
+      "target_level": "data",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "split_hydrogen_demand_by_nodes",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Split the hydrogen demand time series by network nodes."
+      },
+      "function_kwargs": {},
+      "description": "Split the hydrogen demand time series by network nodes.",
+      "target_level": "data",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "dependencies": [
+        "generate_hydrogen_demand_ts"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "export_demand_to_tst_workbook",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "hydrogen"
+      },
+      "function_kwargs": {},
+      "description": "Export the node-split hydrogen demand time series to a TST workbook for TYNDP 2026 (carrier: hydrogen).",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "dependencies": [
+        "split_hydrogen_demand_by_nodes"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

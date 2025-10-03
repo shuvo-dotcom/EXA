@@ -1,0 +1,29 @@
+{
+  "user_input": "Generate hydrogen demand timeseries for the Netherlands for year 2040 using the TYNDP\u202f2026 scenarios, split the model nodes as required, and create the corresponding TST workbook.",
+  "author": "Dante",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "TST",
+    "split",
+    "PLEXOS"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "18:11:13",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the PLEXOS model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hydrogen demand timeseries for the Netherlands for year 2040 using the TYNDP\u202f2026 scenarios."
+      },
+      "function_kwargs": {}
+    }
+  ]
+}

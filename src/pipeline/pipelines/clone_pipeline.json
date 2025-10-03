@@ -1,0 +1,488 @@
+{
+    "tasks": [
+                {
+                    "id": "get_active_classes",
+                    "description": "Retrieve all active classes in the PLEXOS model.",
+                    "function": "get_active_classes",
+                    "inputs": {
+                        "db": "db"
+                    },
+                    "outputs": {
+                        "active_classes": "result"
+                    }
+                },        
+
+                {
+                    "id": "choose_source_class_group",
+                    "description": "Determine the class group from user input.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.initial_context",
+                        "item_type_for_get_item_id": "t_class_group",
+                        "item_id_column": "class_group_id",
+                        "item_name_column": "name",
+                        "extra_notes": "Class Group are at energy carrier level. It is not concerned with the property being modified", 
+                        "model": "o3-mini"
+                    
+                    },
+                    "outputs": {
+                        "class_group_id": "result.id",
+                        "class_group_name": "result.name"
+                    }
+                },
+
+                {
+                    "id": "choose_source_class",
+                    "description": "Determine the primary class for the operation.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.initial_context",
+                        "item_type_for_get_item_id": "t_class",
+                        "grp": "tasks.choose_source_class_group.outputs.class_group_id",
+                        "strategy_action": "tasks.task_context.outputs.strategy_action",
+                        "item_id_column": "class_id",
+                        "item_name_column": "name",
+                        "all_class_objects": "tasks.get_active_classes.outputs.active_classes",
+                        "model": "o3-mini"
+                    },
+                    "outputs": {
+                        "class_id": "result.id",
+                        "class_name": "result.name"
+                    }
+                },
+
+                {
+                    "id": "choose_destination_class_group",
+                    "description": "Determine the class group from user input.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.initial_context",
+                        "item_type_for_get_item_id": "t_class_group",
+                        "item_id_column": "class_group_id",
+                        "item_name_column": "name",
+                        "extra_notes": "Class Group are at energy carrier level. It is not concerned with the property being modified", 
+                        "model": "o3-mini"
+                    
+                    },
+                    "outputs": {
+                        "class_group_id": "result.id",
+                        "class_group_name": "result.name"
+                    }
+                },
+
+                {
+                    "id": "choose_destination_class",
+                    "description": "Determine the primary class for the operation.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.initial_context",
+                        "item_type_for_get_item_id": "t_class",
+                        "grp": "tasks.choose_source_class_group.outputs.class_group_id",
+                        "strategy_action": "tasks.task_context.outputs.strategy_action",
+                        "item_id_column": "class_id",
+                        "item_name_column": "name",
+                        "all_class_objects": "tasks.get_active_classes.outputs.active_classes",
+                        "model": "o3-mini"
+                    },
+                    "outputs": {
+                        "class_id": "result.id",
+                        "class_name": "result.name"
+                    }
+                },
+
+                {
+                    "id": "read_all_categories_for_source_class",
+                    "description": "read all categories for the determined class.",
+                    "function": "get_categories",
+                    "inputs": {
+                        "db": "db",
+                        "nClassId": "tasks.choose_source_class.outputs.class_id"
+                    },
+                    "outputs": {
+                        "raw_categories_list": "result"
+                                }
+                },
+
+                {
+                    "id": "read_all_categories_for_destination_class",
+                    "description": "read all categories for the determined class.",
+                    "function": "get_categories",
+                    "inputs": {
+                        "db": "db",
+                        "nClassId": "tasks.choose_destination_class.outputs.class_id"
+                    },
+                    "outputs": {
+                        "raw_categories_list": "result"
+                                }
+                },
+
+                {
+                "id": "choose_source_category",
+                "description": "LLM selects an existing category or suggests a new one.",
+                "function": "choose_source_item",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "context": "dag_context.initial_context",
+                            "action": "tasks.task_context.outputs.strategy_action",
+                            "item_set": "tasks.read_all_categories_for_source_class.outputs.raw_categories_list",
+                            "item_type": "Category",
+                            "model": "gpt-4.1"
+                            },
+                "outputs": {
+                            "final_category_name": "result.selected_name",
+                            "category_selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            },
+                "type": "LLM API Call"
+                },
+
+                {
+                "id": "choose_destination_category",
+                "description": "LLM selects an existing category or suggests a new one.",
+                "function": "choose_source_item",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "context": "dag_context.initial_context",
+                            "action": "tasks.task_context.outputs.strategy_action",
+                            "item_set": "tasks.read_all_categories_for_destination_class.outputs.raw_categories_list",
+                            "item_type": "Category",
+                            "model": "gpt-4.1"
+                            },
+                "outputs": {
+                            "final_category_name": "result.selected_name",
+                            "category_selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            },
+                "type": "LLM API Call"
+                },
+
+                {
+                    "id": "add_destination_category",
+                    "description": "Add a new category to the destination class if it does not exist.",
+                    "function": "add_category",
+                    "condition": "tasks.choose_destination_category.outputs.category_selection_type == 'suggested_new'",
+                    "inputs": {
+                        "db": "db",
+                        "nClassId": "tasks.choose_destination_class.outputs.class_id",
+                        "strCategory": "tasks.choose_destination_category.outputs.final_category_name"
+                    },
+                    "outputs": {
+                        "add_category_status": "result"
+                    }
+                },
+
+                {
+                "id": "read_all_objects_in_source_category",
+                "description": "read all objects for the determined category. Returns list_of_objects and the original_item for pipeline execution.",
+                "type": "plexos_api_call",
+                "function": "get_objects_in_category",
+                "condition": "tasks.choose_source_category.outputs.category_selection_type != 'undertermined'",
+                "inputs": {
+                            "db": "db",
+                            "nClassId": "tasks.choose_source_class.outputs.class_id",
+                            "strCategory": "tasks.choose_source_category.outputs.final_category_name"
+                            },
+                            
+                "outputs": {
+                            "list_of_objects": "result"
+                            }
+                },
+
+                {"id": "read_all_objects_in_source_class",
+                "description": "read all objects for the determined class. Returns list_of_objects and the original_item for pipeline execution.",
+                "type": "plexos_api_call",
+                "condition": "tasks.choose_source_category.outputs.category_selection_type == 'undertermined'",
+                "function": "get_objects_in_class", 
+                "inputs": {
+                            "db": "db",
+                            "nClassId": "tasks.choose_source_class.outputs.class_id"
+                            },
+                "outputs": {
+                            "list_of_objects": "result"
+                            }
+                },
+
+                {
+                "id": "choose_objects",
+                "description": "LLM determines original object for pipeline execution.",
+                "function": "choose_object_subset",
+                "type": "LLM API Call",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "object_set": "tasks.read_all_objects_in_source_category.outputs.list_of_objects",
+                            "object_type": "tasks.choose_source_class.outputs.class_name",
+                            "selected_level": "tasks.task_context.outputs.target_level",
+                            "operation_type": "tasks.task_context.outputs.strategy_action",
+                            "model": "o3-mini",
+                            "all_class_objects": "None"
+                            },
+                "outputs": {
+                            "list_of_objects": "result.list_of_objects",
+                            "selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            }
+                },
+
+                {
+                    "id": "choose_object_name_structure",
+                    "description": "LLM determines the structure of the new object name.",
+                    "function": "choose_object_name_structure",
+                    "inputs": {
+                                "user_input": "tasks.task_context.outputs.user_input",
+                                "context": "dag_context.initial_context",
+                                "item_type": "Object",
+                                "item_set": "tasks.read_all_objects_in_source_category.outputs.list_of_objects",
+                                "extra_notes": "You must determine the structure of the new object name. The new object name should be different from the original object name.",
+                                "model": "o3-mini"
+                            },
+                    "outputs": {
+                                "selection_type": "result.selection_type",
+                                "name_structure": "result.name_structure"
+                            },
+                    "type": "LLM API Call"
+                },
+
+                {
+                "id": "iterate_over_objects",
+                "description": "Iterate each object in the category and run the pipeline_execution steps.",
+                "type": "loop",
+                "condition": "tasks.choose_objects.outputs.list_of_objects != null",
+                "iterate_on": "tasks.choose_objects.outputs.list_of_objects",
+                "loop_variable_name": "current_object",
+                "tasks": [
+                            {
+                                "id": "capture_outer_loop_current_object",
+                                "description": "Captures the 'current_object' value from the outer loop.",
+                                "type": "function_call", 
+                                "function": "passthrough", 
+                                "inputs": {
+                                    "value": "loop.current_object"
+                                },
+                                "outputs": {
+                                    "captured_value": "result"
+                                }
+                            },
+
+                            {
+                            "id": "generate_new_object_name",
+                            "description": "LLM determines the name for the new object.",
+                            "function": "generate_item_name",
+                            "condition": "tasks.task_context.outputs.target_level != 'collection' AND tasks.task_context.outputs.target_level != 'property'",
+                            "type": "LLM API Call",
+                            "inputs": {
+                                        "user_input": "tasks.task_context.outputs.user_input",
+                                        "item_set": "tasks.read_all_objects_in_source_category.outputs.list_of_objects",
+                                        "item_type": "Object",
+                                        "name_structure": "tasks.choose_object_name_structure.outputs.name_structure",
+                                        "extra_notes": "You must determine the name of the new object. The new object name should be different from the original object name.",
+                                        "model": "o3-mini"
+                                        
+                                    },
+                            "outputs": {
+                                        "new_chosen_name": "result.new_chosen_name"
+                                    }
+                            },
+
+                            {
+                            "id": "create_new_object_in_db",
+                            "description": "create the new object directly to the database using PLEXOS API.",
+                            "type": "plexos_api_call",
+                            "condition": "tasks.generate_new_object_name.outputs.selection_type != None",
+                            "function": "add_object",
+                            "inputs": {
+                                        "db": "db",
+                                        "strName": "tasks.generate_new_object_name.outputs.new_chosen_name",
+                                        "nClassId": "tasks.choose_destination_class.outputs.class_id",
+                                        "strCategory": "tasks.choose_source_category.outputs.final_category_name",
+                                        "strDescription": "from loop.current_object"
+                                    },
+                            "outputs": {
+                                        "sucess": "result"
+                                    }
+                            },
+
+                            {
+                            "id": "read_all_object_collections",
+                            "description": "read all collections for the object", 
+                            "type": "plexos_api_call",
+                            "function": "get_collections",
+                            "inputs": {
+                                        "db": "db",
+                                        "object_name": "loop.current_object",
+                                        "class_name": "tasks.choose_source_class.outputs.class_name",
+                                        "class_id": "tasks.choose_source_class.outputs.class_id",
+                                        "list_of_objects": "tasks.read_all_objects_in_source_category.outputs.list_of_objects",
+                                        "object_list_id": "loop.current_object"
+                                    },
+                            "outputs": {
+                                        "collections_list": "result"
+                                        }
+                            },    
+
+                            {
+                            "id": "choose_object_collections",
+                            "function": "choose_collection_subset",
+                            "inputs": {
+                                        "user_input": "tasks.task_context.outputs.user_input",
+                                        "collection_set": "tasks.read_all_object_collections.outputs.collections_list",
+                                        "extra_notes": "You must determine which collections the new object should be added to. The new object should be added to the same collections as the original object.",
+                                        "collection_type": "collection", 
+                                        "selected_level": "tasks.task_context.outputs.target_level",
+                                        "operation_type": "tasks.task_context.outputs.strategy_action", 
+                                        "object_selection_type": "chosen_existing",
+                                        "model": "o3-mini"
+                                    },
+                            "outputs": {
+                                        "chosen_collections": "result"
+                                        },
+                            "type": "LLM API Call"
+                            },
+
+                            {
+                            "id": "iterate_over_collections",
+                            "description": "Iterate over collections to find the one containing the original object.",
+                            "type": "loop",
+                            "condition": "tasks.choose_object_collections.outputs.chosen_collections != null",
+                            "iterate_on": "tasks.choose_object_collections.outputs.chosen_collections",
+                            "loop_variable_name": "chosen_collections",
+                            "tasks": [
+                                        {
+                                            "id": "capture_inner_loop_current_object",
+                                            "description": "Captures the 'current_object' value from the inner loop.",
+                                            "type": "function_call", 
+                                            "function": "passthrough", 
+                                            "inputs": {
+                                                "value": "loop.chosen_collections"
+                                            },
+                                            "outputs": {
+                                                "captured_value": "result"
+                                            }
+                                        },
+
+                                        {
+                                        "id": "get_memberships",
+                                        "description": "Determine new membership details for the object based on the current collection item.",
+                                        "condition": "initial_context.target_level_id != 4",
+                                        "function": "choose_membership_name_clone",
+                                        "type": "function_call",
+                                        "inputs": {
+                                                    "db": "db",
+                                                    "user_input": "tasks.task_context.outputs.user_input",
+                                                    "context": "dag_context.initial_context",
+                                                    "collection_list": "tasks.read_all_object_collections.outputs.collections_list",
+                                                    "collection_id": "tasks.capture_inner_loop_current_object.outputs.captured_value",
+                                                    "original_object_name": "tasks.capture_outer_loop_current_object.outputs.captured_value",
+                                                    "new_object_name": "tasks.generate_new_object_name.outputs.new_chosen_name",
+                                                    "object_class_id": "tasks.choose_destination_class.outputs.class_id"
+                                                },
+                                        "outputs": {
+                                                    "parent_object_name": "result.parent_object_name",
+                                                    "child_object_name": "result.child_object_name"
+                                                    }
+                                        },
+
+                                        {
+                                        "id": "create_membership",
+                                        "description": "create the membership to the object.",
+                                        "condition": "tasks.get_memberships.outputs.parent_members != 'System' AND initial_context.target_level_id != 4",
+                                        "function": "add_membership", 
+                                        "inputs": {
+                                                    "db": "db", 
+                                                    "nCollectionId": "tasks.capture_inner_loop_current_object.outputs.captured_value",
+                                                    "strParent":"tasks.get_memberships.outputs.parent_object_name",
+                                                    "strChild": "tasks.get_memberships.outputs.child_object_name"
+                                                    },
+                                        "outputs": {
+                                                    "status": "result"
+                                                    },
+                                        "type": "function_call"
+                                        },
+
+                                        {
+                                        "id": "get_membership_properties",
+                                        "description": "Get properties of the original object from the membership.",
+                                        "function": "get_properties_table_to_dict",
+                                        "type": "plexos_api_call",
+                                        "inputs": {
+                                                    "db": "db",
+                                                    "collection_id_list": "tasks.capture_inner_loop_current_object.outputs.captured_value",
+                                                    "all_collections_data": "tasks.read_all_object_collections.outputs.collections_list"                                 
+                                                    },
+                                        "outputs": {
+                                                    "source_properties_list": "result"
+                                                    }  
+                                        },
+
+                                        {
+                                        "id": "choose_property_subset",
+                                        "description": "LLM determines which properties for pipeline execution from the original object.",
+                                        "function": "choose_property_subset",
+                                        "inputs": {
+                                                    "user_input": "tasks.task_context.outputs.user_input",
+                                                    "property_set": "tasks.get_membership_properties.outputs.source_properties_list",
+                                                    "selected_level": "tasks.task_context.outputs.target_level",
+                                                    "operation_type": "tasks.task_context.outputs.strategy_action",
+                                                    "model": "o3-mini"
+                                                    },
+                                        "outputs": {
+                                                    "chosen_properties": "result"
+                                                    }
+                                        },
+
+                                        {
+                                        "id": "loop_over_properties",
+                                        "description": "Loop over properties for pipeline execution them to the new object.",
+                                        "type": "loop",
+                                        "condition": "tasks.choose_property_subset.outputs.chosen_properties != null",
+                                        "iterate_on": "tasks.choose_property_subset.outputs.chosen_properties",
+                                        "loop_variable_name": "current_property",
+                                        "tasks": [
+                                                {
+                                                    "id": "execute_property_action",
+                                                    "description": "Perform a CRUD operation at the Property level.",
+                                                    "condition": "tasks.task_context.outputs.target_level == 'property'",
+                                                    "function": "perform_crud_operation",
+                                                    "inputs": {
+                                                                "db": "db",
+                                                                "user_input": "tasks.task_context.outputs.user_input",
+                                                                "context": "dag_context.initial_context",
+                                                                "level": "tasks.task_context.outputs.target_level",
+                                                                "action": "tasks.task_context.outputs.strategy_action",
+                                                                "action_details": "tasks.task_context.outputs.action_details",
+                                                                "identifiers": {
+                                                                    "list_of_properties": "tasks.get_membership_properties.outputs.source_properties_list",
+                                                                    "chosen_properties": "loop.current_property",
+                                                                    "collection_id": "tasks.capture_inner_loop_current_object.outputs.captured_value",
+                                                                    "list_of_collections": "tasks.read_all_object_collections.outputs.collections_list"
+                                                                }
+                                                        },
+                                                    "outputs": { "status": "result.status"
+                                                                },
+                                                    "type": "Update"
+                                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            ]       
+                                    }
+                                ]
+                            }
+                    ]
+                }
+
+            ]
+}

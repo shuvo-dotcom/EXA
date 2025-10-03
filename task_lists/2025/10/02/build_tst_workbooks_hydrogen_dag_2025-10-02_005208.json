@@ -1,0 +1,33 @@
+{
+  "user_input": "Build the tst workbooks for hydrogen.",
+  "author": "Assistant",
+  "tags": [
+    "tst",
+    "workbook",
+    "hydrogen",
+    "demand"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "00:52:22",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "hydrogen"
+      },
+      "description": "Call the build_tst_workbooks function with carrier='hydrogen' to export the hourly demand profiles into the TYNDP 2026 TST workbook format.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Build the tst workbooks for hydrogen.', select the most appropriate entity for the operation.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

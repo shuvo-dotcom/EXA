@@ -1,0 +1,27 @@
+{
+  "user_input": "add a cateogory called 'Offshore Wind' the in generators class",
+  "author": "Dante",
+  "tags": [
+    "category",
+    "generators",
+    "Offshore Wind"
+  ],
+  "date_created": "2025-07-12",
+  "time_created": "01:04:47",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Based on the user's request, perform necessary PLEXOS operations to add a new category into the generators class.",
+  "tasks": [
+    {
+      "task_name": "create_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create a new category called 'Offshore Wind' in the generators class.",
+      "target_level": "category",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'add a cateogory called 'Offshore Wind' the in generators class', select the most appropriate entity from the available options.",
+      "on_error": "abort"
+    }
+  ]
+}

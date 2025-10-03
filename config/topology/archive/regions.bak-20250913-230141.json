@@ -1,0 +1,99 @@
+{
+  "EU27": {
+    "countries": [
+      "AT",
+      "BE",
+      "BG",
+      "CY",
+      "CZ",
+      "DE",
+      "DK",
+      "EE",
+      "ES",
+      "FI",
+      "FR",
+      "GR",
+      "HR",
+      "HU",
+      "IE",
+      "IT",
+      "LT",
+      "LU",
+      "MT",
+      "NI",
+      "NL",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "SI",
+      "SK"
+    ],
+    "zones": [],
+    "nodes": []
+  },
+  "Non-EU27": {
+    "countries": [
+      "AD",
+      "AL",
+      "AM",
+      "AZ",
+      "BA",
+      "BY",
+      "CH",
+      "GE",
+      "IS",
+      "LI",
+      "MD",
+      "MC",
+      "ME",
+      "MK",
+      "NO",
+      "RS",
+      "RU",
+      "SM",
+      "TR",
+      "UA",
+      "GB",
+      "XK"
+    ],
+    "zones": [
+      [
+        "AL",
+        "Zone 2"
+      ]
+    ],
+    "nodes": []
+  },
+  "North Africa": {
+    "countries": [
+      "MA",
+      "DZ",
+      "TN",
+      "LY",
+      "EG"
+    ],
+    "zones": [],
+    "nodes": []
+  },
+  "Middle East": {
+    "countries": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "JO",
+      "LB",
+      "SY",
+      "IQ",
+      "IR",
+      "YE",
+      "IL",
+      "PS"
+    ],
+    "zones": [],
+    "nodes": []
+  }
+}

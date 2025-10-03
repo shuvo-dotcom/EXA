@@ -1,0 +1,71 @@
+{
+  "user_input": "Modify the DHEM model.\n  o\tGet the datafile attribute for the Gas Pipeline Capacity data file for the PCIPMI infrastrucutre level (use crud pipeline)\n  o\tCreate a variation of the Gas Pipeline Capacity data file for the PCIPMI infrastrucutre level by setting all values that aren't 0 to 999. Copy the H2\\Gas.\n  o\tAdd a scenario called unlimited_pci_pmi_pipeline_capacities\n  o\tAdd a max flow property to each object in the H2 inteconnection and H2 Internal bottleneck categories in the gas pipeline class, with the datafile and scenario created in the previous step. Use the crud pipeline\n  o\tClone the model \"DHEM_v41_2030_PCIPMI_1995\" and add the new scenario. Call the model \u201cDHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline\u201d",
+  "author": "Dante",
+  "tags": [
+    "modify",
+    "DHEM",
+    "gas_pipeline",
+    "scenario"
+  ],
+  "date_created": "2025-07-25",
+  "time_created": "20:19:17",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the PLEXOS model modifications.",
+  "tasks": [
+    {
+      "task_name": "perform_crud_operation_get_datafile",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Retrieve the datafile attribute for the Gas Pipeline Capacity data file for the PCIPMI infrastructure level.",
+      "target_level": "attribute",
+      "strategy_action": "read",
+      "entity_selection_context": "Select the Gas Pipeline Capacity data file attribute for the PCIPMI infrastructure level based on the user's request.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "modify_data_file_create_variation",
+      "function_name": "modify_data_file",
+      "function_args": {
+        "plexos_model_location": "Specify the model directory path without the file name",
+        "input_file_path": "H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv",
+        "user_input": "set all non-zero values to 999",
+        "output_file_path": "H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLIMITED.csv"
+      },
+      "function_kwargs": {},
+      "description": "Create a variation of the Gas Pipeline Capacity data file for the PCIPMI infrastructure level by setting all non-zero values to 999, copying from the H2\\Gas file.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Select the appropriate file based on the user's request for modifying non-zero values to 999.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "perform_crud_operation_add_scenario",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a scenario named 'unlimited_pci_pmi_pipeline_capacities' to the model.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Select the model where the new scenario should be added based on the user's request.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_properties_with_grouped_llm_max_flow",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a max flow property to each object in the H2 interconnection and H2 Internal bottleneck categories in the gas pipeline class, using the new datafile and scenario.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Identify objects in the H2 interconnection and H2 Internal bottleneck categories of the gas pipeline class to update with the max flow property based on the new datafile and scenario.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "clone_transfer_pipeline_clone_model",
+      "pipeline_name": "clone_transfer_pipeline.json",
+      "description": "Clone the model 'DHEM_v41_2030_PCIPMI_1995' and add the new scenario, renaming it to 'DHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline'.",
+      "target_level": "object",
+      "strategy_action": "clone",
+      "entity_selection_context": "Select the model to be cloned and apply the new scenario as specified by the user's request.",
+      "on_error": "abort"
+    }
+  ]
+}

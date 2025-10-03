@@ -1,0 +1,28 @@
+{
+  "pipelines": [
+    {
+      "filename": "clone_pipeline.json",
+      "description": "Pipeline for cloning and transferring PLEXOS data between models."
+    },
+    {
+      "filename": "crud_pipeline.json",
+      "description": "Pipeline for basic Create, Read, Update, Delete operations on PLEXOS Categories, Objects, Memberships, Properties and Attributes."
+    },
+    {
+      "filename": "merging_pipeline.json",
+      "description": "Function not ready, do not use."
+    },
+    {
+      "filename": "new_carrier_pipeline.json",
+      "description": "Function not ready, do not use."
+    },
+    {
+      "filename": "splitting_pipeline.json",
+      "description": "Function not ready, do not use."
+    },
+    {
+      "filename": "update_pipeline.json",
+      "description": "Function not ready, do not use."
+    }
+  ]
+}

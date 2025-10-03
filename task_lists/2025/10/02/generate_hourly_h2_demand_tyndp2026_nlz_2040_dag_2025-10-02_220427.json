@@ -1,0 +1,32 @@
+{
+  "user_input": "Generate the hourly hydrogen demand timeseries for the TYNDP 2026 scenario, specifically for the Netherlands (NLz) in the year 2040, ensuring sub nodes are accounted for.",
+  "author": "ChatGPT",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "hourly",
+    "TYNDP2026",
+    "NLz",
+    "2040"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "22:05:00",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate the hourly hydrogen demand timeseries for the TYNDP 2026 scenario for NLz in 2040, ensuring all sub-nodes are accounted for.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate attribute for hydrogen demand timeseries.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "user_input": "Please create hourly demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use Hydrogen as the carrier. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format.",
+  "author": "Assistant",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "TYNDP",
+    "scenario",
+    "split",
+    "modify"
+  ],
+  "date_created": "2025-08-15",
+  "time_created": "19:45:57",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "add_object",
+      "pipeline_name": "new_carrier_pipeline.json",
+      "description": "Add Hydrogen as a new energy carrier object in the model using the new_carrier_pipeline.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly demand profiles for the TYNDP 2026 Scenarios. Use Hydrogen as the carrier.', select the most appropriate object from the available options.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Create hourly demand profiles for the TYNDP 2026 Scenarios using the 'NT', 'NT_HE', and 'NT_LE' scenarios for the years 2030, 2035, 2040, and 2050.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly demand profiles for the TYNDP 2026 Scenarios. Use the NT, NT_HE and NT_LE Scenarios for the years 2030, 2035, 2040 and 2050.', select the appropriate demand profile targets.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes to partition the existing model elements as required by the scenario.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request: 'Split the nodes', select the appropriate nodes or model elements for partitioning.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "modify_data_file",
+      "function_name": "modify_data_file",
+      "description": "Convert the modified model to tst format.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Convert to tst format', select the appropriate data file for modification.",
+      "on_error": "log_and_continue"
+    }
+  ]
+}

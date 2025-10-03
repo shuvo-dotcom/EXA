@@ -1,0 +1,34 @@
+{
+  "user_input": "Export the generated hydrogen demand profiles into the standard TYNDP study team format (TST file).",
+  "author": "Dante",
+  "tags": [
+    "hydrogen",
+    "export",
+    "tst",
+    "demand"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "22:06:57",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "hydrogen"
+      },
+      "function_kwargs": {},
+      "description": "Export the hourly demand profiles for the TYNDP 2026 scenario into the standard format for the TYNDP study team.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate function and parameters to export hydrogen demand profiles.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

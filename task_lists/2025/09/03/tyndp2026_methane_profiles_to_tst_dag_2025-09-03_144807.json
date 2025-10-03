@@ -1,0 +1,52 @@
+{
+  "user_input": "Please create hourly Methane demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios.\nUse the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format.\nNo need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "methane",
+    "TYNDP2026",
+    "profiles",
+    "tst",
+    "no-db",
+    "functions"
+  ],
+  "date_created": "2025-09-03",
+  "time_created": "14:48:45",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hourly Methane demand profiles for TYNDP 2026 for scenarios NT, NT_HE, and NT_LE for years 2030, 2035, 2040, and 2050. Split nodes as requested. Do not access any PLEXOS database."
+      },
+      "function_kwargs": {},
+      "description": "Decompose annual Methane demand into hourly profiles for TYNDP 2026 for scenarios NT, NT_HE, NT_LE across years 2030, 2035, 2040, and 2050, ensuring nodes are split as requested.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', determine scenario identifiers (NT, NT_HE, NT_LE), years (2030, 2035, 2040, 2050), and the required node split definitions; produce intermediate hourly profile files per scenario-year-node.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {},
+      "function_kwargs": {},
+      "description": "Convert the generated hourly Methane demand profiles into TST-format workbooks for TYNDP 2026, preserving node splits and organizing outputs by scenario and year.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', collect outputs from 'main_demand_processer_v2' and format them into TST workbooks per scenario (NT, NT_HE, NT_LE) and year (2030, 2035, 2040, 2050).",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

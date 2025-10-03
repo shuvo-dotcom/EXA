@@ -1,0 +1,146 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import'. Perform a web search/LLM call to find import terminals for kerosene and methanol in Europe and their capacity in Tj/hour. Ensure we have the city name so we can link them to the hydrogen nodes. Create pipelines to link the kerosene import nodes to the relevant hydrogen node. Make the capacity of the pipelines match the import terminal capacities.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "gas",
+    "nodes",
+    "fields",
+    "pipelines",
+    "hydrogen",
+    "ai",
+    "search"
+  ],
+  "date_created": "2025-08-20",
+  "time_created": "01:05:12",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule (TJ) Sectoral Model specifications. Use PLEXOS CRUD pipelines for model updates and the AI function for external information retrieval.",
+  "tasks": [
+    {
+      "task_name": "create_gas_node_e_kerosene_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Object 'Gas Node' named 'e-kerosene import'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas category Node object named 'e-kerosene import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_gas_node_e_methanol_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Object 'Gas Node' named 'e-methanol import'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas category Node object named 'e-methanol import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_gas_field_e_kerosene_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Object 'Gas Field' named 'e-kerosene import'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas category Field object named 'e-kerosene import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_gas_field_e_methanol_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Object 'Gas Field' named 'e-methanol import'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas category Field object named 'e-methanol import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "ai_lookup_kerosene_methanol_import_terminals_europe",
+      "function_name": "run_open_ai_ns",
+      "function_args": {
+        "prompt": "Retrieve import terminals in Europe for kerosene (jet fuel) and methanol. For each terminal, return a JSON array of objects with: fuel (kerosene|methanol), terminal_name, city, country, capacity_tj_per_hour (numeric), source_capacity_unit, source_capacity_value, conversion_notes (how you converted to TJ/hour including LHV and densities), and source_urls (list). If capacities are given in other units (e.g., t/yr, bbl/d, m3/yr), convert to TJ/hour using: kerosene LHV ~ 43.1 MJ/kg, density ~0.80 kg/L; methanol LHV ~ 19.9 MJ/kg, density ~0.792 kg/L. Prefer current operational or credible planned import terminals, provide city names for mapping to hydrogen nodes, and include reputable sources.",
+        "context": "This supports the TJ Sectoral Model. We will link 'e-kerosene import' and 'e-methanol import' Gas Nodes to relevant Hydrogen Nodes by city and set pipeline capacities to match identified terminal capacities in TJ/hour.",
+        "model": "gpt-4o"
+      },
+      "function_kwargs": {},
+      "description": "Retrieve import terminals in Europe for kerosene and methanol with city names and capacities in TJ/hour.",
+      "target_level": "attribute",
+      "strategy_action": "read",
+      "entity_selection_context": "Use this function's structured output to determine the target Hydrogen Node by city and the capacity values for subsequent pipeline property updates.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_pipeline_e_kerosene_import_to_hydrogen",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Object 'Pipeline' named 'e-kerosene import to hydrogen'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Create a Pipeline object in the appropriate Gas/Hydrogen transport category named 'e-kerosene import to hydrogen'.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "link_pipeline_kerosene_from_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Membership linking Pipeline 'e-kerosene import to hydrogen' FROM Node 'e-kerosene import'.",
+      "target_level": "membership",
+      "strategy_action": "create",
+      "entity_selection_context": "Create the FROM membership between Pipeline 'e-kerosene import to hydrogen' and Gas Node 'e-kerosene import'.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "link_pipeline_kerosene_to_hydrogen_node_by_city",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Membership linking Pipeline 'e-kerosene import to hydrogen' TO the relevant Hydrogen Node (by city).",
+      "target_level": "membership",
+      "strategy_action": "create",
+      "entity_selection_context": "Using the AI results (city mapping), select the corresponding Hydrogen Node for the identified city and create the TO membership for Pipeline 'e-kerosene import to hydrogen'. If multiple matches exist, choose the primary Hydrogen Node for that city.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_pipeline_kerosene_capacity",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update Property 'Capacity (TJ/hour)' for Pipeline 'e-kerosene import to hydrogen' to match the identified import terminal capacity.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Set the 'Capacity (TJ/hour)' property on Pipeline 'e-kerosene import to hydrogen' using the capacity_tj_per_hour value from the AI results for the mapped city.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_pipeline_e_methanol_import_to_hydrogen",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Object 'Pipeline' named 'e-methanol import to hydrogen'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Create a Pipeline object in the appropriate Gas/Hydrogen transport category named 'e-methanol import to hydrogen'.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "link_pipeline_methanol_from_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Membership linking Pipeline 'e-methanol import to hydrogen' FROM Node 'e-methanol import'.",
+      "target_level": "membership",
+      "strategy_action": "create",
+      "entity_selection_context": "Create the FROM membership between Pipeline 'e-methanol import to hydrogen' and Gas Node 'e-methanol import'.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "link_pipeline_methanol_to_hydrogen_node_by_city",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Membership linking Pipeline 'e-methanol import to hydrogen' TO the relevant Hydrogen Node (by city).",
+      "target_level": "membership",
+      "strategy_action": "create",
+      "entity_selection_context": "Using the AI results (city mapping), select the corresponding Hydrogen Node for the identified city and create the TO membership for Pipeline 'e-methanol import to hydrogen'. If multiple matches exist, choose the primary Hydrogen Node for that city.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_pipeline_methanol_capacity",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update Property 'Capacity (TJ/hour)' for Pipeline 'e-methanol import to hydrogen' to match the identified import terminal capacity.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Set the 'Capacity (TJ/hour)' property on Pipeline 'e-methanol import to hydrogen' using the capacity_tj_per_hour value from the AI results for the mapped city.",
+      "on_error": "abort"
+    }
+  ]
+}

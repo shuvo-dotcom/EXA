@@ -1,0 +1,143 @@
+# Country border mappings for Joule project
+AT:
+  - CZ
+  - DE
+  - HU
+  - IT
+  - LI
+  - SK
+  - SI
+  - CH
+BE:
+  - DE
+  - FR
+  - LU
+  - NL
+  - UK
+BG:
+  - GR
+  - MK
+  - RO
+  - RS
+  - TR
+CY:
+  - GR
+CZ:
+  - AT
+  - DE
+  - PL
+  - SK
+DE:
+  - AT
+  - BE
+  - CZ
+  - DK
+  - FR
+  - LU
+  - NL
+  - PL
+  - CH
+DK:
+  - DE
+  - SE
+  - NO
+EE:
+  - LV
+  - FI
+ES:
+  - FR
+  - PT
+  - MA
+  - IT
+FI:
+  - NO
+  - SE
+  - ES
+FR:
+  - BE
+  - DE
+  - ES
+  - IT
+  - LU
+  - CH
+  - IE
+GR:
+  - AL
+  - BG
+  - MK
+  - TR
+HR:
+  - BA
+  - HU
+  - ME
+  - RS
+  - SI
+HU:
+  - AT
+  - HR
+  - RO
+  - RS
+  - SK
+  - SI
+  - UA
+IE:
+  - UK
+  - FR
+IT:
+  - AT
+  - FR
+  - SI
+  - CH
+  - SM
+  - VA
+LT:
+  - LV
+  - PL
+LU:
+  - BE
+  - DE
+  - FR
+LV:
+  - EE
+  - LT
+  - RU
+MT: []
+NL:
+  - BE
+  - DE
+  - NO
+PL:
+  - CZ
+  - DE
+  - LT
+  - SK
+  - UA
+PT:
+  - ES
+RO:
+  - BG
+  - HU
+  - MD
+  - RS
+  - UA
+SE:
+  - DK
+  - FI
+  - NO
+SI:
+  - AT
+  - HR
+  - HU
+  - IT
+SK:
+  - AT
+  - CZ
+  - HU
+  - PL
+  - UA
+UK:
+  - BE
+  - IE
+  - NL
+  - FR
+  - NO

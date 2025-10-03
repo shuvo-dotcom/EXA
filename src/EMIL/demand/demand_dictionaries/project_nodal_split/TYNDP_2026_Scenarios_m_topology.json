@@ -1,0 +1,1186 @@
+{
+  "AL": {
+    "Zone 1": {
+      "ALch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "AT": {
+    "Zone 1": {
+      "ATch4": {
+        "2030": {
+          "Population share": 0.9199998861415706,
+          "Industrial share": 0.9199998861415706,
+          "Tertiary share": 0.9199998861415706,
+          "Agriculture share": 0.9199998861415706
+        },
+        "2035": {
+          "Population share": 0.9199998861415706,
+          "Industrial share": 0.9199998861415706,
+          "Tertiary share": 0.9199998861415706,
+          "Agriculture share": 0.9199998861415706
+        },
+        "2040": {
+          "Population share": 0.9199998861415706,
+          "Industrial share": 0.9199998861415706,
+          "Tertiary share": 0.9199998861415706,
+          "Agriculture share": 0.9199998861415706
+        },
+        "2050": {
+          "Population share": 0.9199998861415706,
+          "Industrial share": 0.9199998861415706,
+          "Tertiary share": 0.9199998861415706,
+          "Agriculture share": 0.9199998861415706
+        }
+      },
+      "ATtich4": {
+        "2030": {
+          "Population share": 0.049999924652509915,
+          "Industrial share": 0.049999924652509915,
+          "Tertiary share": 0.049999924652509915,
+          "Agriculture share": 0.049999924652509915
+        },
+        "2035": {
+          "Population share": 0.049999924652509915,
+          "Industrial share": 0.049999924652509915,
+          "Tertiary share": 0.049999924652509915,
+          "Agriculture share": 0.049999924652509915
+        },
+        "2040": {
+          "Population share": 0.049999924652509915,
+          "Industrial share": 0.049999924652509915,
+          "Tertiary share": 0.049999924652509915,
+          "Agriculture share": 0.049999924652509915
+        },
+        "2050": {
+          "Population share": 0.049999924652509915,
+          "Industrial share": 0.049999924652509915,
+          "Tertiary share": 0.049999924652509915,
+          "Agriculture share": 0.049999924652509915
+        }
+      },
+      "ATvoch4": {
+        "2030": {
+          "Population share": 0.03000018920591949,
+          "Industrial share": 0.03000018920591949,
+          "Tertiary share": 0.03000018920591949,
+          "Agriculture share": 0.03000018920591949
+        },
+        "2035": {
+          "Population share": 0.03000018920591949,
+          "Industrial share": 0.03000018920591949,
+          "Tertiary share": 0.03000018920591949,
+          "Agriculture share": 0.03000018920591949
+        },
+        "2040": {
+          "Population share": 0.03000018920591949,
+          "Industrial share": 0.03000018920591949,
+          "Tertiary share": 0.03000018920591949,
+          "Agriculture share": 0.03000018920591949
+        },
+        "2050": {
+          "Population share": 0.03000018920591949,
+          "Industrial share": 0.03000018920591949,
+          "Tertiary share": 0.03000018920591949,
+          "Agriculture share": 0.03000018920591949
+        }
+      }
+    }
+  },
+  "BA": {
+    "Zone 1": {
+      "BAch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "BE": {
+    "Zone 1": {
+      "BEch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "BG": {
+    "Zone 1": {
+      "BGch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "CH": {
+    "Zone 1": {
+      "CHch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "CY": {
+    "Zone 1": {
+      "CYch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "CZ": {
+    "Zone 1": {
+      "CZch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "DE": {
+    "Zone 1": {
+      "DEgch4": {
+        "2030": {
+          "Population share": 0.5300000056541483,
+          "Industrial share": 0.5300000056541483,
+          "Tertiary share": 0.5300000056541483,
+          "Agriculture share": 0.5300000056541483
+        },
+        "2035": {
+          "Population share": 0.5300000056541483,
+          "Industrial share": 0.5300000056541483,
+          "Tertiary share": 0.5300000056541483,
+          "Agriculture share": 0.5300000056541483
+        },
+        "2040": {
+          "Population share": 0.5300000056541483,
+          "Industrial share": 0.5300000056541483,
+          "Tertiary share": 0.5300000056541483,
+          "Agriculture share": 0.5300000056541483
+        },
+        "2050": {
+          "Population share": 0.5300000056541483,
+          "Industrial share": 0.5300000056541483,
+          "Tertiary share": 0.5300000056541483,
+          "Agriculture share": 0.5300000056541483
+        }
+      },
+      "DEnch4": {
+        "2030": {
+          "Population share": 0.4699999943458518,
+          "Industrial share": 0.4699999943458518,
+          "Tertiary share": 0.4699999943458518,
+          "Agriculture share": 0.4699999943458518
+        },
+        "2035": {
+          "Population share": 0.4699999943458518,
+          "Industrial share": 0.4699999943458518,
+          "Tertiary share": 0.4699999943458518,
+          "Agriculture share": 0.4699999943458518
+        },
+        "2040": {
+          "Population share": 0.4699999943458518,
+          "Industrial share": 0.4699999943458518,
+          "Tertiary share": 0.4699999943458518,
+          "Agriculture share": 0.4699999943458518
+        },
+        "2050": {
+          "Population share": 0.4699999943458518,
+          "Industrial share": 0.4699999943458518,
+          "Tertiary share": 0.4699999943458518,
+          "Agriculture share": 0.4699999943458518
+        }
+      }
+    }
+  },
+  "DK": {
+    "Zone 1": {
+      "DKch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "EE": {
+    "Zone 1": {
+      "EEch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "ES": {
+    "Zone 1": {
+      "ESch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "FI": {
+    "Zone 1": {
+      "FIch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "FR": {
+    "Zone 1": {
+      "FRch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "GR": {
+    "Zone 1": {
+      "GRch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "HR": {
+    "Zone 1": {
+      "HRch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "HU": {
+    "Zone 1": {
+      "HUch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "IE": {
+    "Zone 1": {
+      "IEch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "IT": {
+    "Zone 1": {
+      "ITch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "LT": {
+    "Zone 1": {
+      "LTch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "LU": {
+    "Zone 1": {
+      "LUch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "LV": {
+    "Zone 1": {
+      "LVch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "MD": {
+    "Zone 1": {
+      "MDch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "ME": {
+    "Zone 1": {
+      "MEch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "MK": {
+    "Zone 1": {
+      "MKch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "MT": {
+    "Zone 1": {
+      "MTch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "NL": {
+    "Zone 1": {
+      "NLch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "PL": {
+    "Zone 1": {
+      "PLch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "PT": {
+    "Zone 1": {
+      "PTch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "RO": {
+    "Zone 1": {
+      "ROch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "RS": {
+    "Zone 1": {
+      "RSch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "SE": {
+    "Zone 1": {
+      "SEch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "SI": {
+    "Zone 1": {
+      "SIch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "SK": {
+    "Zone 1": {
+      "SKch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "SM": {
+    "Zone 1": {
+      "SMch4": {
+        "2030": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2035": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2040": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        },
+        "2050": {
+          "Population share": 1.0,
+          "Industrial share": 1.0,
+          "Tertiary share": 1.0,
+          "Agriculture share": 1.0
+        }
+      }
+    }
+  },
+  "UK": {
+    "Zone 1": {
+      "UKch4": {
+        "2030": {
+          "Population share": 0.96281075908783,
+          "Industrial share": 0.96281075908783,
+          "Tertiary share": 0.96281075908783,
+          "Agriculture share": 0.96281075908783
+        },
+        "2035": {
+          "Population share": 0.96281075908783,
+          "Industrial share": 0.96281075908783,
+          "Tertiary share": 0.96281075908783,
+          "Agriculture share": 0.96281075908783
+        },
+        "2040": {
+          "Population share": 0.96281075908783,
+          "Industrial share": 0.96281075908783,
+          "Tertiary share": 0.96281075908783,
+          "Agriculture share": 0.96281075908783
+        },
+        "2050": {
+          "Population share": 0.96281075908783,
+          "Industrial share": 0.96281075908783,
+          "Tertiary share": 0.96281075908783,
+          "Agriculture share": 0.96281075908783
+        }
+      },
+      "UKnch4": {
+        "2030": {
+          "Population share": 0.03718924091217005,
+          "Industrial share": 0.03718924091217005,
+          "Tertiary share": 0.03718924091217005,
+          "Agriculture share": 0.03718924091217005
+        },
+        "2035": {
+          "Population share": 0.03718924091217005,
+          "Industrial share": 0.03718924091217005,
+          "Tertiary share": 0.03718924091217005,
+          "Agriculture share": 0.03718924091217005
+        },
+        "2040": {
+          "Population share": 0.03718924091217005,
+          "Industrial share": 0.03718924091217005,
+          "Tertiary share": 0.03718924091217005,
+          "Agriculture share": 0.03718924091217005
+        },
+        "2050": {
+          "Population share": 0.03718924091217005,
+          "Industrial share": 0.03718924091217005,
+          "Tertiary share": 0.03718924091217005,
+          "Agriculture share": 0.03718924091217005
+        }
+      }
+    }
+  }
+}

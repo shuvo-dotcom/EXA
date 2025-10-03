@@ -1,0 +1,17 @@
+﻿Sector,Config,Scenario,2025,2030,2035,2040,2045,2050
+Feedstock,1,Distributed Energy,0.75,0.6,0.45,0.3,0.2,0.1
+Industry,1,Distributed Energy,0.4,0.4,0.385,0.37,0.235,0.1
+Transport,1,Distributed Energy,0,0,0,0,0,0
+Heat,1,Distributed Energy,0,0,0,0,0,0
+Aviation,1,,0,0,0,0,0,0
+Feedstock,2,Distributed Energy,0.25,0.4,0.55,0.7,0.85,1
+Industry,2,Distributed Energy,0.5,0.5,0.515,0.53,0.765,1
+Heat,2,Distributed Energy,1,1,1,1,1,1
+Transport,2,Distributed Energy,1,1,1,1,1,1
+Aviation,2,,1,1,1,1,1,1
+Industry,3,Distributed Energy,0.1,0.1,0.1,0.1,0.075,0.05
+Feedstock,3,Distributed Energy,0,0,0,0,0,0
+Industry,3,Distributed Energy,0,0,0,0,0,0
+Heat,3,Distributed Energy,0,0,0,0,0,0
+Transport,3,Distributed Energy,0,0,0,0,0,0
+Aviation,3,,0,0,0,0,0,0

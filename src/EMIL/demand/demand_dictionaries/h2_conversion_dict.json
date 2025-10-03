@@ -1,0 +1,22 @@
+{
+  "Transport": {
+    "sub_sector": {
+      "Cars": {"new_vector": "Electricity", "conversion_factor": 0.48},
+      "Vans": {"new_vector": "Electricity", "conversion_factor": 0.48},
+      "Busses": {"new_vector": "Electricity", "conversion_factor": 0.48},
+      "International aviation": {"new_vector": "Liquids", "conversion_factor": 1},
+      "International shipping": {"new_vector": "Liquids", "conversion_factor": 1}
+    }
+  },
+  "Households": {
+    "sub_sector": {
+      "Space heating": {"new_vector": "Electricity", "conversion_factor": 0.93},
+      "Hot water": {"new_vector": "Electricity", "conversion_factor": 0.93}
+    }
+  },
+  "Buildings": {
+    "sub_sector": {
+      "Space heating & hot water": {"new_vector": "Electricity", "conversion_factor": 0.93}
+    }
+  }
+}

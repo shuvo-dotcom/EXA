@@ -1,0 +1,49 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Perform a web-search to find how much e-kerosene and e-methanol can be imported into Europe in 2050, in Tj/hr. Add 2 new Gas Nodes called 'e-kerosene import' and 'e-methanol import'. Add 2 new Gas Fields with the same names, using the web\u2011search values as property data. Add 2 new Gas Pipelines from 'BE01' to each import node with unlimited capacity.",
+  "author": "ChatGPT",
+  "tags": [
+    "crud",
+    "gas",
+    "import",
+    "e-kerosene",
+    "e-methanol",
+    "web-search"
+  ],
+  "date_created": "2025-10-01",
+  "time_created": "23:51:12",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operations on the TJ Sectoral Model according to the user's request, using PLEXOS CRUD pipelines and the google_search function where needed.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "google_search",
+      "function_name": "google_search",
+      "function_args": {
+        "query": "e-kerosene import capacity Europe 2050 TJ/hr"
+      },
+      "function_kwargs": {},
+      "description": "Search the web for the 2050 import potential into Europe (in TJ/hr) for e-kerosene and e-methanol.",
+      "target_level": "attribute",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's request, determine the appropriate query to retrieve the import capacities.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "create_gas_nodes",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create two Gas Nodes in the TJ Sectoral Model named 'e-kerosene import' and 'e-methanol import'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request, select the Gas Node class and create objects with the specified names.",
+      "dependencies": [
+        "google_search"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

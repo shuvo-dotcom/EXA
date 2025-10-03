@@ -1,0 +1,35 @@
+{
+  "user_input": "Modify the DHEM model. Create a variation of the Gas Pipeline Capacity data file for the PCIPMIADVANCED infrastrucutre level by setting all values that aren't 0 to 999. Use the original file 'Capacities_H2_FIDPCIPMIADVANCED' and save it as 'Capacities_H2_FIDPCIPMIADVANCED_UNLIMITED'.",
+  "author": "Dante",
+  "tags": [
+    "modify",
+    "data",
+    "file",
+    "DHEM",
+    "PCIPMIADVANCED"
+  ],
+  "date_created": "2025-08-04",
+  "time_created": "16:31:40",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "modify_data_file",
+      "function_name": "modify_data_file",
+      "function_args": {
+        "plexos_model_location": "path/to/DHEM_model",
+        "input_file_path": "Capacities_H2_FIDPCIPMIADVANCED",
+        "user_input": "set all values that aren't 0 to 999",
+        "output_file_path": "Capacities_H2_FIDPCIPMIADVANCED_UNLIMITED"
+      },
+      "description": "Modify the Gas Pipeline Capacity data file for the PCIPMIADVANCED infrastructure level by setting all values that aren't 0 to 999 using the original file 'Capacities_H2_FIDPCIPMIADVANCED' and saving the result as 'Capacities_H2_FIDPCIPMIADVANCED_UNLIMITED'.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the DHEM model. Create a variation of the Gas Pipeline Capacity data file for the PCIPMIADVANCED infrastrucutre level by setting all values that aren't 0 to 999.', select the most appropriate file from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

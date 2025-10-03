@@ -1,0 +1,131 @@
+Day,Age Group,Activity,Proportion
+Monday,child,School Run,0.7
+Monday,child,Evening Activities,0.2
+Monday,child,Daily Activities,0.1
+Monday,teen,Part Time Workers,0.1
+Monday,teen,Remote Workers,0.2
+Monday,teen,Evening Activities,0.2
+Monday,teen,Evening Leisure,0.2
+Monday,teen,Night Life,0.2
+Monday,teen,Daily Activities,0.1
+Monday,adult,Full Time Workers,0.6
+Monday,adult,Part Time Workers,0.2
+Monday,adult,Remote Workers,0.1
+Monday,adult,School Run,0.02
+Monday,adult,Evening Activities,0.02
+Monday,adult,Evening Leisure,0.02
+Monday,adult,Night Life,0.02
+Monday,adult,Taxi,0.02
+Monday,senior,Daily Activities,0.5
+Monday,senior,Evening Leisure,0.3
+Monday,senior,Night Life,0.2
+Tuesday,child,School Run,0.7
+Tuesday,child,Evening Activities,0.2
+Tuesday,child,Daily Activities,0.1
+Tuesday,teen,Part Time Workers,0.1
+Tuesday,teen,Remote Workers,0.2
+Tuesday,teen,Evening Activities,0.2
+Tuesday,teen,Evening Leisure,0.2
+Tuesday,teen,Night Life,0.2
+Tuesday,teen,Daily Activities,0.1
+Tuesday,adult,Full Time Workers,0.6
+Tuesday,adult,Part Time Workers,0.2
+Tuesday,adult,Remote Workers,0.1
+Tuesday,adult,Daily Activities,0.02
+Tuesday,adult,Evening Activities,0.02
+Tuesday,adult,Evening Leisure,0.02
+Tuesday,adult,Night Life,0.02
+Tuesday,adult,Taxi,0.02
+Tuesday,senior,Daily Activities,0.5
+Tuesday,senior,Evening Leisure,0.3
+Tuesday,senior,Night Life,0.2
+Wednesday,child,School Run,0.7
+Wednesday,child,Evening Activities,0.2
+Wednesday,child,Daily Activities,0.1
+Wednesday,teen,Part Time Workers,0.1
+Wednesday,teen,Remote Workers,0.2
+Wednesday,teen,Evening Activities,0.2
+Wednesday,teen,Evening Leisure,0.2
+Wednesday,teen,Night Life,0.2
+Wednesday,teen,Daily Activities,0.1
+Wednesday,adult,Full Time Workers,0.6
+Wednesday,adult,Part Time Workers,0.2
+Wednesday,adult,Remote Workers,0.1
+Wednesday,adult,Daily Activities,0.02
+Wednesday,adult,Evening Activities,0.02
+Wednesday,adult,Evening Leisure,0.02
+Wednesday,adult,Night Life,0.02
+Wednesday,adult,Taxi,0.02
+Wednesday,senior,Daily Activities,0.5
+Wednesday,senior,Evening Leisure,0.3
+Wednesday,senior,Night Life,0.2
+Thursday,child,School Run,0.7
+Thursday,child,Evening Activities,0.2
+Thursday,child,Daily Activities,0.1
+Thursday,teen,Part Time Workers,0.1
+Thursday,teen,Remote Workers,0.2
+Thursday,teen,Evening Activities,0.2
+Thursday,teen,Evening Leisure,0.2
+Thursday,teen,Night Life,0.2
+Thursday,teen,Daily Activities,0.1
+Thursday,adult,Full Time Workers,0.6
+Thursday,adult,Part Time Workers,0.2
+Thursday,adult,Remote Workers,0.1
+Thursday,adult,Daily Activities,0.02
+Thursday,adult,Evening Activities,0.02
+Thursday,adult,Evening Leisure,0.02
+Thursday,adult,Night Life,0.02
+Thursday,adult,Taxi,0.02
+Thursday,senior,Daily Activities,0.5
+Thursday,senior,Evening Leisure,0.3
+Thursday,senior,Night Life,0.2
+Friday,child,School Run,0.7
+Friday,child,Evening Activities,0.2
+Friday,child,Daily Activities,0.1
+Friday,teen,Part Time Workers,0.1
+Friday,teen,Remote Workers,0.2
+Friday,teen,Evening Activities,0.2
+Friday,teen,Evening Leisure,0.2
+Friday,teen,Night Life,0.2
+Friday,teen,Daily Activities,0.1
+Friday,adult,Full Time Workers,0.6
+Friday,adult,Part Time Workers,0.2
+Friday,adult,Remote Workers,0.1
+Friday,adult,Daily Activities,0.02
+Friday,adult,Evening Activities,0.02
+Friday,adult,Evening Leisure,0.02
+Friday,adult,Night Life,0.02
+Friday,adult,Taxi,0.02
+Friday,senior,Daily Activities,0.5
+Friday,senior,Evening Leisure,0.3
+Friday,senior,Night Life,0.2
+Saturday,child,Daily Activities,0.7
+Saturday,child,Evening Activities,0.3
+Saturday,teen,Evening Activities,0.2
+Saturday,teen,Evening Leisure,0.3
+Saturday,teen,Night Life,0.3
+Saturday,teen,Daily Activities,0.2
+Saturday,adult,Daily Activities,0.3
+Saturday,adult,Evening Leisure,0.2
+Saturday,adult,Night Life,0.2
+Saturday,adult,Taxi,0.1
+Saturday,adult,Part Time Workers,0.1
+Saturday,adult,Remote Workers,0.1
+Saturday,senior,Daily Activities,0.5
+Saturday,senior,Evening Leisure,0.3
+Saturday,senior,Night Life,0.2
+Sunday,child,Daily Activities,0.7
+Sunday,child,Evening Activities,0.3
+Sunday,teen,Evening Activities,0.2
+Sunday,teen,Evening Leisure,0.3
+Sunday,teen,Night Life,0.3
+Sunday,teen,Daily Activities,0.2
+Sunday,adult,Daily Activities,0.3
+Sunday,adult,Evening Leisure,0.2
+Sunday,adult,Night Life,0.2
+Sunday,adult,Taxi,0.1
+Sunday,adult,Part Time Workers,0.1
+Sunday,adult,Remote Workers,0.1
+Sunday,senior,Daily Activities,0.5
+Sunday,senior,Evening Leisure,0.3
+Sunday,senior,Night Life,0.2

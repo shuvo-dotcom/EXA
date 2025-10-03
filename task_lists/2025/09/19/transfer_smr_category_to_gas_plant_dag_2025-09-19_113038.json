@@ -1,0 +1,30 @@
+{
+  "user_input": "Transfer the SMR category in the Generator class to the Gas Plant Class",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "category",
+    "transfer",
+    "plexos"
+  ],
+  "date_created": "2025-09-19",
+  "time_created": "11:31:06",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "update_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the 'SMR' category to change its parent class from 'Generator' to 'Gas Plant'.",
+      "target_level": "category",
+      "strategy_action": "transfer",
+      "entity_selection_context": "Based on the user's request: 'Transfer the SMR category in the Generator class to the Gas Plant Class', locate the category 'SMR' under Class 'Generator' and transfer it to Class 'Gas Plant'. Maintain all existing references and settings.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

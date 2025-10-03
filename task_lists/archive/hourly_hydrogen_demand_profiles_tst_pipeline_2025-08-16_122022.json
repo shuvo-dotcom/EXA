@@ -1,0 +1,48 @@
+{
+  "user_input": "Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "TYNDP2026",
+    "split",
+    "tst",
+    "profiles"
+  ],
+  "date_created": "2025-08-16",
+  "time_created": "12:20:29",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Create hourly hydrogen demand profiles for TYNDP 2026 using the scenarios 'NT', 'NT_HE' and 'NT_LE' for the years 2030, 2035, 2040 and 2050.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes based on the generated hourly hydrogen demand profiles.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Convert the processed profiles into the TST format.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

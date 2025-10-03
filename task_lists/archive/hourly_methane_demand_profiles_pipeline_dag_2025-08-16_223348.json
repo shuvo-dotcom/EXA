@@ -1,0 +1,48 @@
+{
+  "user_input": "Please create hourly methane demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now",
+  "author": "Assistant",
+  "tags": [
+    "PLEXOS",
+    "methane",
+    "demand",
+    "TYNDP2026",
+    "split",
+    "TST"
+  ],
+  "date_created": "2025-08-16",
+  "time_created": "22:33:57",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly methane demand profiles for the TYNDP 2026 scenarios ('NT', 'NT_HE', 'NT_LE') for the years 2030, 2035, 2040, and 2050 using the main_demand_processer_v2 function.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the generated nodes into subsets as specified in the scenario.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Convert the hourly demand profiles into TST format using the build_tst_workbooks function.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

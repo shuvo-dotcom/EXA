@@ -1,0 +1,132 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import'. Perform a web search/LLM call to find import terminals for kerosene and methanol into Europe by ship and yearly capacity including any information on seasonal capacities. Ensure we have the city name so we can link them to the hydrogen nodes by locating and reading the NUTS regions e-highway file in the nodes and lines folder. Create pipelines to link the kerosene import nodes to the relevant hydrogen node. Make the capacity of the pipelines match the import terminal capacities.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "object",
+    "create",
+    "update",
+    "gas",
+    "pipeline",
+    "file",
+    "search",
+    "TJ Sectoral Model",
+    "e-fuels"
+  ],
+  "date_created": "2025-09-30",
+  "time_created": "23:17:55",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule (TJ) Sectoral Model specifications. Prefer PLEXOS CRUD pipelines for model edits, and use functions for file and web/AI operations. Resolve function arguments from prior task outputs when dependencies are present.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "create_e_fuels_gas_nodes",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create two Gas Node objects named 'e-kerosene import' and 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate Gas Node class/object context in the TJ Sectoral Model and create objects named exactly 'e-kerosene import' and 'e-methanol import'.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "create_e_fuels_gas_fields",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create two Gas Field objects named 'e-kerosene import' and 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate Gas Field class/object context in the TJ Sectoral Model and create objects named exactly 'e-kerosene import' and 'e-methanol import'.",
+      "dependencies": [
+        "create_e_fuels_gas_nodes"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "search_import_terminals",
+      "function_name": "google_search",
+      "function_args": {
+        "query": "Europe kerosene (jet fuel) import terminals and methanol import terminals by sea: annual throughput capacity (Mt/y or t/y), seasonal capacity constraints, terminal names and associated port/city."
+      },
+      "function_kwargs": {},
+      "description": "Perform a web search to find import terminals for kerosene and methanol into Europe by ship, including yearly and any seasonal capacities, and associated city names.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Use web sources to gather terminal names, port/city, country, and capacities (annual and seasonal if available) for kerosene and methanol imports into Europe.",
+      "dependencies": [
+        "create_e_fuels_gas_fields"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 3,
+      "task_name": "find_nuts_regions_file",
+      "function_name": "find_file",
+      "function_args": {
+        "user_input": "Locate the 'NUTS regions e-highway' file in the nodes and lines folder of the TJ model data."
+      },
+      "function_kwargs": {},
+      "description": "Locate the 'NUTS regions e-highway' file in the nodes and lines folder.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Search the project file structure for a file whose name matches or closely matches 'NUTS regions e-highway' within the nodes and lines folder.",
+      "dependencies": [
+        "search_import_terminals"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 4,
+      "task_name": "read_nuts_regions_file",
+      "function_name": "perform_file_crud",
+      "function_args": {
+        "user_input": "Read and extract city/port names and NUTS region identifiers needed to map import terminals to hydrogen nodes.",
+        "context": "Leverage the located 'NUTS regions e-highway' file and align with terminal city names from the web search results.",
+        "action": "read",
+        "input_file_path": ""
+      },
+      "function_kwargs": {},
+      "description": "Read the located 'NUTS regions e-highway' file to obtain city names/NUTS details needed for linking.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Extract a mapping of city/port to NUTS region and associated hydrogen node naming used in the TJ Sectoral Model.",
+      "dependencies": [
+        "find_nuts_regions_file"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 5,
+      "task_name": "create_kerosene_import_pipelines",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create pipeline object(s) intended to link the 'e-kerosene import' gas node(s) to the relevant hydrogen node(s) (do not add memberships).",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on '{user_input}' and outputs from 'search_import_terminals' and 'read_nuts_regions_file', select the correct Pipeline class context in the TJ Sectoral Model and create the pipeline object(s) for kerosene import routing to relevant hydrogen node(s). Do not add memberships in this step.",
+      "dependencies": [
+        "create_e_fuels_gas_nodes",
+        "search_import_terminals",
+        "read_nuts_regions_file"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 6,
+      "task_name": "update_kerosene_pipeline_capacity",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the capacity property of the created kerosene pipeline object(s) to match the import terminal capacities identified.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Use capacity figures from 'search_import_terminals' to set the Capacity property on the newly created kerosene pipeline object(s). If units differ, use the model's standard units.",
+      "dependencies": [
+        "create_kerosene_import_pipelines",
+        "search_import_terminals"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

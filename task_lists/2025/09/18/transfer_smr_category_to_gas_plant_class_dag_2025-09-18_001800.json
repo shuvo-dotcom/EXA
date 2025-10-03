@@ -1,0 +1,46 @@
+{
+  "user_input": "Transfer the SMR category in the Generator class to the Gas Plant Class",
+  "author": "Dante",
+  "tags": [
+    "category",
+    "clone",
+    "delete",
+    "transfer",
+    "PLEXOS",
+    "Generator",
+    "Gas Plant Class"
+  ],
+  "date_created": "2025-09-18",
+  "time_created": "00:18:20",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "clone_category",
+      "pipeline_name": "clone_pipeline.json",
+      "description": "Clone the 'SMR' category from the 'Generator' class into the 'Gas Plant Class', preserving all objects, memberships, properties, and attributes.",
+      "target_level": "category",
+      "strategy_action": "clone",
+      "entity_selection_context": "Based on the user's request: 'Transfer the SMR category in the Generator class to the Gas Plant Class', select the 'SMR' category in class 'Generator' as the source and 'Gas Plant Class' as the target. Ensure all objects, memberships, properties, and attributes under the category are included.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "delete_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Delete the original 'SMR' category from the 'Generator' class after a successful clone to the 'Gas Plant Class'.",
+      "target_level": "category",
+      "strategy_action": "delete",
+      "entity_selection_context": "Based on the user's request: 'Transfer the SMR category in the Generator class to the Gas Plant Class', select the 'SMR' category under the 'Generator' class for deletion, using the outputs from 'clone_category' to confirm the clone exists in 'Gas Plant Class' before proceeding.",
+      "dependencies": [
+        "clone_category"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "user_input": "Please create hourly Methane demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "methane",
+    "TYNDP2026",
+    "profiles",
+    "tst",
+    "function",
+    "no-db"
+  ],
+  "date_created": "2025-09-03",
+  "time_created": "14:12:47",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operations based on the user's input and the Terajoule Model specifications, working only with external data/files and not interacting with any PLEXOS database.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hourly Methane demand profiles for TYNDP 2026 scenarios: NT, NT_HE, NT_LE; years: 2030, 2035, 2040, 2050. Requirements: hourly granularity; node_splitting=true; do not access any PLEXOS database; save outputs as intermediate demand profile files for subsequent TST export; record assumptions and output locations."
+      },
+      "function_kwargs": {},
+      "description": "Generate hourly Methane demand profiles for TYNDP 2026 scenarios 'NT', 'NT_HE', and 'NT_LE' for years 2030, 2035, 2040, and 2050 with node splitting enabled. Work strictly off files (no PLEXOS DB access) and persist intermediate outputs for downstream TST conversion.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select or create appropriate non-DB input sources and determine output file paths for generated hourly profiles. Ensure node splitting is applied and outputs are organized by scenario and year.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {},
+      "function_kwargs": {},
+      "description": "Convert the generated hourly Methane demand profiles into TST-format workbooks for the TYNDP study team for scenarios 'NT', 'NT_HE', 'NT_LE' and years 2030, 2035, 2040, and 2050. Operate only on files produced by the previous task; no PLEXOS DB access.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Use the full outputs from the dependency 'main_demand_processer_v2' to identify input profile files and determine TST workbook destinations. Adhere to standard TST conventions and naming.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "user_input": "So please create for me methane profiles for the TYNDP 2026 scenarios and please include all scenarios, split the nodes, you don't need to use a plexus mark.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "methane",
+    "TYNDP2026",
+    "profiles",
+    "all_scenarios",
+    "split_nodes",
+    "no_mark"
+  ],
+  "date_created": "2025-09-03",
+  "time_created": "15:07:07",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate methane profiles for the TYNDP 2026 study across all scenarios with nodes split; do not apply any PLEXOS mark/tag."
+      },
+      "function_kwargs": {},
+      "description": "Generate methane profiles for the TYNDP 2026 study across all scenarios with nodes split; do not apply any PLEXOS mark/tag.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate parameters and datasets for methane demand profile decomposition. Include all TYNDP 2026 scenarios, split nodes, and do not apply any PLEXOS mark/tag.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "user_input": "Please create hourly Electricity demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "TYNDP2026",
+    "NT",
+    "NT_HE",
+    "NT_LE",
+    "splitting",
+    "tst"
+  ],
+  "date_created": "2025-08-17",
+  "time_created": "23:54:33",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly electricity demand profiles for the TYNDP 2026 Scenarios using the 'NT', 'NT_HE', and 'NT_LE' scenarios for the years 2030, 2035, 2040, and 2050.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly Electricity demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format.', select the appropriate data sources and parameters for generating hourly demand profiles.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes as specified.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request to split the nodes, identify and select the relevant nodes for splitting.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Convert the generated hourly demand profiles into TST format for the TYNDP 2026 scenario.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request to convert the profiles to TST format, select the generated demand profiles for conversion.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear",
+  "author": "Assistant",
+  "tags": [
+    "clone",
+    "update",
+    "nuclear",
+    "SMR",
+    "Germany"
+  ],
+  "date_created": "2025-08-16",
+  "time_created": "00:38:06",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the TJ Sectoral Model specifications.",
+  "tasks": [
+    {
+      "task_name": "clone_pipeline",
+      "pipeline_name": "clone_pipeline.json",
+      "description": "Clone the existing Nuclear SMR object from the Nuclear category to create a new instance as a starting point.",
+      "target_level": "object",
+      "strategy_action": "clone",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear', select the most appropriate object from the available options.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_pipeline",
+      "pipeline_name": "update_pipeline.json",
+      "description": "Update the properties of the cloned Nuclear SMR object to set its location to Germany (DE01) and its capacity to 1000 MW.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear', select the appropriate properties for update.",
+      "on_error": "abort"
+    }
+  ]
+}

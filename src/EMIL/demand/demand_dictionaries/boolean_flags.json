@@ -1,0 +1,121 @@
+{
+  "boolean_flags": {
+    "terajoule_framework": {
+      "description": "Use terajoule framework for energy units",
+      "default_value": true,
+      "project_specific_defaults": {},
+      "triggers": {
+        "set_to_false": [
+          "don't use terajoule",
+          "use different energy units",
+          "avoid terajoule framework"
+        ]
+      }
+    },
+    "extract_heat": {
+      "description": "Extract heat demand from other energy carrier profiles to avoid double counting when heat is modelled in heat class",
+      "default_value": false,
+      "project_specific_defaults": {},
+      "triggers": {
+        "set_to_true": [
+          "remove heat from demand",
+          "model heat in heat class",
+          "extract heat demand separately",
+          "heat will be modelled directly in the heat class"
+        ]
+      }
+    },
+    "extract_transport": {
+      "description": "Extract transport demand from other energy carrier profiles to avoid double counting when transport is modelled in transport class",
+      "default_value": false,
+      "project_specific_defaults": {},
+      "triggers": {
+        "set_to_true": [
+          "remove transport from demand",
+          "model transport in transport class",
+          "extract transport demand separately",
+          "transport will be modelled directly in the transport class"
+        ]
+      }
+    },
+    "extract_hybrid_heating": {
+      "description": "Process hybrid heating systems (heat pumps with backup heating)",
+      "default_value": false,
+      "project_specific_defaults": {},
+      "triggers": {
+        "set_to_true": [
+          "hybrid heating",
+          "process hybrid heating",
+          "include hybrid heating systems",
+          "heat pumps with backup heating",
+          "dual heating systems"
+        ]
+      }
+    },
+    "run_energy_carrier_swapping": {
+      "description": "Swap energy carriers from one to another (specific sensitivity analysis)",
+      "default_value": false,
+      "project_specific_defaults": {
+        "Joule_Model": true
+      },
+      "triggers": {
+        "set_to_true": [
+          "swap energy carriers",
+          "convert energy carriers",
+          "substitute carriers",
+          "energy carrier swapping",
+          "swap hydrogen to electricity",
+          "convert methane demand to hydrogen"
+        ]
+      }
+    },
+    "aggregate_sectors": {
+      "description": "Combine all sectors (residential, tertiary, industry, transport) into single demand per carrier",
+      "default_value": true,
+      "project_specific_defaults": {
+        "Joule_Model": false,
+        "TYNDP_2026_Scenarios": true,
+        "Core_Flexibility_Report": true
+      },
+      "triggers": {
+        "set_to_false": [
+          "keep sectors separate",
+          "decompose by sector",
+          "sector-specific analysis",
+          "separate sectors"
+        ]
+      }
+    },
+    "interpolate_demand": {
+      "description": "Create demand profiles for missing years between target years",
+      "default_value": false,
+      "project_specific_defaults": {
+        "Core_Flexibility_Report": true
+      },
+      "triggers": {
+        "set_to_true": [
+          "interpolate between years",
+          "fill missing years",
+          "create continuous timeline",
+          "generate intermediate years"
+        ]
+      }
+    },
+    "create_sub_nodes": {
+      "description": "Decompose countries into finer granularity topology",
+      "default_value": false,
+      "project_specific_defaults": {
+        "Joule_Model": true
+      },
+      "triggers": {
+        "set_to_true": [
+          "sub-nodes",
+          "regional breakdown",
+          "decompose countries",
+          "finer granularity",
+          "sub-national analysis"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "user_input": "Process the hydrogen demand timeseries for the TYNDP 2026 scenarios, specifically for the Netherlands (NL) and the year 2040, including any necessary node splitting, and subsequently generate the output in the standard TST file format.",
+  "author": "AI Assistant",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "timeseries",
+    "TYNDP 2026",
+    "Netherlands",
+    "2040",
+    "node splitting",
+    "TST format"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "18:26:56",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "process_hydrogen_demand_timeseries",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Process the hydrogen demand timeseries for the TYNDP 2026 scenario, Netherlands (NL), year 2040."
+      },
+      "function_kwargs": {},
+      "description": "Call main_demand_processer_v2 to process the hydrogen demand timeseries for the TYNDP 2026 scenario, Netherlands (NL), year 2040.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', process the relevant timeseries data.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "split_nodes",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Use crud_pipeline.json with action 'split' to perform any necessary node splitting in NL for the 2040 hydrogen demand scope.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Based on the user's request: '{user_input}', perform node splitting for the Netherlands (NL) in the context of 2040 hydrogen demand.",
+      "dependencies": [
+        "process_hydrogen_demand_timeseries"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "generate_tst_output",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "Hydrogen"
+      },
+      "function_kwargs": {},
+      "description": "Call build_tst_workbooks with carrier 'Hydrogen' to export the processed NL 2040 profiles in the standard TST file format for TYNDP 2026.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', generate the TST output for the processed hydrogen profiles.",
+      "dependencies": [
+        "process_hydrogen_demand_timeseries",
+        "split_nodes"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

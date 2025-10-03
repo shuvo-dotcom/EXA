@@ -1,0 +1,12 @@
+{
+  "carriers": [
+    "Hydrogen",
+    "Thermal_energy",
+    "Liquids",
+    "Biofuels",
+    "Solids",
+    "Methane",
+    "Electricity",
+    "Ammonia"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "user_input": "Create a Nuclear SMR Generators in Germany (DE00) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear",
+  "author": "Dante",
+  "tags": ["modify", "csv", "file", "update"],
+  "date_created": "2025-07-22",
+  "time_created": "23:23:22",
+  "retry_policy": {"count": 1, "strategy": "fixed"},
+  "default_llm_context": "The joule model is used to simiulate the EU energy mix at a PAN_EU level. It considers the electricity, hydrogen and gas sectors and the interlinkages therewithin. ",
+  "tasks": [
+            {
+                "task_name": "clone_transfer_pipeline",
+                "pipeline_name": "clone_pipeline.json",
+                "description": "Create a Nuclear SMR Generators in Germany (DE00) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear.",
+                "target_level": "object",
+                "strategy_action": "clone",
+                "entity_selection_context": "Based on the user's request: 'Clone the Gas category in generators, add a new category called Gas Expansion and add a suffix _expansion to each object', select the appropriate PLEXOS category for cloning.",
+                "on_error": "abort"
+            }
+        ]
+}    

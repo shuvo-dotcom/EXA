@@ -1,0 +1,121 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import'. Perform a web search/LLM call to find import terminals for kerosene and methanol in Europe and their capacity in Tj/hour. Ensure we have the city name so we can link them to the hydrogen nodes using the datafile hydrogen_nodes.csv. Create pipelines to link the kerosene import nodes to the relevant hydrogen node. Make the capacity of the pipelines match the import terminal capacities.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "object",
+    "create",
+    "gas",
+    "pipeline",
+    "websearch",
+    "llm",
+    "datafile"
+  ],
+  "date_created": "2025-08-20",
+  "time_created": "01:27:33",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "search_import_terminals_eu",
+      "function_name": "google_search",
+      "function_args": {
+        "query": "Europe kerosene import terminals AND methanol import terminals capacity (TJ/hour OR t/h OR tpa OR mtpa) with city name site:eu"
+      },
+      "function_kwargs": {},
+      "description": "Search the web for European kerosene and methanol import terminals, capturing terminal names, city locations, and capacities in TJ/hour.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Use the user's request '{user_input}' to scope queries to Europe. Collect terminal name, city, country, capacity values (with units), and source URL.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "normalize_terminal_results",
+      "function_name": "run_open_ai_ns",
+      "function_args": {
+        "prompt": "From the provided search results, extract a structured list of European import terminals for kerosene and methanol. For each terminal, provide: commodity (kerosene or methanol), terminal_name, city, country, capacity_TJ_per_hour (numeric), capacity_original_value, capacity_original_unit, source_url, and notes. Convert any capacity units to TJ/hour. If capacity is in tonnes/year, use: TJ/h = (tonnes_per_year * LHV_MJ_per_kg * 1000 kg/tonne) / (1e6 MJ/TJ) / 8760 h. Use typical LHVs: kerosene ~ 43.1 MJ/kg; methanol ~ 19.9 MJ/kg. If only volume units are given, apply densities: kerosene ~ 0.8 kg/L; methanol ~ 0.792 kg/L. Round capacity_TJ_per_hour to 3 decimals. Return a JSON object with key 'terminals' as an array of the records.",
+        "context": "{tasks.search_import_terminals_eu.output}",
+        "model": "gpt-4o-mini"
+      },
+      "function_kwargs": {},
+      "description": "Summarize and normalize the search results into a structured list of kerosene and methanol import terminals with city names and capacities in TJ/hour.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Use outputs from the 'search_import_terminals_eu' task to build a clean, deduplicated, unit-normalized list suitable for mapping to hydrogen nodes.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "extract_hydrogen_nodes_for_cities",
+      "function_name": "modify_data_file",
+      "function_args": {
+        "plexos_model_location": "",
+        "input_file_path": "hydrogen_nodes.csv",
+        "user_input": "Filter rows where the City matches any city in {tasks.normalize_terminal_results.output.terminals[*].city}. Keep columns sufficient to identify Hydrogen Node objects (e.g., Node Name/ID, City, Country). Deduplicate by Node ID. Output the filtered set.",
+        "output_file_path": "hydrogen_nodes_filtered_for_import_links.csv"
+      },
+      "function_kwargs": {},
+      "description": "Open hydrogen_nodes.csv and extract the hydrogen node entries for the identified cities to enable linking.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Use normalized terminal cities from 'normalize_terminal_results' to filter hydrogen_nodes.csv and produce a linkable subset.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "create_e_kerosene_import_gas_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Node object 'e-kerosene import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas Node object named 'e-kerosene import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_e_methanol_import_gas_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Node object 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas Node object named 'e-methanol import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_e_kerosene_import_gas_field",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Field object 'e-kerosene import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas Field object named 'e-kerosene import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_e_methanol_import_gas_field",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Field object 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create a Gas Field object named 'e-methanol import' in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_pipelines_linking_kerosene_import_to_h2_nodes",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Pipeline object(s) to link the 'e-kerosene import' Gas Node to the relevant hydrogen node(s) identified from hydrogen_nodes.csv.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Map cities from {tasks.normalize_terminal_results.output.terminals[commodity='kerosene']} to rows in hydrogen_nodes_filtered_for_import_links.csv. For each matched city, create a Pipeline object connecting Gas Node 'e-kerosene import' to the corresponding Hydrogen Node.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_capacity_on_kerosene_pipelines",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the Capacity property (TJ/hour) on the newly created kerosene Pipeline object(s) to match the import terminal capacities.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "For each created pipeline, find the matching city from {tasks.normalize_terminal_results.output.terminals[commodity='kerosene']}. If multiple terminals exist for a city, aggregate their capacity_TJ_per_hour by summation and set the pipeline Capacity property to the aggregated value.",
+      "on_error": "abort"
+    }
+  ]
+}

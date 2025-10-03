@@ -1,0 +1,141 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import'. Perform a web search/LLM call to find import terminals for kerosene and methanol into Europe by ship and yearly capacity including any information on seasonal capacities. Ensure we have the city name so we can link them to the hydrogen nodes by locating and reading the nodes dictionary. Create pipelines to link the kerosene import nodes to the relevant hydrogen node. Make the capacity of the pipelines match the import terminal capacities.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "object",
+    "create",
+    "gas",
+    "pipeline",
+    "search",
+    "file",
+    "update"
+  ],
+  "date_created": "2025-08-22",
+  "time_created": "01:01:17",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications. Use the TJ Sectoral Model. Create required PLEXOS objects first, then linkages, then update properties with data obtained from search and file reads.",
+  "tasks": [
+    {
+      "task_name": "create_e_kerosene_import_gas_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Node object 'e-kerosene import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create an object in Category: Gas; Class: Node; Model: TJ Sectoral Model with Name: e-kerosene import.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_e_methanol_import_gas_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Node object 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create an object in Category: Gas; Class: Node; Model: TJ Sectoral Model with Name: e-methanol import.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_e_kerosene_import_gas_field",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Field object 'e-kerosene import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create an object in Category: Gas; Class: Gas Field; Model: TJ Sectoral Model with Name: e-kerosene import.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_e_methanol_import_gas_field",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Field object 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create an object in Category: Gas; Class: Gas Field; Model: TJ Sectoral Model with Name: e-methanol import.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "search_import_terminals_web",
+      "function_name": "google_search",
+      "function_args": {
+        "query": "European kerosene (e-kerosene, sustainable aviation fuel) and methanol ship import terminals with yearly capacity (t/yr or m3/yr) and any seasonal capacity constraints; include city/port names"
+      },
+      "function_kwargs": {},
+      "description": "Search the web for European kerosene and methanol ship import terminals with yearly and seasonal capacities.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Use web results to identify terminal names, cities/ports, and capacities for kerosene and methanol imports into Europe.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "locate_nodes_dictionary_file",
+      "function_name": "find_file",
+      "function_args": {
+        "user_input": "Locate the 'nodes dictionary' file for the TJ Sectoral Model to obtain city names and identify relevant hydrogen nodes."
+      },
+      "function_kwargs": {},
+      "description": "Locate the 'nodes dictionary' file to obtain city names and identify relevant hydrogen nodes.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Search the project/model file structure for a file commonly referred to as the 'nodes dictionary' that maps cities to hydrogen nodes.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "read_nodes_dictionary_file",
+      "function_name": "perform_file_crud",
+      "function_args": {
+        "action": "read",
+        "input_data": null,
+        "input_location": "",
+        "output_location": "",
+        "output_structure": "json",
+        "output_extension": "json",
+        "user_request": "Read the located 'nodes dictionary' file and extract mappings of city/port names to hydrogen node identifiers.",
+        "ai_context": "Extract a mapping of {city_name or port_name} -> {hydrogen_node_name or ID} for the TJ Sectoral Model."
+      },
+      "function_kwargs": {},
+      "description": "Read the located 'nodes dictionary' file.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Use the file path from the previous task to read and parse the nodes dictionary and return city-to-hydrogen-node mappings.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_pipeline_e_kerosene_to_h2",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Pipeline object from 'e-kerosene import' Gas Node to the relevant Hydrogen node in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Using city/port identification from search results and the nodes dictionary mapping, create a Gas Pipeline object linking Node: e-kerosene import -> corresponding Hydrogen node in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_pipeline_e_methanol_to_h2",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Pipeline object from 'e-methanol import' Gas Node to the relevant Hydrogen node in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Using city/port identification from search results and the nodes dictionary mapping, create a Gas Pipeline object linking Node: e-methanol import -> corresponding Hydrogen node in the TJ Sectoral Model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_capacity_pipeline_e_kerosene",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the Capacity property of the pipeline from 'e-kerosene import' to match the identified import terminal capacity.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Update Property: Capacity for the newly created pipeline from e-kerosene import to the identified Hydrogen node. Use yearly capacity (and seasonal capacity if available) from the web search results.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_capacity_pipeline_e_methanol",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the Capacity property of the pipeline from 'e-methanol import' to match the identified import terminal capacity.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Update Property: Capacity for the newly created pipeline from e-methanol import to the identified Hydrogen node. Use yearly capacity (and seasonal capacity if available) from the web search results.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "user_input": "Please create hourly Hybrid Heat Pump demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios.\nUse the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. Use Methane as the complement not the carrier\nNo need to access any PLEXOS database for now.",
+  "author": "DAG-Builder",
+  "tags": [
+    "demand",
+    "hybrid-heat-pump",
+    "TYNDP-2026",
+    "profiles",
+    "tst-export",
+    "no-plexos-db"
+  ],
+  "date_created": "2025-09-24",
+  "time_created": "13:22:48",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly Hybrid Heat Pump demand profiles for TYNDP 2026 using scenarios ['NT','NT_HE','NT_LE'] and years [2030, 2035, 2040, 2050], with node splitting enabled and Methane set as the complement (not the carrier); no PLEXOS DB access.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', configure the demand processor for TYNDP 2026 with scenarios NT, NT_HE, NT_LE; years 2030, 2035, 2040, 2050; resolution=hourly; node_splitting=true; complement_fuel='Methane' with complement_as_carrier=false; and do not access any PLEXOS database.",
+      "dependencies": [],
+      "on_error": "abort",
+      "function_args": {
+        "user_input": "Create hourly Hybrid Heat Pump demand profiles for TYNDP 2026 scenarios NT, NT_HE, NT_LE for years 2030, 2035, 2040, 2050. Use hourly resolution. Enable node splitting. Treat Methane as the complement fuel (not the carrier). Do not access any PLEXOS database."
+      },
+      "function_kwargs": {}
+    },
+    {
+      "task_id": 1,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Export the generated Hybrid Heat Pump hourly demand profiles to TST format for TYNDP 2026 (carrier='Hybrid Heat Pump').",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Using the outputs of 'main_demand_processer_v2', select the generated hourly Hybrid Heat Pump demand profiles for TYNDP 2026 and export them into TST workbooks.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "log_and_continue",
+      "function_args": {
+        "carrier": "Hybrid Heat Pump"
+      },
+      "function_kwargs": {}
+    }
+  ]
+}

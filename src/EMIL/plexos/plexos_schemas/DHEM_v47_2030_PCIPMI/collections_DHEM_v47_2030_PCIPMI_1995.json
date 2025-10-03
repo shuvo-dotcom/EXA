@@ -1,0 +1,160 @@
+{
+    "Generator": {
+        "collection_name": "SystemGenerators",
+        "Category": [
+            "DSR",
+            "Nuclear",
+            "Hard coal",
+            "Lignite",
+            "Gas",
+            "Light oil",
+            "Heavy oil",
+            "Oil shale",
+            "Hydrogen",
+            "Biofuel",
+            "Onshore Wind",
+            "Offshore Wind",
+            "Solar Photovoltaic",
+            "Solar Thermal",
+            "Other RES",
+            "Other non RES",
+            "Run-of-River and pondage",
+            "Reservoir",
+            "Pump storage - Open Loop",
+            "Pump storage - Closed Loop",
+            "Swell RoR & Daily Storage",
+            "DRES"
+        ],
+        "Property": [
+            "Generation",
+            "Fuel Offtake",
+            "Energy Curtailed",
+            "VO&M Cost",
+            "Generation Cost",
+            "Total Generation Cost",
+            "Total System Cost",
+            "SRMC",
+            "Cleared Offer Cost",
+            "Price Received",
+            "Pool Revenue",
+            "Net Revenue",
+            "Net Profit",
+            "Shadow Price Received",
+            "Energy Utilisation Factor",
+            "Installed Capacity",
+            "Available Energy"
+        ]
+    },
+    "Power2X": {
+        "collection_name": "SystemPower2X",
+        "Category": [
+            "Electrolyser Z1",
+            "Electrolyser Z2",
+            "DRES"
+        ],
+        "Property": [
+            "Units",
+            "Installed Capacity",
+            "Load",
+            "Capacity Factor",
+            "Cost to Load",
+            "VO&M Cost",
+            "Production Cost",
+            "Total System Cost",
+            "Price Paid",
+            "Net Revenue",
+            "Shadow Price"
+        ]
+    },
+    "Region": {
+        "collection_name": "SystemRegions",
+        "Category": [
+            "Electricity",
+            "DRES"
+        ],
+        "Property": [
+            "Load",
+            "Native Load",
+            "Fixed Load",
+            "Generation",
+            "Net Interchange",
+            "Unserved Energy Hours",
+            "Unserved Energy",
+            "Cost of Unserved Energy",
+            "Dump Energy",
+            "Generation Capacity Curtailed",
+            "Total Generation Cost",
+            "Total System Cost",
+            "Price",
+            "Generator Pool Revenue",
+            "Shadow Price"
+        ]
+    },
+    "Line": {
+        "collection_name": "SystemLines",
+        "Category": [
+            "Electricity"
+        ],
+        "Property": [
+            "Flow",
+            "Flow Back",
+            "Net Flow",
+            "Export Limit",
+            "Import Limit",
+            "Shadow Price",
+            "Shadow Price Back"
+        ]
+    },
+    "GasPipeline": {
+        "collection_name": "SystemGasPipelines",
+        "Category": [
+            "H2 Import",
+            "H2 Interconnection",
+            "H2 Z1-Z2 connection",
+            "H2 NP Pipe Transport",
+            "H2 Storage Injection",
+            "H2 Storage withdrawal",
+            "H2 Z1 split",
+            "H2 Internal Bottleneck"
+        ],
+        "Property": [
+            "Flow In",
+            "Max Daily Flow",
+            "Total Cost"
+        ]
+    },
+    "GasStorage": {
+        "collection_name": "SystemGasStorages",
+        "Category": [
+            "H2 Storage"
+        ],
+        "Property": [
+            "Max Volume",
+            "Initial Volume",
+            "Working Volume",
+            "Withdrawal",
+            "Injection",
+            "Withdrawal Cost",
+            "Injection Cost",
+            "Production Cost",
+            "Shadow Price",
+            "Dispatch Price",
+            "Net Injection Cost",
+            "Net Withdrawal Cost",
+            "Total Variable Costs"
+        ]
+    },
+    "GasDemand": {
+        "collection_name": "SystemGasDemands",
+        "Category": [
+            "H2 Demand Hub",
+            "H2 Demand Hub Z1"
+        ],
+        "Property": [
+            "Demand",
+            "Shortage",
+            "Excess",
+            "Cost"
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "user_input": "add a cateogory called 'Geothermal' the in generators class",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "category",
+    "generator",
+    "geothermal"
+  ],
+  "date_created": "2025-07-12",
+  "time_created": "19:42:04",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Use user input to determine the exact modifications required for the PLEXOS model.",
+  "tasks": [
+    {
+      "task_name": "create_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create a new category called 'Geothermal' in the generators class.",
+      "target_level": "category",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'add a cateogory called 'Geothermal' the in generators class', select the relevant generators class context.",
+      "on_error": "abort_pipeline"
+    }
+  ]
+}

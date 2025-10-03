@@ -1,0 +1,19 @@
+{
+    
+    "pipeline_name": "crud_pipeline.json",
+    "description": "Performs a single Create, Read, Update, or Delete operation on a target level within the PLEXOS hierarchy (Category, Object, Membership, or Property).",
+    "date_created": "2024-10-01",
+    "time_created": "12:00:00",
+    "initial_context": {
+        "user_input": "Create a Geothermal category in the Generator class.",
+        "plexos_model_location": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\ENTSOG\\DHEM\\NT2030\\TYNDP_2024_DHEM_Model_2030_V6_91_v40.xml",
+        "plexos_model_location2": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\Sectoral Model\\TJ Sectorial Model\\TJ_2050_Debug_V20_copy.xml",
+        "target_level": "category",
+        "strategy_action": "create",
+        "static_context_strings": {
+                                    "default_llm_context": "You are an expert in PLEXOS modeling. You are executing a direct data modification request from the user.",
+                                    "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list."
+                                    }
+                        },
+    "target_level_key": "object"
+}

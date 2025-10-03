@@ -1,0 +1,29 @@
+{
+  "user_input": "add a cateogory called 'Geothermal' the in generators class, in the Terajoule Model",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "category",
+    "Geothermal",
+    "generators",
+    "Terajoule"
+  ],
+  "date_created": "2025-07-12",
+  "time_created": "20:24:36",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+  "tasks": [
+    {
+      "task_name": "create_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create a new category called 'Geothermal' within the generators class in the Terajoule Model.",
+      "target_level": "category",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

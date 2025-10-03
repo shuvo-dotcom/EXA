@@ -1,0 +1,2535 @@
+description: Examples of properties which are typically used in PLEXOS model for particular asset types in a variety of classes.
+
+schema:
+  class_name:
+    property_group_name:
+      sub_group_name:
+        property_name:
+          default_datafile: null
+          default_value: null
+          # other fields...
+
+Battery:
+  SystemBatteries:
+    Market Batteries:
+      Capacity:
+        default_datafile: null
+        default_value: null
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Initial SoC:
+        default_datafile: null
+        default_value: null
+      Max Power:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Market Battery Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Capacity:
+        default_datafile: null
+        default_value: null
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Discharge Efficiency:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Initial SoC:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Power:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    PSBT Residential:
+      Capacity:
+        default_datafile: null
+        default_value: null
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Initial SoC:
+        default_datafile: null
+        default_value: null
+      Max Power:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    PSBT Tertiary:
+      Capacity:
+        default_datafile: null
+        default_value: null
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Initial SoC:
+        default_datafile: null
+        default_value: null
+      Max Power:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Residential Battery Expansion:
+      Capacity:
+        default_datafile: null
+        default_value: null
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Discharge Efficiency:
+        default_datafile: null
+        default_value: null
+      Initial SoC:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Power:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: Datafile
+        default_value: null
+    Tertiary Battery Expansion:
+      Capacity:
+        default_datafile: null
+        default_value: null
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Discharge Efficiency:
+        default_datafile: null
+        default_value: null
+      Initial SoC:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Power:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: Datafile
+        default_value: null
+ChargingStation:
+  SystemChargingStations:
+    Residential:
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Deferment Period:
+        default_datafile: null
+        default_value: null
+      Deferrable Load:
+        default_datafile: null
+        default_value: null
+      Discharge Efficiency:
+        default_datafile: null
+        default_value: null
+      Max Charge Rate:
+        default_datafile: Datafile
+        default_value: null
+      Max Discharge Rate:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      UoS Charge:
+        default_datafile: null
+        default_value: null
+    Street:
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Deferment Period:
+        default_datafile: null
+        default_value: null
+      Deferrable Load:
+        default_datafile: null
+        default_value: null
+      Discharge Efficiency:
+        default_datafile: null
+        default_value: null
+      Max Charge Rate:
+        default_datafile: null
+        default_value: null
+      Max Discharge Rate:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      UoS Charge:
+        default_datafile: null
+        default_value: null
+    Tertiary:
+      Charge Efficiency:
+        default_datafile: null
+        default_value: null
+      Deferment Period:
+        default_datafile: null
+        default_value: null
+      Deferrable Load:
+        default_datafile: null
+        default_value: null
+      Discharge Efficiency:
+        default_datafile: null
+        default_value: null
+      Max Charge Rate:
+        default_datafile: null
+        default_value: null
+      Max Discharge Rate:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      UoS Charge:
+        default_datafile: null
+        default_value: null
+Constraint:
+  SystemConstraints:
+    '-':
+      RHS:
+        default_datafile: null
+        default_value: null
+      Sense:
+        default_datafile: null
+        default_value: null
+    CH4 Pipeline Repurpose:
+      RHS:
+        default_datafile: null
+        default_value: null
+      Sense:
+        default_datafile: null
+        default_value: null
+    Gas Plant Retrofit:
+      RHS:
+        default_datafile: null
+        default_value: null
+      Sense:
+        default_datafile: null
+        default_value: null
+    Hydro Pumping:
+      RHS:
+        default_datafile: Datafile
+        default_value: null
+      Sense:
+        default_datafile: null
+        default_value: null
+DataFile:
+Emission:
+  EmissionFuels:
+    Gas:
+      Production Rate:
+        default_datafile: null
+        default_value: null
+    Hard coal:
+      Production Rate:
+        default_datafile: null
+        default_value: null
+    Heavy oil:
+      Production Rate:
+        default_datafile: null
+        default_value: null
+    Light oil:
+      Production Rate:
+        default_datafile: null
+        default_value: null
+    Lignite:
+      Production Rate:
+        default_datafile: null
+        default_value: null
+    Oil shale:
+      Production Rate:
+        default_datafile: null
+        default_value: null
+  SystemEmissions:
+    Co2:
+      Max Production Year:
+        default_datafile: null
+        default_value: null
+      Price:
+        default_datafile: null
+        default_value: null
+Fuel:
+  SystemFuels:
+    Bio Fuels:
+      Price:
+        default_datafile: null
+        default_value: null
+    Gas:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+    Hard coal:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+    Heavy oil:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+    Light oil:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+    Lignite:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+    Nuclear:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+    Oil shale:
+      Price:
+        default_datafile: Datafile
+        default_value: null
+GasDemand:
+  SystemGasDemands:
+    CH4_Industry:
+      Demand:
+        default_datafile: Datafile
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    CH4_Residential:
+      Demand:
+        default_datafile: Datafile
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    CH4_Tertiary:
+      Demand:
+        default_datafile: Datafile
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    CH4_Transport:
+      Demand:
+        default_datafile: Datafile
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    Hydrogen Market:
+      Demand:
+        default_datafile: null
+        default_value: null
+      Excess Price:
+        default_datafile: null
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    Zone 2 Industry:
+      Demand:
+        default_datafile: null
+        default_value: null
+      Excess Price:
+        default_datafile: null
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    Zone 2 Transport:
+      Demand:
+        default_datafile: null
+        default_value: null
+      Excess Price:
+        default_datafile: null
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    e_kerosene:
+      Demand:
+        default_datafile: Datafile
+        default_value: null
+      Excess Price:
+        default_datafile: null
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+    e_methonol:
+      Demand:
+        default_datafile: Datafile
+        default_value: null
+      Excess Price:
+        default_datafile: null
+        default_value: null
+      Shortage Price:
+        default_datafile: null
+        default_value: null
+GasField:
+  SystemGasFields:
+    Biogenic CO2:
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Production Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Biomethane:
+      Initial Volume:
+        default_datafile: Datafile
+        default_value: null
+      Max Production:
+        default_datafile: Datafile
+        default_value: null
+      Min Production:
+        default_datafile: Datafile
+        default_value: null
+      Production Cost:
+        default_datafile: null
+        default_value: null
+      Production Volume:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    H2 Imports:
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Min Production:
+        default_datafile: null
+        default_value: null
+      Production Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Natural Gas:
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Production Cost:
+        default_datafile: null
+        default_value: null
+      Production Volume:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    White Hydrogen:
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Min Production:
+        default_datafile: null
+        default_value: null
+      Production Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+GasPipeline:
+  GasPipelineConstraint:
+    CH4 Pipeline Repurpose:
+      Units Built Coefficient:
+        default_datafile: null
+        default_value: null
+  SystemGasPipelines:
+    CH4 Interconnection:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Expansion Max Flow Day:
+        default_datafile: null
+        default_value: null
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Expansion Pipeline:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Loss Rate:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Flow Day:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    CH4_Industry:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    CH4_Other:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    CH4_Residential:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    CH4_Tertiary:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    CH4_Transport:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    H2 Imports:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Expansion Max Flow Day:
+        default_datafile: null
+        default_value: null
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Expansion Pipeline:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow Day:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Hydrogen Market 26:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Expansion Max Flow Day:
+        default_datafile: null
+        default_value: null
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Expansion Pipeline:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Loss Rate:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Flow Day:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Hydrogen Market Retrofit:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Expansion Max Flow Day:
+        default_datafile: null
+        default_value: null
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Expansion Pipeline:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow Day:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Natural Gas:
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+    Offshore to Home:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Expansion Max Flow Day:
+        default_datafile: null
+        default_value: null
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Expansion Pipeline:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: Datafile
+        default_value: null
+      Max Flow Day:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Zone 2 Industry:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Zone 2 Residential:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Zone 2 Tertiary:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    Zone 2 Transport:
+      Expansion Optimality:
+        default_datafile: null
+        default_value: null
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+    e_kerosene:
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow Day:
+        default_datafile: null
+        default_value: null
+    e_methonol:
+      Flow Charge:
+        default_datafile: null
+        default_value: null
+      Is Available:
+        default_datafile: null
+        default_value: null
+      Is Bidirectional:
+        default_datafile: null
+        default_value: null
+      Max Flow Day:
+        default_datafile: null
+        default_value: null
+GasPlant:
+  GasPlantOutputNode:
+    e_kerosene:
+      Max Blend Percent:
+        default_datafile: null
+        default_value: null
+      Min Blend Percent:
+        default_datafile: null
+        default_value: null
+    e_methonol:
+      Max Blend Percent:
+        default_datafile: null
+        default_value: null
+      Min Blend Percent:
+        default_datafile: null
+        default_value: null
+  SystemGasPlants:
+    Ammonia Terminals:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Energy Usage:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      Shutdown Cost:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Methane Pyrolysis:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Energy Usage:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Stable Level:
+        default_datafile: null
+        default_value: null
+      Processing Charge:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      Shutdown Cost:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    SMR:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Energy Usage:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Stable Level:
+        default_datafile: null
+        default_value: null
+      Processing Charge:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      Shutdown Cost:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    e_kerosene CO2:
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+    e_kerosene H2:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Energy Usage:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Stable Level:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      Shutdown Cost:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    e_methonol CO2:
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+    e_methonol H2:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Energy Usage:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Production:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Stable Level:
+        default_datafile: null
+        default_value: null
+      Processing Rate:
+        default_datafile: null
+        default_value: null
+      Shutdown Cost:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+GasStorage:
+  SystemGasStorages:
+    CH4 Storage:
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+      Power Consumption:
+        default_datafile: null
+        default_value: null
+      Target Year:
+        default_datafile: null
+        default_value: null
+    H2 Imports:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+      Expansion Max Volume:
+        default_datafile: null
+        default_value: null
+      Expansion Storage:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+      Target Year:
+        default_datafile: Datafile
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Hydrogen Market:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+      Expansion Max Volume:
+        default_datafile: null
+        default_value: null
+      Expansion Storage:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: Datafile
+        default_value: null
+      Max Injection:
+        default_datafile: Datafile
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+      Max Withdrawal:
+        default_datafile: Datafile
+        default_value: null
+      Power Consumption:
+        default_datafile: null
+        default_value: null
+      Target Year:
+        default_datafile: Datafile
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    e_kerosene:
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Injection:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+      Max Withdrawal:
+        default_datafile: null
+        default_value: null
+      Target Year:
+        default_datafile: null
+        default_value: null
+    e_methonol:
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Injection:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+      Max Withdrawal:
+        default_datafile: null
+        default_value: null
+      Target Year:
+        default_datafile: null
+        default_value: null
+Generator:
+  GeneratorStartFuel:
+    Bio Fuels:
+      Offtake at Start:
+        default_datafile: null
+        default_value: null
+    Nuclear:
+      Offtake at Start:
+        default_datafile: null
+        default_value: null
+  SystemGenerators:
+    Bio Fuels:
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Retired:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Offer Price:
+        default_datafile: null
+        default_value: null
+      Offer Quantity:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+    DSR Industry:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Offer Price:
+        default_datafile: null
+        default_value: null
+      Offer Quantity:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    DSR Tertiary:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Offer Price:
+        default_datafile: null
+        default_value: null
+      Offer Quantity:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Future tech:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+    Gas:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Max Units Retired:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    H2 CCGT New:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    H2 Imports:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    H2 OCGT New:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    H2 Retrofit:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Max Units Retired:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: Datafile
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Nuclear:
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: Datafile
+        default_value: null
+      Max Units Retired:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: Datafile
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+    Nuclear SMR:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Forced Outage Rate:
+        default_datafile: null
+        default_value: null
+      Heat Rate:
+        default_datafile: null
+        default_value: null
+      Maintenance Rate:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Mean Time to Repair:
+        default_datafile: null
+        default_value: null
+      Min Down Time:
+        default_datafile: null
+        default_value: null
+      Min Stable Factor:
+        default_datafile: null
+        default_value: null
+      Min Up Time:
+        default_datafile: null
+        default_value: null
+      Start Cost:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Offshore Wind Hub Fixed Bottom:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: Datafile
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Offshore Wind Radial:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Offshore Wind Radial Fixed Bottom:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: Datafile
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Onshore Wind:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Onshore Wind Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: Datafile
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Other Non RES:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Offer Price:
+        default_datafile: null
+        default_value: null
+      Offer Quantity:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Other RES:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Pump Storage - closed loop:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Energy Week:
+        default_datafile: Datafile
+        default_value: null
+      Min Energy Week:
+        default_datafile: Datafile
+        default_value: null
+      Pump Efficiency:
+        default_datafile: null
+        default_value: null
+      Pump Load:
+        default_datafile: null
+        default_value: null
+      Rating:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Pump Storage - open loop:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Energy Week:
+        default_datafile: Datafile
+        default_value: null
+      Min Energy Week:
+        default_datafile: Datafile
+        default_value: null
+      Min Load:
+        default_datafile: Datafile
+        default_value: null
+      Pump Efficiency:
+        default_datafile: null
+        default_value: null
+      Pump Load:
+        default_datafile: Datafile
+        default_value: null
+      Rating:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Reservoir:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Min Energy Week:
+        default_datafile: Datafile
+        default_value: null
+      Rating:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    RoR and Pondage:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Min Load:
+        default_datafile: Datafile
+        default_value: null
+      Rating:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Rooftop Residential Solar Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: Datafile
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Rooftop Solar Residential:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Rooftop Solar Tertiary:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Rooftop Tertiary Solar Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: Datafile
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Solar PV:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Solar PV Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: Datafile
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Solar Thermal:
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Z2DR Onshore Wind:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+    Z2DR Solar PV:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Capacity:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Rating Factor:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+HeatNode:
+  SystemHeatNodes:
+    CH4 Hybrid Heating Residential:
+      Heat Demand:
+        default_datafile: Datafile
+        default_value: null
+    Water CH4 Hybrid Heating Residential:
+      Heat Demand:
+        default_datafile: Datafile
+        default_value: null
+HeatPlant:
+  SystemHeatPlants:
+    CH4 Hybrid Heating Residential:
+      Efficiency Incr:
+        default_datafile: Datafile
+        default_value: null
+      Max Capacity:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+    Water CH4 Hybrid Heating Residential:
+      Efficiency Incr:
+        default_datafile: Datafile
+        default_value: null
+      Max Capacity:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+Line:
+  SystemLines:
+    Electricity:
+      Max Flow:
+        default_datafile: Datafile
+        default_value: null
+      Min Flow:
+        default_datafile: Datafile
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Electricity Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Industrial:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Offshore Hub Expansion:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Offshore to Home:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Pump Storage - closed loop:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Pump Storage - open loop:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Reservoir:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Residential:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Residential to Transport:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    RoR and Pondage:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Tertiary:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+    Transport:
+      Max Flow:
+        default_datafile: null
+        default_value: null
+      Min Flow:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge:
+        default_datafile: null
+        default_value: null
+      Wheeling Charge Back:
+        default_datafile: null
+        default_value: null
+Node:
+  SystemNodes:
+    Industrial:
+      Load:
+        default_datafile: Datafile
+        default_value: null
+    Residential:
+      Load:
+        default_datafile: Datafile
+        default_value: null
+    Tertiary:
+      Load:
+        default_datafile: Datafile
+        default_value: null
+    Transport:
+      Load:
+        default_datafile: Datafile
+        default_value: null
+Power2X:
+  SystemPower2X:
+    H2 Imports:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Efficiency:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Water Consumption:
+        default_datafile: null
+        default_value: null
+    H2 Offshore:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Efficiency:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Water Consumption:
+        default_datafile: null
+        default_value: null
+    Hydrogen Market:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Efficiency:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Water Consumption:
+        default_datafile: null
+        default_value: null
+    Zone 2 Dedicated RES:
+      Build Cost:
+        default_datafile: null
+        default_value: null
+      Economic Life:
+        default_datafile: null
+        default_value: null
+      Efficiency:
+        default_datafile: null
+        default_value: null
+      FO&M Charge:
+        default_datafile: null
+        default_value: null
+      Max Load:
+        default_datafile: null
+        default_value: null
+      Max Units Built:
+        default_datafile: null
+        default_value: null
+      Units:
+        default_datafile: null
+        default_value: null
+      VO&M Charge:
+        default_datafile: null
+        default_value: null
+      WACC:
+        default_datafile: null
+        default_value: null
+      Water Consumption:
+        default_datafile: null
+        default_value: null
+Region:
+  SystemRegions:
+    Electricity:
+      VoLL:
+        default_datafile: null
+        default_value: null
+Storage:
+  SystemStorages:
+    Hydro Pumping:
+      End Volume Coefficient:
+        default_datafile: null
+        default_value: null
+    Hydro Head:
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+      Initial Volume:
+        default_datafile: null
+        default_value: null
+      Max Volume:
+        default_datafile: null
+        default_value: null
+      Natural Inflow:
+        default_datafile: Datafile
+        default_value: null
+      Spill Penalty:
+        default_datafile: null
+        default_value: null
+      Target Year:
+        default_datafile: null
+        default_value: null
+    Hydro Tail:
+      End Effects Method:
+        default_datafile: null
+        default_value: null
+Variable:
+  SystemVariables:
+    Hydro Variables:
+      Profile:
+        default_datafile: null
+        default_value: null
+    Min Flow:
+      Profile:
+        default_datafile: null
+        default_value: null
+    Ramp Rates:
+      Profile:
+        default_datafile: null
+        default_value: null
+    Scalers:
+      Profile:
+        default_datafile: null
+        default_value: null
+Vehicle:
+  VehicleChargingStations:
+    Street:
+      Share:
+        default_datafile: null
+        default_value: null
+    Tertiary:
+      Share:
+        default_datafile: null
+        default_value: null
+  SystemVehicles:
+  Home Charging:
+    Capacity:
+      default_datafile: null
+      default_value: null
+    Demand:
+      default_datafile: Datafile
+      default_value: null
+    Efficiency:
+      default_datafile: null
+      default_value: null
+    Min SoC:
+      default_datafile: null
+      default_value: null
+    Units:
+      default_datafile: null
+      default_value: null
+  Street Charging:
+    Capacity:
+      default_datafile: null
+      default_value: null
+    Demand:
+      default_datafile: Datafile
+      default_value: null
+    Efficiency:
+      default_datafile: null
+      default_value: null
+    Min SoC:
+      default_datafile: null
+      default_value: null
+    Units:
+      default_datafile: null
+      default_value: null

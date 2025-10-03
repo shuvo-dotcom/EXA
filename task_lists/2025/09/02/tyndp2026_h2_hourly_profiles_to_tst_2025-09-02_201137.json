@@ -1,0 +1,51 @@
+{
+  "user_input": "Please create hourly Hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios.\nUse the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. \nNo need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "profiles",
+    "tyndp2026",
+    "tst",
+    "file",
+    "create",
+    "no-db"
+  ],
+  "date_created": "2025-09-02",
+  "time_created": "20:12:05",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input. Do not interact with or query any PLEXOS database; use functions to generate and export files.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly Hydrogen demand profiles for TYNDP 2026 scenarios 'NT', 'NT_HE', and 'NT_LE' for years 2030, 2035, 2040, and 2050, with nodes split as requested. Do not access any PLEXOS database.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', determine the scenarios (NT, NT_HE, NT_LE), years (2030, 2035, 2040, 2050), and apply node-splitting rules. Produce hourly Hydrogen demand profiles as intermediate files suitable for TST export without querying any PLEXOS database.",
+      "dependencies": [],
+      "on_error": "abort",
+      "function_args": {
+        "user_input": "Create hourly Hydrogen demand profiles for TYNDP 2026 scenarios NT, NT_HE, and NT_LE for years 2030, 2035, 2040, and 2050. Split nodes as requested. Do not access any PLEXOS database. Prepare outputs for subsequent TST workbook export."
+      },
+      "function_kwargs": {}
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Export the generated hourly Hydrogen demand profiles to TST format for the TYNDP study team.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Consume the outputs produced by 'main_demand_processer_v2' to build TST-formatted workbooks for scenarios NT, NT_HE, NT_LE and years 2030, 2035, 2040, 2050. Do not access any PLEXOS database.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "abort",
+      "function_args": {},
+      "function_kwargs": {}
+    }
+  ]
+}

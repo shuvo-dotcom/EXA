@@ -1,0 +1,71 @@
+{
+  "user_input": "Generate hydrogen demand timeseries for the TYNDP 2026 scenario, disaggregate this demand by nodes for the Netherlands in 2040, and prepare the output in the standard TST format for the TYNDP study team.",
+  "author": "AI Assistant",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "timeseries",
+    "TYNDP",
+    "disaggregation",
+    "export",
+    "TST"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "18:20:01",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "generate_tyndp_2026_hydrogen_demand",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hydrogen demand timeseries for the TYNDP 2026 scenario."
+      },
+      "function_kwargs": {},
+      "description": "Generate hydrogen demand timeseries for the TYNDP 2026 scenario.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "disaggregate_nl_2040_hydrogen_demand",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Disaggregate the hydrogen demand timeseries by nodes for the Netherlands for the year 2040."
+      },
+      "function_kwargs": {},
+      "description": "Disaggregate the hydrogen demand timeseries by nodes for the Netherlands for the year 2040.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "dependencies": [
+        "generate_tyndp_2026_hydrogen_demand"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "export_processed_demand_to_tst",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "Hydrogen"
+      },
+      "function_kwargs": {},
+      "description": "Export the processed hydrogen demand profiles into the standard TST format for the TYNDP study team.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+      "dependencies": [
+        "disaggregate_nl_2040_hydrogen_demand"
+      ],
+      "on_error": "log_and_continue"
+    }
+  ]
+}

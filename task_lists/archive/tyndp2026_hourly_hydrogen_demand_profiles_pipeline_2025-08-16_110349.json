@@ -1,0 +1,55 @@
+{
+  "user_input": "Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. No need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "TYNDP2026",
+    "profiles",
+    "split",
+    "tst",
+    "scenario"
+  ],
+  "date_created": "2025-08-16",
+  "time_created": "11:03:59",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hourly hydrogen demand profiles for the TYNDP 2026 scenarios using the NT, NT_HE, and NT_LE scenarios for the years 2030, 2035, 2040, and 2050."
+      },
+      "description": "Generate hourly hydrogen demand profiles for the TYNDP 2026 scenarios using the NT, NT_HE, and NT_LE scenarios for the years 2030, 2035, 2040, and 2050.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Select the appropriate demand profile generation method based on the user input for the specified TYNDP scenario years and scenario types.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes of the generated hourly demand profiles into the required subsets.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Determine which demand profile nodes should be split based on the energy model's configuration and the provided user scenario.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "user_input": "Convert the prepared hourly hydrogen demand profiles into TST format."
+      },
+      "description": "Convert the prepared hourly hydrogen demand profiles into the TST format.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Ensure that the TST format workbooks are generated correctly from the prepared hourly demand profiles.",
+      "on_error": "abort"
+    }
+  ]
+}

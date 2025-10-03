@@ -1,0 +1,98 @@
+{
+  "user_input": "Modify the DHEM model. Get the datafile attribute for the Gas Pipeline Capacity data file for the PCIPMI infrastructure level; create a variation of that file by copying the H2\\Gas file and setting all non-zero values to 999; create a new datafile object in the Datafile class using the Gas Pipeline category named to reflect PCIPMI capacities Unlimited and add the filename property; add a scenario called unlimited_pci_pmi_pipeline_capacities; update each object in the H2 interconnection and H2 Internal bottleneck categories in the gas pipeline class by adding a max flow property referencing the new datafile and scenario; clone the model 'DHEM_v41_2030_PCIPMI_1995' to create a new model called 'DHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline' and add the new scenario to it.",
+  "author": "Dante",
+  "tags": [
+    "modify",
+    "DHEM",
+    "pipeline",
+    "crud",
+    "clone"
+  ],
+  "date_created": "2025-07-28",
+  "time_created": "15:02:00",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the DHEM Model specifications.",
+  "tasks": [
+    {
+      "task_name": "retrieve_gas_pipeline_capacity_datafile_attribute",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Retrieve the datafile attribute for the Gas Pipeline Capacity data file for the PCIPMI infrastructure level using the CRUD pipeline.",
+      "target_level": "attribute",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', select the appropriate datafile attribute from the Gas Pipeline Capacity file.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_variation_of_data_file",
+      "function_name": "modify_data_file",
+      "description": "Create a variation of the Gas Pipeline Capacity data file for the PCIPMI infrastructure level by copying the H2\\Gas file and setting all non-zero values to 999.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', select the Gas Pipeline Capacity data file for PCIPMI infrastructure for modification.",
+      "on_error": "log_and_continue",
+      "function_args": {
+        "plexos_model_location": "",
+        "input_file_path": "H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv",
+        "user_input": "set all values that aren't 0 to 999",
+        "output_file_path": ""
+      }
+    },
+    {
+      "task_name": "create_new_datafile_object",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create a new datafile object in the Datafile class using the Gas Pipeline category, naming it to reflect 'PCIPMI capacities Unlimited'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', determine the proper naming structure for the new datafile object in the Gas Pipeline category.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "add_filename_property_to_datafile",
+      "function_name": "update_properties_with_grouped_llm",
+      "description": "Add the filename property to the newly created datafile object with the name of the datafile just created.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', update the newly created datafile object with the filename property reflecting the new datafile.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "add_scenario_to_model",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a scenario named 'unlimited_pci_pmi_pipeline_capacities' to the model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', select the appropriate model context to add the new scenario.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_gas_pipeline_objects_with_max_flow",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update each object in the H2 interconnection and H2 Internal bottleneck categories in the gas pipeline class by adding a max flow property that references the new datafile and scenario.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', identify the relevant objects and update them with the max flow property referencing the new datafile and scenario.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "clone_model_with_new_scenario",
+      "pipeline_name": "clone_pipeline.json",
+      "description": "Clone the model 'DHEM_v41_2030_PCIPMI_1995' to create a new model called 'DHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline'.",
+      "target_level": "object",
+      "strategy_action": "clone",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', clone the specified model to prepare for integrating the new scenario.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "add_new_scenario_to_cloned_model",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add the new scenario to the cloned model 'DHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline'.",
+      "target_level": "object",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's input 'Modify the DHEM model.', add the previously created scenario to the cloned model.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,521 @@
+{   "default_model": "gpt-5-mini",
+    "tasks": [
+                {   "id": "choose_class_group",
+                    "description": "Determine the class group from user input.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.context",
+                        "item_type_for_get_item_id": "t_class_group",
+                        "item_id_column": "class_group_id",
+                        "item_name_column": "name",
+                        "extra_notes": {"default_notes":"Class Group are at energy carrier level. It is not concerned with the property being modified"},
+                        "model": "base_model"
+                    
+                    },
+                    "outputs": {
+                        "class_group_id": "result.id",
+                        "class_group_name": "result.name"
+                    }
+                },
+
+                {   "id": "get_active_classes",
+                    "description": "Retrieve all active classes in the PLEXOS model.",
+                    "function": "get_active_classes",
+                    "inputs": {
+                        "db": "db"
+                    },
+                    "outputs": {
+                        "active_classes": "result"
+                    }
+                },
+
+                {   "id": "choose_class",
+                    "description": "Determine the primary class for the operation.",
+                    "function": "get_plexos_table_and_llm_pick_item_id",
+                    "inputs": {
+                        "user_input": "tasks.task_context.outputs.user_input",
+                        "context": "dag_context.context",
+                        "item_type_for_get_item_id": "t_class",
+                        "grp": "tasks.choose_class_group.outputs.class_group_id",
+                        "strategy_action": "tasks.task_context.outputs.strategy_action",
+                        "item_id_column": "class_id",
+                        "item_name_column": "name",
+                        "all_class_objects": "tasks.get_active_classes.outputs.active_classes",
+                        "model": "base_model",
+                        "extra_notes": {"default_notes":""}
+                    },
+                    "outputs": {
+                        "class_id": "result.id",
+                        "class_name": "result.name"
+                    }
+                },
+
+                {   "id": "read_all_categories_for_class",
+                    "description": "read all categories for the determined class.",
+                    "function": "get_categories",
+                    "inputs": {
+                        "db": "db",
+                        "nClassId": "tasks.choose_class.outputs.class_id"
+                    },
+                    "outputs": {
+                        "raw_categories_list": "result"
+                                }
+                },
+
+                {"id": "choose_category",
+                "description": "LLM selects an existing category or suggests a new one.",
+                "function": "choose_source_item",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "context": "dag_context.context",
+                            "action": "tasks.task_context.outputs.strategy_action",
+                            "item_set": "tasks.read_all_categories_for_class.outputs.raw_categories_list",
+                            "item_type": "Category",
+                            "model": "base_model", 
+                            "extra_notes": {"default_notes":""}
+                            },
+                "outputs": {
+                            "final_category_name": "result.selected_name",
+                            "category_selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            },
+                "type": "LLM API Call"
+                },
+
+                {"id": "confirm_category_action_before_execution",
+                 "description": "Confirm with the user before executing actions that modify categories.",
+                 "function": "_confirm_action_with_user",
+                 "condition": "tasks.choose_category.outputs.category_selection_type == new_item AND dag_context.ai_mode == co-pilot",
+                 "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "context": "dag_context.context",
+                            "identifiers": {
+                                            "proposed_action": "tasks.task_context.outputs.strategy_action",
+                                            "class_group_id": "tasks.choose_class_group.outputs.class_group_id",
+                                            "class_group_name": "tasks.choose_class_group.outputs.class_group_name",
+                                            "class_id": "tasks.choose_class.outputs.class_id",
+                                            "class_name": "tasks.choose_class.outputs.class_name",
+                                            "item_type": "Category",
+                                            "item_name": "tasks.choose_category.outputs.final_category_name"
+                                            }
+                            },
+                 "outputs": {
+                            "user_confirmation": "result.confirmation"
+                            },
+                 "type": "User Confirmation"
+                },
+
+                {   "id": "execute_category_action",
+                    "description": "Perform a CRUD operation at the Category level.",
+                    "condition": "tasks.task_context.outputs.target_level == category OR tasks.choose_category.outputs.category_selection_type == new_item",
+                    "function": "perform_crud_operation",
+                    "inputs": {
+                            "db": "db",
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "context": "dag_context.context",
+                            "level": "category",
+                            "action": "tasks.task_context.outputs.action",
+                            "action_details": "tasks.task_context.outputs.action_details",
+                            "identifiers": {
+                                "class_id": "tasks.choose_class.outputs.class_id",
+                                "category_name": "tasks.choose_category.outputs.final_category_name", 
+                                "new_category": "tasks.choose_category.outputs.category_selection_type",
+                                "sub_level": "category", 
+                                "previous_tasks": "summarised_outputs"
+                        }
+                    },
+                    "outputs": { "status": "result.status",
+                                "end_process": "result.end_process" },
+                    "type": "Update"
+                },
+                
+                {"id": "read_all_objects_in_category",
+                "description": "read all objects for the determined category. Returns list_of_objects and the original_item for pipeline execution.",
+                "type": "plexos_api_call",
+                "function": "get_objects_in_category",
+                "condition": "tasks.choose_category.outputs.category_selection_type != undertermined",
+                "inputs": {
+                            "db": "db",
+                            "nClassId": "tasks.choose_class.outputs.class_id",
+                            "strCategory": "tasks.choose_category.outputs.final_category_name"
+                            },
+                "outputs": {
+                            "list_of_objects": "result"
+                            }
+                },
+
+                {"id": "read_all_objects_in_class",
+                "description": "read all objects for the determined class. Returns list_of_objects and the original_item for pipeline execution.",
+                "type": "plexos_api_call",
+                "condition": "tasks.choose_category.outputs.category_selection_type == undertermined",
+                "function": "get_objects_in_class", 
+                "inputs": {
+                            "db": "db",
+                            "nClassId": "tasks.choose_class.outputs.class_id"
+                            },
+                "outputs": {
+                            "list_of_objects": "result"
+                            }
+                },
+
+                {"id": "choose_objects",
+                "description": "LLM determines original object for pipeline execution.",
+                "function": "choose_object_subset",
+                "type": "LLM API Call",
+                "inputs": {
+                            "user_input": "tasks.task_context.outputs.user_input",
+                            "object_set": "tasks.read_all_objects_in_category.outputs.list_of_objects",
+                            "object_type": "tasks.choose_class.outputs.class_name",
+                            "selected_level": "tasks.task_context.outputs.target_level",
+                            "operation_type": "tasks.task_context.outputs.strategy_action",
+                            "model": "base_model",
+                            "context": "dag_context.context",
+                            "all_class_objects": "None", 
+                            "extra_notes": {"default_notes":"locals.task_def.extra_notes"}
+                            },
+                "outputs": {
+                            "list_of_objects": "result.list_of_objects",
+                            "selection_type": "result.selection_type",
+                            "reasoning": "result.reasoning"
+                            }
+                },
+
+                {"id": "iterate_over_objects",
+                "description": "Iterate each object in the category and run the pipeline_execution steps.",
+                "type": "loop",
+                "condition": "tasks.choose_objects.outputs.list_of_objects != null",
+                "iterate_on": "tasks.choose_objects.outputs.list_of_objects",
+                "loop_variable_name": "current_object",
+                "tasks": [
+                            {"id": "capture_loop_current_object",
+                                "description": "Captures the 'current_object' value from the outer loop.",
+                                "type": "function_call", 
+                                "function": "passthrough", 
+                                "inputs": {
+                                    "value": "loop.current_object"
+                                },
+                                "outputs": {
+                                    "captured_object_value": "result"
+                                }
+                            },
+
+                            {"id": "confirm_object_action_before_execution",
+                            "description": "Confirm with the user before executing actions that modify categories.",
+                            "condition": "tasks.task_context.outputs.target_level == object AND dag_context.ai_mode == co-pilot",
+                            "function": "_confirm_action_with_user",
+                            "inputs": {
+                                        "user_input": "tasks.task_context.outputs.user_input",
+                                        "context": "dag_context.context",
+                                        "identifiers": {
+                                                        "proposed_action": "tasks.task_context.outputs.strategy_action",
+                                                        "class_group_id": "tasks.choose_class_group.outputs.class_group_id",
+                                                        "class_group_name": "tasks.choose_class_group.outputs.class_group_name",
+                                                        "class_id": "tasks.choose_class.outputs.class_id",
+                                                        "class_name": "tasks.choose_class.outputs.class_name",
+                                                        "category_name": "tasks.choose_category.outputs.final_category_name",
+                                                        "item_type": "Object",
+                                                        "item_name": "tasks.capture_loop_current_object.outputs.captured_object_value"
+                                                        }
+                                        },
+                            "outputs": {
+                                        "user_confirmation": "result.confirmation"
+                                        },
+                            "type": "User Confirmation"
+                            },
+
+                            {"id": "execute_object_action",
+                                "description": "Perform a CRUD operation at the Object level.",
+                                "condition": "tasks.task_context.outputs.target_level == object",
+                                "function": "perform_crud_operation",
+                                "inputs": {
+                                    "db": "db",
+                                    "user_input": "tasks.task_context.outputs.user_input",
+                                    "context": "dag_context.context",
+                                    "level": "object",
+                                    "action": "tasks.task_context.outputs.strategy_action",
+                                    "action_details": "tasks.task_context.outputs.action_details",
+                                    "identifiers": {
+                                        "class_id": "tasks.choose_class.outputs.class_id",
+                                        "category_name": "tasks.choose_category.outputs.final_category_name",
+                                        "object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                        "previous_tasks": "summarised_outputs"
+
+                                    }
+                                },
+                                "outputs": { "status": "result.status",
+                                            "end_process": "result.end_process" },
+                                "type": "Update"
+                            },
+
+                            {"id": "read_all_object_collections",
+                            "description": "read all collections for the object", 
+                            "type": "plexos_api_call",
+                            "function": "get_collections",
+                            "inputs": {
+                                        "db": "db",
+                                        "object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                        "class_name": "tasks.choose_class.outputs.class_name",
+                                        "class_id": "tasks.choose_class.outputs.class_id",
+                                        "list_of_objects": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                        "object_list_id": "tasks.choose_objects.outputs.object_id"
+                                        },
+                            "outputs": {
+                                        "collections_list": "result"
+                                        }
+                            },         
+
+                            {"id": "choose_collections",
+                            "description": "Choose the specific membership (collection) for the operation.",
+                            "function": "choose_collection_subset",
+                            "inputs": {
+                                "user_input": "tasks.task_context.outputs.user_input", 
+                                "collection_set": "tasks.read_all_object_collections.outputs.collections_list",
+                                "collection_type": "tasks.task_context.outputs.target_level",
+                                "selected_level": "tasks.task_context.outputs.target_level",
+                                "operation_type": "tasks.task_context.outputs.strategy_action",
+                                "object_selection_type": "tasks.choose_objects.outputs.selection_type",
+                                    "class_name": "tasks.choose_class.outputs.class_name",
+                                    "class_id": "tasks.choose_class.outputs.class_id",
+                                "model": "base_model",
+                                "extra_notes": {"default_notes":""}
+                                },
+                            "outputs": { 
+                                        "list_of_collections": "result.list_of_collections",
+                                        "reasoning": "result.reasoning"
+                                        },
+                            "type": "Choose"
+                            },
+
+                            {"id": "iterate_over_collections",
+                            "description": "Iterate over collections to find the one containing the original object.",
+                            "type": "loop",
+                            "condition": "tasks.choose_collections.outputs.list_of_collections != null",
+                            "iterate_on": "tasks.choose_collections.outputs.list_of_collections",
+                            "loop_variable_name": "chosen_collections",
+                            "tasks": [
+                                        {   "id": "capture_loop_current_collections",
+                                            "description": "Captures the 'current_membership' value from the inner loop.",
+                                            "type": "function_call", 
+                                            "function": "passthrough", 
+                                            "inputs": {
+                                                "value": "loop.chosen_collections"
+                                            },
+                                            "outputs": {
+                                                "captured_membership_value": "result"
+                                            }
+                                        },
+
+                                        {   "id": "choose_memberships",
+                                            "description": "LLM determines the membership for the operation.",
+                                            "condition": "tasks.task_context.outputs.target_level == membership OR tasks.capture_loop_current_collections.outputs.captured_membership_value != 1",
+                                            "function": "get_parent_and_child_memberships",
+                                            "inputs": {
+                                                "db": "db",
+                                                "user_input": "tasks.task_context.outputs.user_input",
+                                                "context": "dag_context.context",
+                                                "collection_id": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                "object_name":   "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                                "object_class_id": "tasks.choose_class.outputs.class_id", 
+                                                "extra_notes": {"default_notes":""}
+                                            }, 
+                                            "outputs": {
+                                                "parent_membership": "result.parent_membership",
+                                                "child_membership": "result.child_membership",
+                                                "reasoning": "result.reasoning"
+                                            }
+                                        },
+                                                    
+                                        {"id": "confirm_membership_action_before_execution",
+                                        "description": "Confirm with the user before executing actions that modify memberships.",
+                                        "function": "confirm_action_with_user",
+                                        "condition": "tasks.task_context.outputs.target_level == membership == new_item AND dag_context.ai_mode == co-pilot",
+                                        "inputs": {
+                                                        "user_input": "tasks.task_context.outputs.user_input",
+                                                        "context": "dag_context.context",
+                                                        "identifiers": {
+                                                                        "proposed_action": "tasks.task_context.outputs.strategy_action",
+                                                                        "class_group_id": "tasks.choose_class_group.outputs.class_group_id",
+                                                                        "class_group_name": "tasks.choose_class_group.outputs.class_group_name",
+                                                                        "class_id": "tasks.choose_class.outputs.class_id",
+                                                                        "class_name": "tasks.choose_class.outputs.class_name",
+                                                                        "category_name": "tasks.choose_category.outputs.final_category_name",
+                                                                        "object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                                                        "item_type": "membership",
+                                                                        "item_name": "tasks.capture_loop_current_collections.outputs.captured_membership_value"
+                                                                        }
+                                                    },
+                                        "outputs": {
+                                                    "user_confirmation": "result.confirmation"
+                                                    },
+                                        "type": "User Confirmation"
+                                        },
+
+                                        {   "id": "execute_membership_action",
+                                            "description": "Perform a CRUD operation at the Membership level.",
+                                            "condition": "tasks.task_context.outputs.target_level == membership",
+                                            "function": "perform_crud_operation",
+                                            "inputs": {
+                                                "db": "db",
+                                                "user_input": "tasks.task_context.outputs.user_input",
+                                                "context": "dag_context.context",
+                                                "level": "tasks.task_context.outputs.target_level",
+                                                "action": "tasks.task_context.outputs.strategy_action",
+                                                "action_details": "tasks.task_context.outputs.strategy_action",
+                                                "identifiers": { 
+                                                    "collection_id": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                    "parent_membership": "tasks.choose_memberships.outputs.parent_membership",
+                                                    "child_membership": "tasks.choose_memberships.outputs.child_membership",
+                                                    "previous_tasks": "summarised_outputs"
+                                                }
+                                            },
+                                            "outputs": { "status": "result.status",
+                                                        "end_process": "result.end_process" },
+                                            "type": "Update"
+                                        },
+
+                                        {   "id": "get_membership_properties",
+                                        "description": "Get properties of the original object from the membership.",
+                                        "function": "get_properties_table_to_dict",
+                                        "type": "plexos_api_call",
+                                        "inputs": {
+                                                    "db": "db",
+                                                    "collection_id_list": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                    "all_collections_data": "tasks.read_all_object_collections.outputs.collections_list",
+                                                    "class_name": "tasks.choose_class.outputs.class_name",
+                                                    "collection_name": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                    "target_level": "tasks.task_context.outputs.target_level",
+                                                    "strategy_action": "tasks.task_context.outputs.strategy_action",
+                                                    "user_input": "tasks.task_context.outputs.user_input",
+                                                    "context": "dag_context.context"
+                                                    },
+                                        "outputs": {
+                                                    "properties_list": "result"
+                                                    }  
+                                        },
+
+                                        {   "id": "choose_properties",
+                                            "description": "Choose the specific property for the operation.",
+                                            "function": "choose_property_subset",
+                                            "inputs": {
+                                                "user_input": "tasks.task_context.outputs.user_input", 
+                                                "property_set": "tasks.get_membership_properties.outputs.properties_list",
+                                                "selected_level": "tasks.task_context.outputs.target_level",
+                                                "operation_type": "tasks.task_context.outputs.strategy_action",
+                                                "property_type": "current_task_context.static_context_strings.entity_selection_context",
+                                                "model": "base_model",
+                                                "extra_notes": {"default_notes":""}
+                                                },
+                                            "outputs": { 
+                                                        "chosen_properties": "result.selected_properties",
+                                                        "reasoning": "result.reasoning"
+                                                        },
+                                            "type": "Choose"
+                                        },
+
+                                        {   "id": "update_property_attributes",
+                                            "description": "Update the attributes of the chosen property.",
+                                            "condition": "tasks.task_context.outputs.target_level == property",
+                                            "function": "update_properties_with_grouped_llm",
+                                            "inputs": {
+                                                "db": "db",
+                                                "collection_properties": "tasks.choose_properties.outputs.chosen_properties",
+                                                "collection_list": "tasks.read_all_object_collections.outputs.collections_list",
+                                                "original_object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                                "new_object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                                "user_input": "tasks.task_context.outputs.user_input",
+                                                "context": "dag_context.context",
+                                                "collection_id": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                "collection_name": "tasks.choose_collections.outputs.collection_data",
+                                                "strParent": "tasks.choose_memberships.outputs.parent_membership",
+                                                "strChild": "tasks.choose_memberships.outputs.child_membership",
+                                                "target_level_key": "tasks.task_context.outputs.target_level",
+                                                "strategy_action": "tasks.task_context.outputs.strategy_action",
+                                                "model": "base_model"
+                                            },
+                                            "outputs": {
+                                                "status": "result.status",
+                                                "property_attributes": "result.property_attributes"
+                                            },
+                                            "type": "Update"
+                                        },
+
+                                        {"id": "confirm_membership_action_before_execution",
+                                        "description": "Confirm with the user before executing actions that modify memberships.",
+                                        "function": "_confirm_action_with_user",
+                                        "condition": "tasks.choose_membership.outputs.membership_selection_type == new_item AND dag_context.ai_mode == co-pilot",
+                                        "inputs": {
+                                                        "user_input": "tasks.task_context.outputs.user_input",
+                                                        "context": "dag_context.context",
+                                                        "identifiers": {
+                                                                        "proposed_action": "tasks.task_context.outputs.strategy_action",
+                                                                        "class_group_id": "tasks.choose_class_group.outputs.class_group_id",
+                                                                        "class_group_name": "tasks.choose_class_group.outputs.class_group_name",
+                                                                        "class_id": "tasks.choose_class.outputs.class_id",
+                                                                        "class_name": "tasks.choose_class.outputs.class_name",
+                                                                        "category_name": "tasks.choose_category.outputs.final_category_name",
+                                                                        "object_name": "tasks.capture_loop_current_object.outputs.captured_object_value",
+                                                                        "collection_name": "tasks.capture_loop_current_collections.outputs.captured_membership_value",
+                                                                        "parent_membership": "tasks.choose_memberships.outputs.parent_membership",
+                                                                        "child_membership": "tasks.choose_memberships.outputs.child_membership",
+
+                                                                        "item_type": "membership",
+                                                                        "item_name": "tasks.capture_loop_current_collections.outputs.captured_membership_value"
+                                                                        }
+                                                    },
+                                        "outputs": {
+                                                    "user_confirmation": "result.confirmation"
+                                                    },
+                                        "type": "User Confirmation"
+                                        },
+
+                                        {"id": "execute_property_action",
+                                            "description": "Perform a CRUD operation at the Property level.",
+                                            "condition": "tasks.task_context.outputs.target_level == property",
+                                            "function": "perform_crud_operation",
+                                            "inputs": {
+                                                        "db": "db", 
+                                                        "user_input": "tasks.task_context.outputs.user_input",
+                                                        "context": "dag_context.context",
+                                                        "level": "tasks.task_context.outputs.target_level", 
+                                                        "action": "tasks.task_context.outputs.strategy_action", 
+                                                        "action_details": "tasks.task_context.outputs.action_details",
+                                                        "identifiers": { 
+                                                                            "list_of_properties": "tasks.get_membership_properties.outputs.properties_list",
+                                                                            "chosen_properties": "tasks.choose_property.outputs.chosen_properties",     
+                                                                            "collection_id": "tasks.choose_memberships.outputs.list_of_collections",
+                                                                            "list_of_collections": "tasks.read_all_object_collections.outputs.collections_list",
+                                                                            
+                                                                            "property_attributes": "tasks.update_property_attributes.outputs.property_attributes"
+                                                                            }
+                                                },
+                                            "outputs": { "status": "result.status",
+                                                        "end_process": "result.end_process" },
+                                            "type": "Update"
+                                        },
+
+                                        {"id": "choose_attributes",
+                                            "description": "LLM determines the attributes for the chosen property.",
+                                            "condition": "tasks.task_context.outputs.target_level == attribute",
+                                            "function": "choose_attributes_subset",
+                                            "inputs": {
+                                                "user_input": "tasks.task_context.outputs.user_input",
+                                                "context": "dag_context.context",
+                                                "property_list": "tasks.get_membership_properties.outputs.properties_list",
+                                                "chosen_properties": "tasks.choose_properties.outputs.chosen_properties", 
+                                                "extra_notes": {"default_notes":""}
+
+                                            },
+                                            "outputs": {
+                                                "chosen_attributes": "result",
+                                                "reasoning": "result.reasoning"
+                                            },
+                                            "type": "Choose"
+                                        }
+
+                                    ]
+                            }
+                        ]
+                }
+            ]
+}

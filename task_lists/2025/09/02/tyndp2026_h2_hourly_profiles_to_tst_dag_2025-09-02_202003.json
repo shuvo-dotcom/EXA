@@ -1,0 +1,53 @@
+{
+  "user_input": "Please create hourly Hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios.\nUse the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format.\nNo need to access any PLEXOS database for now",
+  "author": "DAG-Builder",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "time-series",
+    "TYNDP2026",
+    "NT",
+    "NT_HE",
+    "NT_LE",
+    "tst",
+    "file",
+    "no-plexos-db"
+  ],
+  "date_created": "2025-09-02",
+  "time_created": "20:20:24",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Generate hourly Hydrogen demand profiles for TYNDP 2026 scenarios (NT, NT_HE, NT_LE) for years 2030, 2035, 2040, and 2050 with node splitting applied, then export to TST format. Do not access any PLEXOS database; operate on files/functions only.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Create hourly Hydrogen demand profiles for TYNDP 2026 scenarios NT, NT_HE, and NT_LE for years 2030, 2035, 2040, and 2050. Apply node splitting. No PLEXOS DB access."
+      },
+      "function_kwargs": {},
+      "description": "Generate hourly Hydrogen demand profiles for TYNDP 2026 scenarios 'NT', 'NT_HE', and 'NT_LE' across years 2030, 2035, 2040, and 2050 with node splitting applied.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the appropriate scenario set (NT, NT_HE, NT_LE), years (2030, 2035, 2040, 2050), and apply node-splitting when producing the hourly demand profiles. No PLEXOS DB interactions.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {},
+      "function_kwargs": {},
+      "description": "Convert/export the generated hourly Hydrogen demand profiles into the TST (study team) standard format.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', take the outputs from 'main_demand_processer_v2' and export them to the TST standard format without using any PLEXOS database.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

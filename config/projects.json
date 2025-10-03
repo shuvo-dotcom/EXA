@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "TYNDP_2026_Scenarios": {
+      "context": "The project is the TYNDP 2026 Scenarios, which focuses on developing a set of future energy scenarios for Europe. The models are built using an EU bidding zone topology for electricity, for the hydrogen and methane system they use a slightly different structure but mainly 1 node per country. The model are run using an hourly chronology. The target years are 2030, 2035, 2040 and 2050. The years in between will not be considered in this study."
+    },
+    "Core_Flexibility_Report": {
+      "context": "The project is the core flexibility report, which focuses on development a future energy scenario for Republic of Ireland Energy System (IE). The countries/nodes also included in the model are the Northern Irish electricity and hydrogen system, the UK electricity and hydrogen systems, and the French electricity system. The target years are 2030, 2035, 2040 and 2045 have been supplied. The profiles must be interpolated"
+    },
+    "Joule_Model": {
+      "context": "The project is the Joule Model, this model simulated the 2050 energy system including the energy carriers, Electricity, Hydrogen, Methane, Kerosene and Methanol. They may be extended to other energy carriers such as ammonia and Co2 in future. The models are built at high spatial resolution and considered the ehighway/NUTS 2 regions for all of europe. The model is currently built for 2050 but may be extended in future"
+    },
+    "DHEM": {
+      "context": "The project is the DHEM model, this model is used for the ENTSOG 2024 TYNDP. it couples Electricity and Hydrogen. The model is currently built for 2030 and 2040"
+    }
+  }
+}

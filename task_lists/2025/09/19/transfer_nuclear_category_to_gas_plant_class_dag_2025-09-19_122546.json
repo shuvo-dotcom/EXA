@@ -1,0 +1,31 @@
+{
+  "user_input": "Transfer the Nuclear category in the Generator class to the Gas Plant Class",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "category",
+    "transfer",
+    "generator",
+    "gas-plant"
+  ],
+  "date_created": "2025-09-19",
+  "time_created": "12:26:03",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "update_category",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Transfer the 'Nuclear' category from the 'Generator' class to the 'Gas Plant' class, preserving memberships and properties.",
+      "target_level": "category",
+      "strategy_action": "transfer",
+      "entity_selection_context": "Source: Category 'Nuclear' under class 'Generator'. Destination: class 'Gas Plant'. Based on the user's request: 'Transfer the Nuclear category in the Generator class to the Gas Plant Class'. Preserve existing memberships and property attributes unless conflicts arise.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

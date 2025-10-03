@@ -1,0 +1,101 @@
+{
+  "user_input": "Run the TYNDP 2026 scenarios for Hydrid Heat Pumps. Hydrogen is the complement. Run full study all years, all climates, full split",
+  "author": "Dante",
+  "tags": [
+    "tyndp2026",
+    "scenario",
+    "heat_pumps",
+    "hydrogen",
+    "crud",
+    "clone",
+    "study-setup",
+    "full-split"
+  ],
+  "date_created": "2025-09-16",
+  "time_created": "19:10:00",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "discover_tyndp2026_hhp_base",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Locate and read the base TYNDP 2026 scenario(s) relevant to Hybrid Heat Pumps within the model, including associated year and climate set configurations and any standard run templates.",
+      "target_level": "object",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list. Prioritize TYNDP 2026 study scenarios that include Heat Pumps or demand-side technology configurations suitable for Hybrid Heat Pumps.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "clone_hhp_h2_fullsplit_scenario",
+      "pipeline_name": "clone_pipeline.json",
+      "description": "Clone the discovered TYNDP 2026 base scenario into a new scenario named 'TYNDP 2026 - Hybrid Heat Pumps (H2 complement) - FullSplit AllYears AllClimates', copying memberships, properties, and attributes from the source.",
+      "target_level": "object",
+      "strategy_action": "clone",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list. Ensure the cloned scenario is created under the same study/model and inherits relevant links.",
+      "dependencies": [
+        "discover_tyndp2026_hhp_base"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "set_all_years_and_climates_memberships",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update memberships for the cloned scenario to include all study years and all climate sets defined in the model (e.g., link to 'All Years' horizon set and 'All Climates' ensemble).",
+      "target_level": "membership",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list. Choose the canonical 'All Years' and 'All Climates' collections where available.",
+      "dependencies": [
+        "clone_hhp_h2_fullsplit_scenario"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 3,
+      "task_name": "configure_hhp_with_hydrogen_complement",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update scenario properties to: enable Hybrid Heat Pumps, set Complement Carrier to Hydrogen, and apply Full Split across the intended dimensions (technology/region/time) in line with TYNDP 2026 specifications.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list. Map model-specific property names (e.g., Hybrid Heat Pump toggle, Complement Carrier, Split Mode) to the cloned scenario.",
+      "dependencies": [
+        "clone_hhp_h2_fullsplit_scenario"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 4,
+      "task_name": "set_study_run_attributes_full",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update run-level attributes on the cloned scenario to execute a Full Study across all years and climates, ensuring full enumeration (no sampling) and enabling any required solver/study controls.",
+      "target_level": "attribute",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list. Target the cloned scenario's run configuration attributes (e.g., Simulation Type, Climate Handling, Enumeration settings).",
+      "dependencies": [
+        "clone_hhp_h2_fullsplit_scenario"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 5,
+      "task_name": "validate_scenario_configuration",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Read back key memberships, properties, and attributes to confirm the scenario is configured for Hybrid Heat Pumps with Hydrogen complement, Full Split, All Years, and All Climates.",
+      "target_level": "property",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list. Verify that settings match the intended configuration.",
+      "dependencies": [
+        "set_all_years_and_climates_memberships",
+        "configure_hhp_with_hydrogen_complement",
+        "set_study_run_attributes_full"
+      ],
+      "on_error": "log_and_continue"
+    }
+  ]
+}

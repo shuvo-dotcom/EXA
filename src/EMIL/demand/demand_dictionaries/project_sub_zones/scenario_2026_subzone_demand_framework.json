@@ -1,0 +1,12 @@
+{
+  "DE00": {
+                "DE01": {"Industry": 0.10, "Residential": 0.05, "Tertiary": 0.05, "Transport": 0.05},
+                "DE02": {"Industry": 0.15, "Residential": 0.05, "Tertiary": 0.05, "Transport": 0.05},
+                "DE03": {"Industry": 0.10, "Residential": 0.05, "Tertiary": 0.05, "Transport": 0.05},
+                "DE04": {"Industry": 0.10, "Residential": 0.05, "Tertiary": 0.05, "Transport": 0.05}
+            },
+  "FR00": {
+                "FR01": {"Industry": 0.10, "Residential": 0.05, "Tertiary": 0.05, "Transport": 0.05},
+                "FR02": {"Industry": 0.10, "Residential": 0.05, "Tertiary": 0.05, "Transport": 0.05}
+            }
+}

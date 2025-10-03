@@ -1,0 +1,36 @@
+{
+  "user_input": "Please create the hourly methane demand profiles for the tyndp 2026 scenarios. Use all of the scenarios, all the target years, split the nodes.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "methane",
+    "TYNDP2026",
+    "hourly",
+    "profiles",
+    "split-nodes"
+  ],
+  "date_created": "2025-09-03",
+  "time_created": "15:01:41",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Please create the hourly methane demand profiles for the TYNDP 2026 scenarios. Use all scenarios and all target years, and split the nodes."
+      },
+      "function_kwargs": {},
+      "description": "Create hourly methane demand profiles for TYNDP 2026 using all scenarios and all target years, with nodes split.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the appropriate TYNDP 2026 scenarios, target years, and node split configuration from the available data.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

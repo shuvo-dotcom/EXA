@@ -1,0 +1,355 @@
+{
+  "pipeline_name": "PLEXOS – AI Build Model From Scratch (v2)",
+  "description": "This pipeline builds a PLEXOS model from scratch using AI to select energy carriers, classes, categories, and objects. It ensures that all necessary properties and collections are created and updated accordingly.",
+  "initial_context": {
+        "user_input": "Integrate the EU Ammonia system into the model.",
+        "operation_type": "expand_model",
+        "plexos_model_location": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\Sectoral Model\\TJ Sectorial Model\\TJ_2050_Debug_V20_copy.xml",
+        "static_context_strings": {
+                            "default_llm_context": "You are an expert in PLEXOS modeling. You are executing a direct data modification request from the user.",
+                            "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list.",
+                            "research": {
+                                            "energy_carriers": ["Ammonia"],
+                                            "class_groups": ["Gas"],
+                                            "classes": [
+                                                          { "id": "1", "class_name": "GasPlant", "categories": ["Ammonia Regasification", "Ammonia Synthesis"] },
+                                                          { "id": "2", "class_name": "GasStorage", "categories": ["Ammonia Storage"] },
+                                                          { "id": "3", "class_name": "GasTransport", "categories": ["Ammonia Transport"] },
+                                                          { "id": "4", "class_name": "GasPipeline", "categories": ["Ammonia Pipeline"] },
+                                                          { "id": "5", "class_name": "GasNode", "categories": ["Ammonia Node"] },
+                                                          { "id": "6", "class_name": "GasDemand", "categories": ["Ammonia Demand"] },
+                                                          { "id": "7", "class_name": "GasContract", "categories": ["Ammonia Contract"] }
+                                                        ],
+                                            "countries": [
+                                                          "AT", "BE", "BG", "HR", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", 
+                                                          "LU", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"
+                                                        ],
+                                            "membership": {
+                                                          "GasPlant": ["GasPlant", "GasStorage", "GasTransport", "GasPipeline", "GasNode", "GasDemand", "GasContract"],
+                                                          "GasStorage": ["GasStorage"],
+                                                          "GasTransport": ["GasTransport"],
+                                                          "GasPipeline": ["GasPipeline"],
+                                                          "GasNode": ["GasNode"],
+                                                          "GasDemand": ["GasDemand"],
+                                                          "GasContract": ["GasContract"]
+                                                        },
+                                            "default_properties": {
+                                                          "GasPlant": ["Capacity", "Efficiency", "FuelType"],
+                                                          "GasStorage": ["Capacity", "StorageType"],
+                                                          "GasTransport": ["Capacity", "TransportType"],
+                                                          "GasPipeline": ["Capacity", "PipelineType"],
+                                                          "GasNode": ["NodeType", "ConnectionType"],
+                                                          "GasDemand": ["DemandType", "Priority"],
+                                                          "GasContract": ["ContractType", "Duration"]
+                                                        },
+                                            "properties_attribute": {
+                                                          "GasPlant": ["Emissions", "WaterUsage"],
+                                                          "GasStorage": ["Emissions", "WaterUsage"],
+                                                          "GasTransport": ["Emissions", "WaterUsage"],
+                                                          "GasPipeline": ["Emissions", "WaterUsage"],
+                                                          "GasNode": ["Emissions", "WaterUsage"],
+                                                          "GasDemand": ["Emissions", "WaterUsage"],
+                                                          "GasContract": ["Emissions", "WaterUsage"]
+                                                        }
+                                        }
+                            }
+  },
+
+  "tasks": [
+            {
+              "id": "open_model",
+              "description": "Load / clone the PLEXOS XML into a live DB object",
+              "function": "load_plexos_xml",
+              "inputs": {
+                "file_name": "initial_context.xml_model_path",
+                "new_copy": true
+              },
+              "outputs": { "db": "result" }
+            },
+
+            {
+              "id": "select_class_groups_for_carriers",
+              "function": "select_class_groups_for_carriers",
+              "description": "Select class groups based on the energy carriers available in the model.",
+              "condition": "initial_context.static_context_strings.research.class_groups == []",
+              "inputs": {
+                "user_input": "initial_context.user_input",
+                "available_class_groups": "initial_context.static_context_strings.research.class_groups",
+                "available_energy_carriers": "initial_context.static_context_strings.research.energy_carriers"
+              },
+              "outputs": { "class_groups": "result" }
+            },
+
+            {
+              "id": "select_classes",
+              "function": "select_classes_for_groups",
+              "description": "Select classes based on the class groups identified for the energy carriers.",
+              "condition": "tasks.select_class_groups_for_carriers.outputs.classes == []",
+              "inputs": {
+                "user_input": "initial_context.user_input",
+                "available_classes": "initial_context.static_context_strings.research.classes",
+                "available_class_groups": "tasks.select_class_groups_for_carriers.outputs.class_groups",
+                "energy_carriers": "initial_context.static_context_strings.research.energy_carriers"
+              },
+              "outputs": { "classes_list": "result" }
+            },
+
+            {
+              "id": "select_countries",
+              "function": "select_countries",
+              "description": "Select countries based on the user's input and the available countries in the model.",
+              "condition": "initial_context.static_context_strings.research.countries == []", 
+              "inputs": {
+                "user_input": "initial_context.user_input",
+                "available_countries": "initial_context.static_context_strings.research.countries",
+                "energy_carriers": "initial_context.static_context_strings.research.energy_carriers",
+                "available_class_groups": "tasks.select_class_groups_for_carriers.outputs.class_groups",
+              },
+              "outputs": { "selected_countries": "result" }
+            },
+
+            {
+              "id": "loop_classes",
+              "type": "loop",
+              "iterate_on": "tasks.select_classes_for_groups.outputs.classes_list",
+              "loop_variable_name": "current_class",
+              "tasks": [
+                        {
+                          "id": "read_categories",
+                          "function": "get_categories",
+                          "description": "Read categories from the database for the current class.",
+                          "condition": "tasks.select_class_groups_for_carriers.outputs.classes == []",
+                          "inputs": { "nClassId": "loop.current_class.class_id", 
+                                      "classes": "tasks.select_classes_for_groups.outputs.classes_list"                    
+                                    },
+                          "outputs": { "categories_from_db": "result" }
+                        },
+
+                        {
+                          "id": "add_categories",
+                          "function": "add_category",
+                          "inputs": {
+                            "class_id": "loop.current_class.class_id",
+                            "categories": "tasks.fetch_categories_external.outputs.categories_external ?: tasks.read_categories.outputs.categories_from_db"
+                          },
+                          "outputs": { "categories_list": "result" }
+                        },
+
+                        {
+                          "id": "loop_categories",
+                          "type": "loop",
+                          "iterate_on": "tasks.add_missing_categories.outputs.categories_list",
+                          "loop_variable_name": "current_category",
+                          "tasks": [
+
+                                    {
+                                      "id": "choose_object_name_structure",
+                                      "function": "choose_object_name_structure",
+                                      "inputs": {
+                                        "class_name": "loop.current_class.class_name",
+                                        "category": "loop.current_category"
+                                      },
+                                      "outputs": { "object_name_structure": "result" }
+                                    },
+
+                                    {"id": "choose_country_subset",
+                                      "function": "choose_country_subset",
+                                      "inputs": {
+                                        "country": "loop.current_country",
+                                        "class_id": "loop.current_class.class_id",
+                                        "category": "loop.current_category"
+                                      },
+                                      "outputs": { "country_subset": "result" }
+                                    },
+
+                                    {
+                                      "id": "loop_countries",
+                                      "type": "loop",
+                                      "iterate_on": "tasks.choose_country_subset.outputs.country_subset",
+                                      "loop_variable_name": "current_country",
+                                      "tasks": [                   
+                                                    {
+                                                      "id": "create_object_name",
+                                                      "function": "create_object_name",
+                                                      "inputs": {
+                                                        "class_name": "loop.current_class.class_name",
+                                                        "category": "loop.current_category",
+                                                        "country": "loop.current_country",
+                                                        "choose_object_name_structure": "tasks.choose_object_name_structure.outputs.object_name_structure"                                                      },
+                                                      "outputs": { 
+                                                        "object_name": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "check_object_exists",
+                                                      "function": "check_object_exists",
+                                                      "inputs": {
+                                                        "db": "tasks.open_model.outputs.db",
+                                                        "object_name": "tasks.create_object_name.outputs.object_name"
+                                                      },
+                                                      "outputs": { 
+                                                        "object_exists": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "create_object" ,
+                                                      "condition": "!tasks.check_object_exists.outputs.object_exists",
+                                                      "function": "create_object",
+                                                      "inputs": {
+                                                        "db": "tasks.open_model.outputs.db",
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "category_name": "loop.current_category.category_name",
+                                                        "object_name": "tasks.create_object_name.outputs.object_name"
+                                                      },
+                                                      "outputs": { 
+                                                        "new_object": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "get_mandatory_collections",
+                                                      "function": "get_mandatory_collections",
+                                                      "inputs": {
+                                                        "db": "tasks.open_model.outputs.db",
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "object_name": "tasks.create_object_name.outputs.object_name"
+                                                      },
+                                                      "outputs": { 
+                                                        "mandatory_collections": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "add_mandatory_collections_for_object",
+                                                      "function": "add_collections_for_object",
+                                                      "inputs": {
+                                                        "db": "tasks.open_model.outputs.db",
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "object_name": "loop.current_object"
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "choose_collection_template",
+                                                      "function": "choose_collection_template",
+                                                      "inputs": {
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "category": "loop.current_category"
+                                                      },
+                                                      "outputs": { 
+                                                        "collection_template": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "choose_additional_collections",
+                                                      "function": "choose_additional_collections",
+                                                      "inputs": {
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "category": "loop.current_category"
+                                                      },
+                                                      "outputs": { 
+                                                        "additional_collections": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "combine_collections",
+                                                      "function": "combine_collections",
+                                                      "inputs": {
+                                                        "mandatory_collections": "tasks.get_mandatory_collections.outputs.mandatory_collections",
+                                                        "additional_collections": "tasks.choose_additional_collections.outputs.additional_collections",
+                                                        "collection_template": "tasks.choose_collection_template.outputs.collection_template"
+                                                      },
+                                                      "outputs": { 
+                                                        "combined_collections": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "add_collections",
+                                                      "function": "add_additional_collections",
+                                                      "inputs": {
+                                                        "db": "tasks.open_model.outputs.db",
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "object_name": "loop.current_object",
+                                                        "collection_list": "tasks.combine_collections.outputs.combined_collections"
+                                                      },
+                                                      "outputs": { 
+                                                        "new_additional_collections": "result" 
+                                                      }
+                                                    },
+
+                                                    {
+                                                      "id": "get_property_template",
+                                                      "function": "choose_property_types_for_class",
+                                                      "inputs": { "class_id": "loop.current_class.class_id" },
+                                                      "outputs": { "property_types": "result" }
+                                                    },
+
+                                                    {
+                                                      "id": "get_additional_properties",
+                                                      "function": "get_additional_properties",
+                                                      "inputs": {
+                                                        "class_id": "loop.current_class.class_id",
+                                                        "category": "loop.current_category"
+                                                      },
+                                                      "outputs": { "additional_properties": "result" }
+                                                    },
+
+                                                    {
+                                                      "id": "loop_property_template",
+                                                      "type": "loop",
+                                                      "iterate_on": "tasks.get_property_template.outputs.property_types",
+                                                      "loop_variable_name": "current_prop_type",
+                                                      "tasks": [
+                                                                {
+                                                                  "id": "read_property_template",
+                                                                  "function": "read_property_template_from_db",
+                                                                  "inputs": {
+                                                                    "class_id": "loop.current_class.class_id",
+                                                                    "prop_type": "loop.current_prop_type"
+                                                                  },
+                                                                  "outputs": { "prop_template": "result" }
+                                                                },
+
+                                                                {
+                                                                  "id": "select_property_template",
+                                                                  "condition": "tasks.read_property_template.outputs.prop_template == null",
+                                                                  "function": "select_property_template",
+                                                                  "inputs": {
+                                                                    "class_id": "loop.current_class.class_id",
+                                                                    "prop_type": "loop.current_prop_type",
+                                                                    "category": "loop.current_category"
+                                                                  },
+                                                                  "outputs": { "prop_template": "result" }
+                                                                },
+
+                                                                {
+                                                                  "id": "create_properties",
+                                                                  "function": "create_properties_from_template",
+                                                                  "inputs": {
+                                                                    "db": "tasks.open_model.outputs.db",
+                                                                    "object_name": "loop.current_object",
+                                                                    "template": "tasks.select_property_template.outputs.prop_template ?: tasks.read_property_template.outputs.prop_template"
+                                                                  },
+                                                                  "outputs": { "new_properties": "result" }
+                                                                }
+                                                              ]
+                                                            }
+                                          ] 
+                                        }
+                                      ]
+                                    }
+                            ]
+                        }
+                ]
+    },
+    {
+      "id": "close_model",
+      "function": "close_model"
+    }
+  ]
+}

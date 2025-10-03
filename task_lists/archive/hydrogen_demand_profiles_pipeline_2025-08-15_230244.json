@@ -1,0 +1,47 @@
+{
+  "user_input": "Please create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "TYNDP 2026",
+    "split",
+    "tst"
+  ],
+  "date_created": "2025-08-15",
+  "time_created": "23:02:52",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the TYNDP 2026 scenario specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Create hourly hydrogen demand profiles for the TYNDP 2026 Scenarios using scenarios 'NT', 'NT_HE', and 'NT_LE' for the years 2030, 2035, 2040, and 2050.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request, select the appropriate scenarios and years to generate hourly hydrogen demand profiles.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "split_nodes_based_on_profiles",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes based on the created demand profiles.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Use the generated hydrogen demand profiles to identify and split the corresponding nodes.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "convert_profiles_to_tst_format",
+      "function_name": "build_tst_workbooks",
+      "description": "Convert the resulting hydrogen demand profiles into the TST format for the TYNDP study team.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the output from the previous tasks, convert the profiles to the required TST format.",
+      "on_error": "abort"
+    }
+  ]
+}

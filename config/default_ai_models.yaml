@@ -1,0 +1,12 @@
+base_model: openai/gpt-oss-120b
+pro_model: gpt-5
+backup_base: gpt-5-mini
+oss_model: openai/gpt-oss-120b
+writer_model: openai/gpt-oss-120b
+
+gpt_small: gpt-5-mini
+gpt_large: gpt-5
+open_api_assistants: gpt-4o
+
+gemini_small: gemini/gemini-small
+gemini_large: gemini/gemini-large

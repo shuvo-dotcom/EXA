@@ -1,0 +1,63 @@
+{
+  "user_input": "Please create hourly demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use Hydrogen as the carrier. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format.",
+  "author": "Assistant",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "TYNDP2026",
+    "splitting",
+    "file_conversion"
+  ],
+  "date_created": "2025-08-15",
+  "time_created": "19:53:19",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Decompose the annual energy demand into hourly profiles for the TYNDP 2026 Scenarios using the 'NT', 'NT_HE', and 'NT_LE' scenarios for the years 2030, 2035, 2040, and 2050.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Select the relevant TYNDP 2026 scenario objects and assign the decomposed hourly demand profiles based on years 2030, 2035, 2040 and 2050.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "add_object",
+      "pipeline_name": "new_carrier_pipeline.json",
+      "description": "Add a new energy carrier object for Hydrogen using the new_carrier_pipeline.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Select the appropriate energy carrier context to add the Hydrogen object.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes as specified in the scenario using the splitting_pipeline.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Identify and select the nodes that need to be split based on the scenario requirements.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "modify_data_file",
+      "function_name": "modify_data_file",
+      "description": "Convert the model output to tst format.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Select the model output file that requires conversion to tst format based on the user's input.",
+      "on_error": "abort",
+      "function_args": {
+        "plexos_model_location": "path/to/plexos/model",
+        "input_file_path": "path/to/input/model_output.xml",
+        "user_input": "Convert model output to tst format",
+        "output_file_path": "path/to/output/model_output.tst"
+      },
+      "function_kwargs": {}
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import'. Perform a web search/LLM call to find import terminals for kerosene and methanol in Europe and their capacity in Tj/hour. Ensure we have the city name so we can link them to the hydrogen nodes using the datafile hydrogen_nodes.csv. Create pipelines to link the kerosene import nodes to the relevant hydrogen node. Make the capacity of the pipelines match the import terminal capacities.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "gas",
+    "node",
+    "field",
+    "pipeline",
+    "property",
+    "llm",
+    "search",
+    "sectoral-model"
+  ],
+  "date_created": "2025-08-20",
+  "time_created": "01:31:21",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "run_open_ai_ns",
+      "function_name": "run_open_ai_ns",
+      "description": "Call the LLM to identify European kerosene and methanol import terminals, including their city locations and capacities in TJ/hour.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Identify major kerosene and methanol import terminals in Europe and provide, for each terminal, the terminal_name, city, country, and capacity in TJ/hour. Include a method to convert capacities reported in tonnes/year or barrels/day to TJ/hour using standard lower heating values (kerosene ~46.2 MJ/kg, methanol ~19.9 MJ/kg) and appropriate density assumptions when needed. Return a JSON structure with keys: kerosene_terminals and methanol_terminals, each a list of objects with {terminal_name, city, country, capacity_TJ_per_hour, source_url}. Include city names precisely so they can be matched to hydrogen nodes from hydrogen_nodes.csv.",
+      "on_error": "abort",
+      "function_args": {
+        "prompt": "You are assisting with an energy systems model. Find European import terminals for kerosene and methanol. For each terminal, provide terminal_name, city, country, and capacity in TJ/hour. If capacity is reported in other units (e.g., tonnes/year, barrels/day), convert to TJ/hour. Use LHVs: kerosene \u2248 46.2 MJ/kg (density ~0.80\u20130.82 kg/L) and methanol \u2248 19.9 MJ/kg (density ~0.79 kg/L). Show final capacity_TJ_per_hour numeric values. Return JSON with two arrays: kerosene_terminals and methanol_terminals, each item: {terminal_name, city, country, capacity_TJ_per_hour, source_url}.",
+        "context": "The resulting city names will be matched to hydrogen nodes listed in hydrogen_nodes.csv to select the relevant hydrogen node for pipeline linkage in the TJ Sectoral Model. Provide commonly used/official city names to enable matching.",
+        "model": "gpt-4o-mini"
+      },
+      "function_kwargs": {}
+    },
+    {
+      "task_name": "create_gas_node_e-kerosene_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Using crud_pipeline.json, create a Gas Node named 'e-kerosene import' in the 'TJ Sectoral Model'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Model: 'TJ Sectoral Model'; Category: 'Gas Node'. Create object with Name = 'e-kerosene import'. Ensure uniqueness within the model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_gas_node_e-methanol_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Using crud_pipeline.json, create a Gas Node named 'e-methanol import' in the 'TJ Sectoral Model'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Model: 'TJ Sectoral Model'; Category: 'Gas Node'. Create object with Name = 'e-methanol import'. Ensure uniqueness within the model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_gas_field_e-kerosene_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Using crud_pipeline.json, create a Gas Field named 'e-kerosene import' in the 'TJ Sectoral Model'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Model: 'TJ Sectoral Model'; Category: 'Gas Field'. Create object with Name = 'e-kerosene import'. Ensure uniqueness within the model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_gas_field_e-methanol_import",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Using crud_pipeline.json, create a Gas Field named 'e-methanol import' in the 'TJ Sectoral Model'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Model: 'TJ Sectoral Model'; Category: 'Gas Field'. Create object with Name = 'e-methanol import'. Ensure uniqueness within the model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "create_pipeline_from_e-kerosene_import_to_h2_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Using crud_pipeline.json, create a Pipeline object to represent the link from the 'e-kerosene import' node to the relevant hydrogen node.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Model: 'TJ Sectoral Model'; Category: 'Gas Pipeline' (or equivalent 'Pipeline'). Create object with a descriptive Name such as 'e-kerosene import \u2192 {HydrogenNodeName}'. Set endpoints so that From/Source Node = 'e-kerosene import' (Gas Node) and To/Destination Node = the hydrogen node whose city matches the selected kerosene terminal city from the LLM results, mapped via hydrogen_nodes.csv.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "set_capacity_on_kerosene_pipeline",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Using crud_pipeline.json, set the 'Capacity' property (TJ/hour) on the kerosene import Pipeline to match the identified import terminal capacity.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Select the Pipeline object created in the prior task with Name like 'e-kerosene import \u2192 {HydrogenNodeName}'. Update Property: 'Capacity' with Units = 'TJ/hour'. Value = capacity_TJ_per_hour derived from the selected kerosene terminal in the LLM results.",
+      "on_error": "abort"
+    }
+  ]
+}

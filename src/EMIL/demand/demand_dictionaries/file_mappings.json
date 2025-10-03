@@ -1,0 +1,11 @@
+{
+
+  "demand_input_files": {
+      "Core_Flexibility_Report":{"Hydrogen": ["C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\Gas Networks Ireland\\Core Flexibility Report Project Documents\\Data Preperation\\demand_input.csv", "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\Gas Networks Ireland\\Core Flexibility Report Project Documents\\Demand\\Core Flexibility_Hydrogen_HT_UK_NESO.csv"]},
+      "TYNDP 2026 Scenario":{"Hydrogen":          ["src\\EMIL\\demand\\ETM\\20250725_DEMAND_OUTPUT.xlsx", "src\\EMIL\\demand\\ETM\\Households_District Heating_DEMAND_OUTPUT.xlsx", "src\\EMIL\\demand\\ETM\\Industry_Ammonia_DEMAND_OUTPUT.xlsx"],
+                             "Hybrid Heat Pumps": ["src\\EMIL\\demand\\ETM\\20250725_Hybrid_Heat_Pumps.xlsx"],
+                             "Synthetic Fuels":   ["src\\EMIL\\demand\\ETM\\Industry_Synthetic Fuels_DEMAND_OUTPUT.xlsx"]
+                            },
+      "Joule_Model": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\Joule\\Input\\joule_model_demand_input.csv"
+  }
+}

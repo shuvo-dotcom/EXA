@@ -1,0 +1,312 @@
+{
+    "Joule_Model": {
+        "interval": {
+                    "SystemVehicles": {
+                                            "Category": ["Home Charging", "Street Charging"],
+                                            "Property": ["Charging", "Discharging"]
+                                        },
+                    "SystemGasStorages": {
+                                            "Category": ["Hydrogen Market", "CH4 Storage", "e_kerosene", "e_methonol"],
+                                            "Property": ["Working Volume"]
+                                        },
+                    "SystemGenerators": {
+                                            "Category": ["Nuclear", "Hydro", "Pumped Storage", "Battery"],
+                                            "Property": ["Generation", "Load"]
+                                        }
+                    },
+        "day": {
+                    "SystemVehicles": {
+                                            "Category": ["Home Charging", "Street Charging"],
+                                            "Property": ["Charging", "Discharging"]
+                                        },
+                    "SystemGasStorages": {
+                                            "Category": ["Hydrogen Market", "CH4 Storage", "e_kerosene", "e_methonol"],
+                                            "Property": ["Working Volume"]
+                                        },
+                    "SystemGenerators": {
+                                            "Category": ["Nuclear", "Hydro", "Pumped Storage", "Battery"],
+                                            "Property": ["Generation", "Load"]
+                                        }
+                },
+        "weekly": {
+                    "SystemGenerators": {
+                                            "Category": "",
+                                            "Property": ["Generation", "CurtailedEnergy"]
+                                        },
+                    "SystemPower2X": {
+                                        "Category": "",
+                                        "Property": ["Load", "CapacityFactor"]
+                                    },
+                    "SystemBatteries": {
+                                            "Category": "",
+                                            "Property": ["Generation", "Load"]
+                                        },
+                    "SystemNodes": {
+                                        "Category": "",
+                                        "Property": ["NativeLoad", "Load", "PeakLoad", "Price", "Imports", "Exports", "UnservedEnergy", "NetInjection"]
+                                    },
+                    "SystemLines": {
+                                        "Category": "",
+                                        "Property": ["Flow", "ExportLimit", "FlowBack"]
+                                    },
+                    "SystemRegions": {
+                                            "Category": "",
+                                            "Property": ["Price", "NativeLoad", "UnservedEnergy"]
+                                        },
+                    "SystemGasFields": {
+                                            "Category": "",
+                                            "Property": "Production"
+                                        },
+                    "SystemGasPlants": {
+                                            "Category": "",
+                                            "Property": ["Production", "SRMC", "EnergyConsumption"]
+                                        },
+                    "SystemGasPipelines": {
+                                                "Category": "",
+                                                "Property": "FlowIn"
+                                            },
+                    "SystemGasStorages": {
+                                            "Category": "",
+                                            "Property": ["WorkingVolume", "MaxVolume", "Injection", "Withdrawal", "ShadowPrice"]
+                                        },
+                    "SystemGasNodes": {
+                                            "Category": "",
+                                            "Property": ["Demand", "Shortage"]
+                                        },
+                    "SystemGasDemands": {
+                                            "Category": "",
+                                            "Property": ["Flow", "PeakServedDemand"]
+                                        },
+                    "SystemHeatPlants": {
+                                            "Category": "",
+                                            "Property": ["HeatProduction", "ElectricalUsage"]
+                                        },
+                    "SystemHeatNodes": {
+                                            "Category": "",
+                                            "Property": ["HeatDemand"]
+                                        },
+                    "SystemVehicles": {
+                                            "Category": "",
+                                            "Property": ["Distance", "SoC", "EnergyConsumption"]
+                                        },
+                    "SystemChargingStations": {
+                                                    "Category": "",
+                                                    "Property": ["Charging", "Discharging"]
+                                                }
+                },
+        "month": {
+                        "SystemGenerators": {
+                            "Category": "",
+                            "Property": ["Generation", "CurtailedEnergy"]
+                        },
+                        "SystemPower2X": {
+                            "Category": "",
+                            "Property": ["Load", "CapacityFactor"]
+                        },
+                        "SystemBatteries": {
+                            "Category": "",
+                            "Property": ["Generation", "Load"]
+                        },
+                        "SystemNodes": {
+                            "Category": "",
+                            "Property": ["NativeLoad", "Load", "PeakLoad", "Price", "Imports", "Exports", "UnservedEnergy", "NetInjection"]
+                        },
+                        "SystemLines": {
+                            "Category": "",
+                            "Property": ["Flow", "ExportLimit", "FlowBack"]
+                        },
+                        "SystemRegions": {
+                            "Category": "",
+                            "Property": ["Price", "NativeLoad", "UnservedEnergy"]
+                        },
+                        "SystemGasFields": {
+                            "Category": "",
+                            "Property": "Production"
+                        },
+                        "SystemGasPlants": {
+                            "Category": "",
+                            "Property": ["Production", "SRMC", "EnergyConsumption"]
+                        },
+                        "SystemGasPipelines": {
+                            "Category": "",
+                            "Property": "FlowIn"
+                        },
+                        "SystemGasStorages": {
+                            "Category": "",
+                            "Property": ["WorkingVolume", "MaxVolume", "Injection", "Withdrawal", "ShadowPrice"]
+                        },
+                        "SystemGasNodes": {
+                            "Category": "",
+                            "Property": ["Demand", "Shortage"]
+                        },
+                        "SystemGasDemands": {
+                            "Category": "",
+                            "Property": ["Flow", "PeakServedDemand"]
+                        },
+                        "SystemHeatPlants": {
+                            "Category": "",
+                            "Property": ["HeatProduction", "ElectricalUsage"]
+                        },
+                        "SystemHeatNodes": {
+                            "Category": "",
+                            "Property": ["HeatDemand"]
+                        },
+                        "SystemVehicles": {
+                            "Category": "",
+                            "Property": ["Distance", "SoC", "EnergyConsumption"]
+                        },
+                        "SystemChargingStations": {
+                            "Category": "",
+                            "Property": ["Charging", "Discharging"]
+                        }
+                    },
+        "fiscalyear": {
+                    "SystemGenerators": {
+                        "Category": "",
+                        "Property": ["Generation", "CurtailedEnergy"]
+                    },
+                    "SystemPower2X": {
+                        "Category": "",
+                        "Property": ["Load", "CapacityFactor"]
+                    },
+                    "SystemBatteries": {
+                        "Category": "",
+                        "Property": ["Generation", "Load"]
+                    },
+                    "SystemNodes": {
+                        "Category": "",
+                        "Property": ["NativeLoad", "Load", "PeakLoad", "Price", "Imports", "Exports", "UnservedEnergy", "NetInjection"]
+                    },
+                    "SystemLines": {
+                        "Category": "",
+                        "Property": ["Flow", "ExportLimit", "FlowBack"]
+                    },
+                    "SystemRegions": {
+                        "Category": "",
+                        "Property": ["Price", "NativeLoad", "UnservedEnergy"]
+                    },
+                    "SystemGasFields": {
+                        "Category": "",
+                        "Property": "Production"
+                    },
+                    "SystemGasPlants": {
+                        "Category": "",
+                        "Property": ["Production", "SRMC", "EnergyConsumption"]
+                    },
+                    "SystemGasPipelines": {
+                        "Category": "",
+                        "Property": "FlowIn"
+                    },
+                    "SystemGasStorages": {
+                        "Category": "",
+                        "Property": ["WorkingVolume", "MaxVolume", "Injection", "Withdrawal", "ShadowPrice"]
+                    },
+                    "SystemGasNodes": {
+                        "Category": "",
+                        "Property": ["Demand", "Shortage"]
+                    },
+                    "SystemGasDemands": {
+                        "Category": "",
+                        "Property": ["Flow", "PeakServedDemand"]
+                    },
+                    "SystemHeatPlants": {
+                        "Category": "",
+                        "Property": ["HeatProduction", "ElectricalUsage"]
+                    },
+                    "SystemHeatNodes": {
+                        "Category": "",
+                        "Property": ["HeatDemand"]
+                    },
+                    "SystemVehicles": {
+                        "Category": "",
+                        "Property": ["Distance", "SoC", "EnergyConsumption"]
+                    },
+                    "SystemChargingStations": {
+                        "Category": "",
+                        "Property": ["Charging", "Discharging"]
+                    }
+                }
+    },
+    "DHEM": {
+        "interval": {
+                        "SystemGenerators_Nuclear": {
+                            "Category": "Nuclear",
+                            "Property": ["Available Energy"]
+                        },
+                        "SystemGenerators_RES": {
+                            "Category": ["Onshore Wind", "Offshore Wind", "Solar Photovoltaic", "Solar Thermal", "Other RES", "Run-of River and pondage"],
+                            "Property": ["Curtailed Energy"]
+                        },
+                        "SystemPower2X": {
+                            "Category": "",
+                            "Property": ["Load"]
+                        },
+                        "SystemGasNodes": {
+                            "Category": ["H2 Demand Hub", "Imports", "H2 Bottleneck"],
+                            "Property": ["Price", "Shortage"]
+                        }
+                    },
+        "fiscalyear": {
+                        "SystemPower2X": {
+                            "Category": "",
+                            "Property": ""
+                        },
+                        "SystemGasPipelines": {
+                            "Category": "",
+                            "Property": ""
+                        },
+                        "SystemGasFields": {
+                            "Category": "",
+                            "Property": ""
+                        },
+                        "SystemGasNodes": {
+                            "Category": "",
+                            "Property": ""
+                        },
+                        "SystemGasDemands": {
+                            "Category": "",
+                            "Property": ""
+                        },
+                        "SystemGenerators": {
+                            "Category": "",
+                            "Property": ""
+                        }
+                    },
+        "month": {
+                        "SystemGasPipelines": {
+                            "Category": "",
+                            "Property": ""
+                        }
+                    },
+        "day": {
+                    "SystemPower2X": {
+                        "Category": ["Electrolyser Z1", "Electrolyser Z2", "DRES"],
+                        "Property": ["Load", "Installed Capacity", "Capacity Factor"]
+                    },
+                    "SystemGasPipelines": {
+                        "Category": ["H2 Import", "H2 Interconnection", "H2 Internal Bottleneck", "H2 Z1-Z2 connection", "H2 Z1 split"],
+                        "Property": ["Flow In"]
+                    },
+                    "SystemGasFields": {
+                        "Category": ["SMR", "Import"],
+                        "Property": ["Production"]
+                    },
+                    "SystemGasNodes": {
+                        "Category": ["H2 Demand Hub", "H2 Demand Hub Z1"],
+                        "Property": ["Price", "Demand", "Shortage"]
+                    },
+                    "SystemGenerators_RES": {
+                        "Category": ["Onshore Wind", "Offshore Wind", "Solar Photovoltaic", "Solar Thermal", "Other RES"],
+                        "Property": ["Generation", "Energy Curtailed", "Curtailed Energy"]
+                    },
+                    "SystemGenerators_Nuclear": {
+                        "Category": ["Nuclear"],
+                        "Property": ["Available Energy"]
+                    },
+                    "SystemGasStorages": {
+                        "Category": ["H2 Storage"],
+                        "Property": ["Working Volume", "MaxVolume", "Withdrawal", "Shadow Price"]
+                    }
+                }
+    }
+}

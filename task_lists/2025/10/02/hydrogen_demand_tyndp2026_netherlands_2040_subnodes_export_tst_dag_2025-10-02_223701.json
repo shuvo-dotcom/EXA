@@ -1,0 +1,17 @@
+{
+  "user_input": "Generate hydrogen demand timeseries for the TYNDP\u202f2026 scenario (Netherlands, 2040) with sub\u2011nodes=true and export the results to the TST workbook format.",
+  "author": "Assistant",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "TYNDP2026",
+    "export",
+    "TST"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "22:37:55",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  }
+}

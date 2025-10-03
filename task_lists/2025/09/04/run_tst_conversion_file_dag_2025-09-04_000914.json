@@ -1,0 +1,31 @@
+{
+  "user_input": "I need to convert my demand timeseries in a format for the tst, please run the tst conversion file.",
+  "author": "Dante",
+  "tags": [
+    "tst",
+    "demand",
+    "conversion",
+    "export",
+    "timeseries"
+  ],
+  "date_created": "2025-09-04",
+  "time_created": "00:09:27",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Run the TST conversion to export the demand time series in the required TST format.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "No entity selection required; execute the TST conversion against the active demand time series per the user's request: '{user_input}'.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

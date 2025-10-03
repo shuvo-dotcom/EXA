@@ -1,0 +1,54 @@
+{
+  "user_input": "Please create hourly Hybrid Heat Pump demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. Use Methane as the complement not the carrier. No need to access any PLEXOS database for now.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "HHP",
+    "TYNDP-2026",
+    "tst",
+    "export",
+    "no-plexos",
+    "function"
+  ],
+  "date_created": "2025-09-17",
+  "time_created": "00:51:48",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operations based on the user's scenario. Do not access any PLEXOS database. Generate hourly Hybrid Heat Pump demand profiles for TYNDP 2026 (scenarios NT, NT_HE, NT_LE; years 2030, 2035, 2040, 2050) with nodes split and Methane treated as the complement (not the carrier). Then export outputs to TST format.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hourly Hybrid Heat Pump demand profiles for TYNDP 2026 using scenarios NT, NT_HE, NT_LE for years 2030, 2035, 2040, and 2050. Split the nodes. Treat Methane as the complement (not the carrier). Do not access any PLEXOS database. Produce outputs to a local working directory for downstream TST export."
+      },
+      "function_kwargs": {},
+      "description": "Generate hourly Hybrid Heat Pump demand profiles for TYNDP 2026 using scenarios NT, NT_HE, and NT_LE for years 2030, 2035, 2040, and 2050, with nodes split and Methane set as the complement (not the carrier).",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', determine scenarios, years, node splitting, and complement/carrier handling, then create the appropriate local data files. No PLEXOS DB access.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "Electricity"
+      },
+      "function_kwargs": {},
+      "description": "Export the generated hourly Hybrid Heat Pump demand profiles to TST format.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the appropriate TST export structure and ensure Methane is treated as the complement while using Electricity as the carrier. Use outputs from 'main_demand_processer_v2'.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

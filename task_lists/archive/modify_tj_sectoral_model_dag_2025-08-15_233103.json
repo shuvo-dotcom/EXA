@@ -1,0 +1,48 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear",
+  "author": "Dante",
+  "tags": [
+    "PLEXOS",
+    "Nuclear",
+    "SMR",
+    "clone",
+    "update",
+    "CRUD"
+  ],
+  "date_created": "2025-08-15",
+  "time_created": "23:31:14",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the TJ Sectoral Model specifications.",
+  "tasks": [
+    {
+      "task_name": "clone_pipeline",
+      "pipeline_name": "clone_pipeline.json",
+      "description": "Clone the Nuclear SMR from the Nuclear model using the clone pipeline.",
+      "target_level": "object",
+      "strategy_action": "clone",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear', select the most appropriate object from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_properties",
+      "pipeline_name": "update_pipeline.json",
+      "description": "Update the cloned generator to assign it to the Germany (DE01) location.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear', select the most appropriate property from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_properties",
+      "pipeline_name": "update_pipeline.json",
+      "description": "Update the capacity property of the generator to 1000 MW.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Create a Nuclear SMR Generators in Germany (DE01) with a capacity of 1000 MW. Clone the Nuclear SMR in Nuclear', select the most appropriate property from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

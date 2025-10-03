@@ -1,0 +1,119 @@
+{
+  "FRh2 - FRh2S": {
+    "from": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2"
+    },
+    "to": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2S"
+    },
+    "enabled": true
+  },
+  "FI01h2 - FI02h2": {
+    "from": {
+      "country": "FI",
+      "zone": "Zone 2",
+      "node": "FI01h2"
+    },
+    "to": {
+      "country": "FI",
+      "zone": "Zone 2",
+      "node": "FI02h2"
+    },
+    "enabled": true
+  },
+  "FRh2SW - ESh2": {
+    "from": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2SW"
+    },
+    "to": {
+      "country": "ES",
+      "zone": "Zone 2",
+      "node": "ESh2"
+    },
+    "enabled": true
+  },
+  "PLh2N - PLh2S": {
+    "from": {
+      "country": "PL",
+      "zone": "Zone 2",
+      "node": "PLh2N"
+    },
+    "to": {
+      "country": "PL",
+      "zone": "Zone 2",
+      "node": "PLh2S"
+    },
+    "enabled": true
+  },
+  "FRh2 - FRh2SW": {
+    "from": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2"
+    },
+    "to": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2SW"
+    },
+    "enabled": true
+  },
+  "FRh2SW - FRh2S": {
+    "from": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2SW"
+    },
+    "to": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2S"
+    },
+    "enabled": true
+  },
+  "DEh2 - PLh2N": {
+    "from": {
+      "country": "DE",
+      "zone": "Zone 2",
+      "node": "DEh2"
+    },
+    "to": {
+      "country": "PL",
+      "zone": "Zone 2",
+      "node": "PLh2N"
+    },
+    "enabled": true
+  },
+  "DEh2 - PLh2S": {
+    "from": {
+      "country": "DE",
+      "zone": "Zone 2",
+      "node": "DEh2"
+    },
+    "to": {
+      "country": "PL",
+      "zone": "Zone 2",
+      "node": "PLh2S"
+    },
+    "enabled": true
+  },
+  "FRh2 - BEh2": {
+    "from": {
+      "country": "FR",
+      "zone": "Zone 2",
+      "node": "FRh2"
+    },
+    "to": {
+      "country": "BE",
+      "zone": "Zone 2",
+      "node": "BEh2"
+    },
+    "enabled": true
+  }
+}

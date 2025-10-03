@@ -1,0 +1,35 @@
+{
+  "user_input": "Generate hydrogen demand profiles for the 2040 TYNDP scenario for the Netherlands, including every node in the model.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "hydrogen",
+    "profile",
+    "TYNDP",
+    "Netherlands"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "17:33:32",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the PLEXOS model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hydrogen demand profiles for the 2040 TYNDP scenario for the Netherlands, including every node in the model."
+      },
+      "function_kwargs": {},
+      "description": "Decompose annual hydrogen demand figures into hourly profiles for the 2040 TYNDP scenario across all nodes in the Netherlands model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Generate hydrogen demand profiles for the 2040 TYNDP scenario for the Netherlands, including every node in the model.', select the most appropriate object to create.",
+      "dependencies": [],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "user_input": "Please create hourly Electricity demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios.\nUse the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. \nNo need to access any PLEXOS database for now",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "profiles",
+    "TYNDP2026",
+    "scenarios",
+    "NT",
+    "NT_HE",
+    "NT_LE",
+    "2030",
+    "2035",
+    "2040",
+    "2050",
+    "tst",
+    "export",
+    "no-db"
+  ],
+  "date_created": "2025-09-03",
+  "time_created": "15:25:44",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications. No PLEXOS database access is required; operate on external/generated files only.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Generate hourly electricity demand profiles for TYNDP 2026 with scenarios NT, NT_HE, NT_LE for years 2030, 2035, 2040, 2050. Split nodes as requested. Do not access any PLEXOS database; work with external/generated files only. Produce outputs in an intermediate structure ready for TST export."
+      },
+      "function_kwargs": {},
+      "description": "Generate hourly electricity demand profiles for TYNDP 2026 using scenarios NT, NT_HE, NT_LE for years 2030, 2035, 2040, and 2050, and split the nodes as requested.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', determine appropriate scenario/year combinations and apply node splitting while generating hourly profiles without using a PLEXOS database.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "function_args": {},
+      "function_kwargs": {},
+      "description": "Export the generated hourly demand profiles to TST format for the TYNDP study team.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', package the previously generated hourly demand profiles into TST workbooks suitable for the TYNDP study team.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "log_and_continue"
+    }
+  ]
+}

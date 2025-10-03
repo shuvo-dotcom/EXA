@@ -1,0 +1,58 @@
+{
+  "user_input": "Please create hourly Hybrid Heat Pump demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Convert to tst format. Use Hydrogen as the complement not the carrier. No need to access any PLEXOS database for now.",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "HHP",
+    "TYNDP2026",
+    "NT",
+    "NT_HE",
+    "NT_LE",
+    "hourly",
+    "split-nodes",
+    "tst",
+    "no-db"
+  ],
+  "date_created": "2025-09-24",
+  "time_created": "11:03:07",
+  "retry_policy": {
+    "count": 2,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications. Do not access any PLEXOS database; operate only on files created within this DAG.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly Hybrid Heat Pump demand profiles for the TYNDP 2026 study for scenarios NT, NT_HE and NT_LE for years 2030, 2035, 2040 and 2050. Treat Hydrogen as the complement (not the carrier). Do not access any PLEXOS database.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Please create hourly Hybrid Heat Pump demand profiles for the TYNDP 2026 Scenarios... Use Hydrogen as the complement not the carrier. No need to access any PLEXOS database for now.', select parameters for scenarios ['NT','NT_HE','NT_LE'] and years [2030,2035,2040,2050], and choose a working directory for outputs without requiring any PLEXOS DB interaction.",
+      "dependencies": [],
+      "on_error": "abort",
+      "function_args": {
+        "user_input": "Generate hourly Hybrid Heat Pump demand profiles for TYNDP 2026 scenarios NT, NT_HE, NT_LE for years 2030, 2035, 2040, 2050. Hydrogen is the complement (not the carrier). No PLEXOS DB access. Produce per-scenario, per-year CSV outputs suitable for downstream node splitting and TST export."
+      },
+      "function_kwargs": {}
+    },
+
+    {
+      "task_id": 2,
+      "task_name": "build_tst_workbooks",
+      "function_name": "build_tst_workbooks",
+      "description": "Export the processed (split-node) Hybrid Heat Pump hourly demand profiles to TST format for the TYNDP 2026 study team.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Consume the split-node profiles produced by 'modify_data_file' and export them as TST workbooks suitable for TYNDP 2026. Set carrier to Electricity, as Hydrogen is only the complement.",
+      "dependencies": [
+        "modify_data_file"
+      ],
+      "on_error": "abort",
+      "function_args": {
+        "carrier": "Electricity"
+      },
+      "function_kwargs": {}
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "user_input": "Please create hourly demand profiles for the TYNDP 2026 Scenarios. Use the 'NT', 'NT_HE' and 'NT_LE' Scenarios. Use Hydrogen as the carrier. Use the year 2030, 2035, 2040 and 2050. Split the nodes. Use Germany.",
+  "author": "Dante",
+  "tags": [
+    "PLEXOS",
+    "demand",
+    "scenario",
+    "Hydrogen",
+    "Germany"
+  ],
+  "date_created": "2025-08-15",
+  "time_created": "17:37:46",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "description": "Generate hourly demand profiles for the TYNDP 2026 Scenarios by processing the 'NT', 'NT_HE', and 'NT_LE' scenario data for the years 2030, 2035, 2040, and 2050 in Germany.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request, process scenario data for demand profiles using the specified NT, NT_HE, and NT_LE data for the years 2030, 2035, 2040, and 2050 in Germany.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "new_carrier_pipeline",
+      "pipeline_name": "new_carrier_pipeline.json",
+      "description": "Add a new energy carrier object 'Hydrogen' into the PLEXOS model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user scenario, ensure the Hydrogen energy carrier is properly added to the model.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "splitting_pipeline",
+      "pipeline_name": "splitting_pipeline.json",
+      "description": "Split the nodes in the model to isolate the Germany subset.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "entity_selection_context": "Select and isolate nodes corresponding to the Germany region based on the provided scenario details.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,3476 @@
+{
+  "Generators": {
+    "Other RES": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Onshore Wind Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Rooftop Solar Tertiary": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Onshore Wind": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Rooftop Tertiary Solar Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Pump Storage - closed loop": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Pump Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Pump Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Energy Week": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Energy Week": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Solar PV Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "DSR Industry": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Quantity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Offshore Wind Radial": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Solar PV": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "RoR and Pondage": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Bio Fuels": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Quantity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Retired": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Other Non RES": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Quantity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Rooftop Residential Solar Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Solar Thermal": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Reservoir": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Energy Week": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "DSR Tertiary": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Quantity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Offer Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Pump Storage - open loop": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Pump Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Pump Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Max Energy Week": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Energy Week": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Rooftop Solar Residential": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Gas": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Retired": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Nuclear": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Retired": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Offshore Wind Radial Fixed Bottom": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Offshore Wind Hub Fixed Bottom": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Z2DR Solar PV": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Z2DR Onshore Wind": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "H2 Imports": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Rating Factor": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "H2 CCGT New": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "H2 OCGT New": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "H2 Retrofit": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Retired": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Future tech": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Nuclear SMR": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Factor": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Heat Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Up Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Down Time": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Forced Outage Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Maintenance Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Mean Time to Repair": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Fuels": {
+    "Bio Fuels": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Nuclear": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Hard coal": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Lignite": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Gas": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Light oil": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Heavy oil": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Oil shale": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    }
+  },
+  "Power2X": {
+    "H2 Imports": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Water Consumption": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "H2 Offshore": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Water Consumption": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Hydrogen Market": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Water Consumption": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Dedicated RES": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Water Consumption": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Batteries": {
+    "Residential Battery Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Power": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial SoC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Discharge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Tertiary Battery Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Power": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial SoC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Discharge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Market Battery Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Power": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial SoC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Discharge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Market Batteries": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Power": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial SoC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "PSBT Residential": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Power": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial SoC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "PSBT Tertiary": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Power": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial SoC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Storages": {
+    "Hydro Tail": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Hydro Head": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Spill Penalty": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Natural Inflow": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Target Year": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Emissions": {
+    "Co2": {
+      "Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Production Year": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Regions": {
+    "Electricity": {
+      "VoLL": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Nodes": {
+    "Residential": {
+      "Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Industrial": {
+      "Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Tertiary": {
+      "Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Transport": {
+      "Load": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    }
+  },
+  "Lines": {
+    "Tertiary": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Offshore to Home": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Offshore Hub Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Transport": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Industrial": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Residential": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Residential to Transport": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Electricity": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "RoR and Pondage": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Reservoir": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Pump Storage - open loop": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Pump Storage - closed loop": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Electricity Expansion": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Flow": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Wheeling Charge Back": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Heat Plants": {
+    "CH4 Hybrid Heating Residential": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Efficiency Incr": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Water CH4 Hybrid Heating Residential": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Capacity": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Efficiency Incr": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    }
+  },
+  "Heat Nodes": {
+    "CH4 Hybrid Heating Residential": {
+      "Heat Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Water CH4 Hybrid Heating Residential": {
+      "Heat Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    }
+  },
+  "Gas Fields": {
+    "H2 Imports": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Production Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Production": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "White Hydrogen": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Production Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Production": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Biogenic CO2": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Production Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Biomethane": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Production Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Production Volume": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min Production": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Natural Gas": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Production Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Production Volume": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Gas Plants": {
+    "SMR": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Level": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Energy Usage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shutdown Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_kerosene H2": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Level": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Energy Usage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shutdown Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_kerosene CO2": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_methonol H2": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Level": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Energy Usage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shutdown Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_methonol CO2": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Methane Pyrolysis": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Min Stable Level": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Energy Usage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shutdown Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Ammonia Terminals": {
+      "Max Production": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Processing Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Energy Usage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "VO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "FO&M Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Start Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shutdown Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Units Built": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Gas Pipelines": {
+    "H2 Imports": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Pipeline": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Offshore to Home": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Pipeline": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Hydrogen Market 26": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Pipeline": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Loss Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Industry": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Transport": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Residential": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Tertiary": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Hydrogen Market Retrofit": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Pipeline": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4 Interconnection": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Pipeline": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Loss Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Industry": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Transport": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Residential": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Tertiary": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Other": {
+      "Expansion Optimality": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_kerosene": {
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_methonol": {
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Flow Charge": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow Day": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Natural Gas": {
+      "Is Available": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Is Bidirectional": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Flow": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Gas Storages": {
+    "Hydrogen Market": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Power Consumption": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Withdrawal": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Max Injection": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Target Year": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Storage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4 Storage": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Power Consumption": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Target Year": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_kerosene": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Withdrawal": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Injection": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Target Year": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_methonol": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Withdrawal": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Injection": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Target Year": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "H2 Imports": {
+      "End Effects Method": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Initial Volume": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Target Year": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Expansion Storage": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Build Cost": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "WACC": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Economic Life": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Expansion Max Volume": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Gas Demands": {
+    "Hydrogen Market": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Excess Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Industry": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Excess Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Zone 2 Transport": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Excess Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Industry": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Transport": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Residential": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4_Tertiary": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_kerosene": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Excess Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_methonol": {
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Shortage Price": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Excess Price": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Vehicles": {
+    "Home Charging": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min SoC": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Street Charging": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Capacity": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Demand": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Min SoC": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Charging Stations": {
+    "Residential": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Charge Rate": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Deferrable Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Deferment Period": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Discharge Rate": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Discharge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "UoS Charge": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Tertiary": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Charge Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Deferrable Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Deferment Period": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Discharge Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Discharge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "UoS Charge": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Street": {
+      "Units": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Charge Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Deferrable Load": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Deferment Period": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Discharge Rate": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Charge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Discharge Efficiency": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "UoS Charge": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Constraints": {
+    "Hydro Pumping": {
+      "Sense": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "RHS": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    },
+    "Gas Plant Retrofit": {
+      "Sense": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "RHS": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "CH4 Pipeline Repurpose": {
+      "Sense": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "RHS": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "-": {
+      "Sense": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "RHS": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "DataFiles": {
+    "All": {
+      "Filename": {
+        "default_value": null,
+        "default_datafile": "Datafile"
+      }
+    }
+  },
+  "Variables": {
+    "Hydro Variables": {
+      "Profile": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Scalers": {
+      "Profile": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Ramp Rates": {
+      "Profile": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Min Flow": {
+      "Profile": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Generator.Start Fuels": {
+    "Bio Fuels": {
+      "Offtake at Start": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Nuclear": {
+      "Offtake at Start": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Generator.Constraints": {
+    "Gas Plant Retrofit": {
+      "Units Built Coefficient": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "-": {
+      "Capacity Built Coefficient": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Storage.Constraints": {
+    "Hydro Pumping": {
+      "End Volume Coefficient": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Emission.Fuels": {
+    "Hard coal": {
+      "Production Rate": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Lignite": {
+      "Production Rate": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Gas": {
+      "Production Rate": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Light oil": {
+      "Production Rate": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Heavy oil": {
+      "Production Rate": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Oil shale": {
+      "Production Rate": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Gas Plant.Output Node": {
+    "e_kerosene": {
+      "Min Blend Percent": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Blend Percent": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "e_methonol": {
+      "Min Blend Percent": {
+        "default_value": null,
+        "default_datafile": null
+      },
+      "Max Blend Percent": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Gas Pipeline.Constraints": {
+    "CH4 Pipeline Repurpose": {
+      "Units Built Coefficient": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  },
+  "Vehicle.Charging Stations": {
+    "Tertiary": {
+      "Share": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    },
+    "Street": {
+      "Share": {
+        "default_value": null,
+        "default_datafile": null
+      }
+    }
+  }
+}

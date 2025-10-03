@@ -1,0 +1,1400 @@
+﻿{
+    "AL":  {
+               "AL00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2862427.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "AT":  {
+               "AT03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3868466.0,
+                                                        "Population share":  0.44,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "AT01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3186318.0,
+                                                        "Population share":  0.36,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "AT02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1803991.0,
+                                                        "Population share":  0.2,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        }
+           },
+    "BE":  {
+               "BE02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5972755.0,
+                                                        "Population share":  0.52,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "BE01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2713278.0,
+                                                        "Population share":  0.24,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "BE03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2769486.0,
+                                                        "Population share":  0.24,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        }
+           },
+    "BG":  {
+               "BG02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3512453.0,
+                                                        "Population share":  0.5,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        },
+               "BG01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3487586.0,
+                                                        "Population share":  0.5,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        }
+           },
+    "CH":  {
+               "CH00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  8544527.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "CY":  {
+               "CY00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  875899.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "CZ":  {
+               "CZ01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5020454.0,
+                                                        "Population share":  0.47,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        },
+               "CZ02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5629346.0,
+                                                        "Population share":  0.53,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        }
+           },
+    "DE":  {
+               "DE04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6221082.0,
+                                                        "Population share":  0.07,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "DE06":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  12060042.0,
+                                                        "Population share":  0.15,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "DE05":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  10350653.0,
+                                                        "Population share":  0.12,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "DE07":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  13076721.0,
+                                                        "Population share":  0.16,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "DE03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  17932651.0,
+                                                        "Population share":  0.22,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "DE02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  9974739.0,
+                                                        "Population share":  0.12,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "DE01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  13403325.0,
+                                                        "Population share":  0.16,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        }
+           },
+    "DK":  {
+               "DKW1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3133781.0,
+                                                        "Population share":  0.54,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        },
+               "DKE1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2672300.0,
+                                                        "Population share":  0.46,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        }
+           },
+    "EE":  {
+               "EE00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1324820.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "ES":  {
+               "ES10":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  9915068.0,
+                                                        "Population share":  0.18,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES11":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  7009846.0,
+                                                        "Population share":  0.12,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES09":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  8427405.0,
+                                                        "Population share":  0.15,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES05":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1320586.0,
+                                                        "Population share":  0.02,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES12":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES07":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6641649.0,
+                                                        "Population share":  0.12,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3141397.0,
+                                                        "Population share":  0.06,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2700441.0,
+                                                        "Population share":  0.05,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES06":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  7566431.0,
+                                                        "Population share":  0.13,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2989374.0,
+                                                        "Population share":  0.05,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES08":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3100301.0,
+                                                        "Population share":  0.06,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        },
+               "ES02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3429938.0,
+                                                        "Population share":  0.06,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.08,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.08
+                                                    }
+                                       }
+                        }
+           },
+    "FI":  {
+               "FI01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1284638.0,
+                                                        "Population share":  0.23,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        },
+               "FI02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  4203492.0,
+                                                        "Population share":  0.77,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        }
+           },
+    "FR":  {
+               "FR15":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  342256.0,
+                                                        "Population share":  0.01,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2847554.0,
+                                                        "Population share":  0.04,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR10":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  12252917.0,
+                                                        "Population share":  0.19,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR08":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3347004.0,
+                                                        "Population share":  0.05,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR14":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1317548.0,
+                                                        "Population share":  0.02,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6529468.0,
+                                                        "Population share":  0.1,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR09":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3320832.0,
+                                                        "Population share":  0.05,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR07":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6660101.0,
+                                                        "Population share":  0.1,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR05":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3298369.0,
+                                                        "Population share":  0.05,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR13":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5995908.0,
+                                                        "Population share":  0.09,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR06":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1370432.0,
+                                                        "Population share":  0.02,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5612701.0,
+                                                        "Population share":  0.09,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR12":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5403621.0,
+                                                        "Population share":  0.08,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5065696.0,
+                                                        "Population share":  0.08,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        },
+               "FR11":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1623815.0,
+                                                        "Population share":  0.02,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.07,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.07
+                                                    }
+                                       }
+                        }
+           },
+    "GR":  {
+               "GR03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1200055.0,
+                                                        "Population share":  0.11,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "GR02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6450340.0,
+                                                        "Population share":  0.6,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "GR01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3074204.0,
+                                                        "Population share":  0.29,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        }
+           },
+    "HR":  {
+               "HR02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2702175.0,
+                                                        "Population share":  0.66,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "HR04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "HR01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1374071.0,
+                                                        "Population share":  0.34,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        }
+           },
+    "HU":  {
+               "HU03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3814421.0,
+                                                        "Population share":  0.39,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "HU01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3031160.0,
+                                                        "Population share":  0.31,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "HU02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2927175.0,
+                                                        "Population share":  0.3,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        }
+           },
+    "IE":  {
+               "IE00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  4904240.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "IS":  {
+               "IS00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  356991.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "IT":  {
+               "ITCS":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  13117802.0,
+                                                        "Population share":  0.22,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "ITS1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  4534115.0,
+                                                        "Population share":  0.08,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "ITSA":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1622257.0,
+                                                        "Population share":  0.03,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "ITSI":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  4908548.0,
+                                                        "Population share":  0.08,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "ITN1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  27626522.0,
+                                                        "Population share":  0.46,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "ITCA":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1912021.0,
+                                                        "Population share":  0.03,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        },
+               "ITCN":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6095408.0,
+                                                        "Population share":  0.1,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.14,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.14
+                                                    }
+                                       }
+                        }
+           },
+    "LT":  {
+               "LT00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2794184.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "LU":  {
+               "LUV1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "LUG1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  613894.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "LUF1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "LUB1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        }
+           },
+    "LV":  {
+               "LV00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1919968.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "ME":  {
+               "ME00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  622182.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "MK":  {
+               "MK00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2076953.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "MT":  {
+               "MT00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  493559.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "NL":  {
+               "NL02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3644949.0,
+                                                        "Population share":  0.21,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "NL01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1723829.0,
+                                                        "Population share":  0.1,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "NL03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  8252442.0,
+                                                        "Population share":  0.48,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "NL04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3660943.0,
+                                                        "Population share":  0.21,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        }
+           },
+    "NO":  {
+               "NOS1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1692073.0,
+                                                        "Population share":  0.64,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "NON1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  948482.0,
+                                                        "Population share":  0.36,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "NOS3":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "NOM1":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "NOS2":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        }
+           },
+    "PL":  {
+               "PL02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5409672.0,
+                                                        "Population share":  0.14,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "PL05":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5764951.0,
+                                                        "Population share":  0.15,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "PL04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6151984.0,
+                                                        "Population share":  0.16,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "PL01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  8985552.0,
+                                                        "Population share":  0.24,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        },
+               "PL03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  11660653.0,
+                                                        "Population share":  0.31,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.2,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.2
+                                                    }
+                                       }
+                        }
+           },
+    "PT":  {
+               "PT01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  3990674.0,
+                                                        "Population share":  0.41,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        },
+               "PT02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5789152.0,
+                                                        "Population share":  0.59,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.5,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.5
+                                                    }
+                                       }
+                        }
+           },
+    "RO":  {
+               "RO01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6797244.0,
+                                                        "Population share":  0.35,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "RO03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5594735.0,
+                                                        "Population share":  0.29,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        },
+               "RO02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  7022479.0,
+                                                        "Population share":  0.36,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.33,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.33
+                                                    }
+                                       }
+                        }
+           },
+    "RS":  {
+               "RS00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  6963764.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "SE":  {
+               "SE03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  7811953.0,
+                                                        "Population share":  0.76,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "SE04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  1521848.0,
+                                                        "Population share":  0.15,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "SE02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  375733.0,
+                                                        "Population share":  0.04,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        },
+               "SE01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  520651.0,
+                                                        "Population share":  0.05,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.25,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.25
+                                                    }
+                                       }
+                        }
+           },
+    "SI":  {
+               "SI00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  2080908.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "SK":  {
+               "SK00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5450421.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "TR":  {
+               "TR00":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  82003882.0,
+                                                        "Population share":  1.0,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  1.0,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  1.0
+                                                    }
+                                       }
+                        }
+           },
+    "UK":  {
+               "UKNI":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.17,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.17
+                                                    }
+                                       }
+                        },
+               "UK05":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5454238.0,
+                                                        "Population share":  0.08,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.17,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.17
+                                                    }
+                                       }
+                        },
+               "UK04":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  15443285.0,
+                                                        "Population share":  0.24,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.17,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.17
+                                                    }
+                                       }
+                        },
+               "UK01":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  24392699.0,
+                                                        "Population share":  0.38,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.17,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.17
+                                                    }
+                                       }
+                        },
+               "UK03":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  13855320.0,
+                                                        "Population share":  0.21,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.17,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.17
+                                                    }
+                                       }
+                        },
+               "UK02":  {
+                            "Zone 2":  {
+                                           "2050":  {
+                                                        "Population":  5616381.0,
+                                                        "Population share":  0.09,
+                                                        "Industrial Employees":  1.0,
+                                                        "Industrial share":  0.17,
+                                                        "Tertiary Employees":  1.0,
+                                                        "Tertiary share":  0.17
+                                                    }
+                                       }
+                        }
+           }
+}

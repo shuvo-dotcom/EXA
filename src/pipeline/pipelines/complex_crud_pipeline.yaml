@@ -1,0 +1,166 @@
+schema_version: 1
+name: crud_dag_modifier
+description: >-
+  Metadata rules to enable source/destination concurrent execution and item crossovers
+  for complex operations (transfer, clone, merge, split) without duplicating the CRUD DAG.
+
+# Defaults applied to tasks not explicitly listed below
+defaults:
+  execute_source: false
+  execute_destination: true
+  crossover:
+    pass_items: false
+
+# Task-specific rules by task id (matching ids in crud_pipeline.json)
+tasks:
+  choose_class_group:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  get_active_classes:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  choose_class:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  read_all_categories_for_class:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  choose_category:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: true
+      from: choose_category
+      source_notes: "Choose the source category for the operation"
+      destination_notes: "Choose the destination category for the operation"
+
+  confirm_category_action_before_execution:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  execute_category_action:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  read_all_objects_in_category:
+    execute_source: true
+    execute_destination: false
+    crossover:
+      pass_items: false
+
+  read_all_objects_in_class:
+    execute_source: true
+    execute_destination: false
+    crossover:
+      pass_items: false
+
+  choose_objects:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: true
+      from: choose_objects
+      source_notes: "Choose 1 source object from the original list, you cannot suggest a new object, this object will be used as the guideline for the new object name"
+      destination_notes: "Choose the destination objects based on the source items chosen."
+
+  iterate_over_objects:
+    iterate_on: tasks.choose_objects.outputs.list_of_objects
+
+  confirm_object_action_before_execution:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  execute_object_action:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  read_all_object_collections:
+    execute_source: true
+    execute_destination: false
+    modified_inputs:
+      object_name: tasks.choose_objects.outputs.list_of_objects
+      list_of_objects: tasks.choose_objects.outputs.list_of_objects
+    crossover:
+      pass_items: false
+
+  choose_collections:
+    execute_source: true
+    execute_destination: false
+    crossover:
+      pass_items: true
+      from: choose_collections
+      function: choose_collection_subset_complex
+      source_notes: "Choose the source collections for the object chosen. This will be used as a guideline for the destination choose_collections"
+      destination_notes: "Choose the destination collections for the operation. Try to find the collections that match as close as possible to the source collections"
+    modified_inputs:
+      destination_class_name: tasks.choose_class__destination.outputs.class_name
+      destination_class_id: tasks.choose_class__destination.outputs.class_id
+
+  iterate_over_collections:
+    iterate_on: tasks.choose_collections.outputs.list_of_collections
+
+  choose_memberships:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  confirm_membership_action_before_execution:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  execute_membership_action:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  get_membership_properties:
+    execute_source: true
+    execute_destination: false
+    crossover:
+      pass_items: false
+
+  choose_properties:
+    execute_source: true
+    execute_destination: true
+    crossover:
+      pass_items: true
+      from: choose_properties
+      alt_function: choose_properties_complex
+      source_notes: "Choose the source properties for the object chosen. This will be used as a guideline for the destination choose_properties"
+      destination_notes: "Choose the destination properties for the operation. Try to find the properties that match as close as possible to the source properties"
+
+  update_property_attributes:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false
+
+  execute_property_action:
+    execute_source: false
+    execute_destination: true
+    crossover:
+      pass_items: false

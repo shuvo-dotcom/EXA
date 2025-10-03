@@ -1,0 +1,75 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Perform a web-search to find how much e-kerosene and e-methanol can be imported into Europe in 2050, in Tj/hr. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import' (when the pipeline gets to adding properties, use the data from the web-search as a dependency) Add 2 new Gas Pipelines From 'BE01' to 'e-kerosene import' and 'e-methanol import'. Use an unlimited capacity.",
+  "author": "AI Assistant",
+  "tags": [
+    "crud",
+    "create",
+    "gas_nodes",
+    "gas_fields",
+    "gas_pipelines",
+    "e-fuels",
+    "web_search",
+    "plexos",
+    "TJ_Sectoral_Model"
+  ],
+  "date_created": "2025-10-01",
+  "time_created": "23:34:30",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Modify the TJ Sectoral Model as per user instructions, incorporating web-search results for property inputs.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "google_search",
+      "function_name": "google_search",
+      "function_args": {
+        "query": "2050 Europe import potential for e-kerosene and e-methanol in Tj/hr"
+      },
+      "description": "Perform a web search to find 2050 Europe import potential for e-kerosene and e-methanol in Tj/hr; capture quantitative values for use when setting properties.",
+      "target_level": "information",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's request, perform a web search to gather quantitative data for e-fuel import potential.",
+      "dependencies": [],
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_id": 1,
+      "task_name": "create_gas_nodes_e_fuels",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create two Gas Node objects named 'e-kerosene import' and 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create new Gas Node objects in the TJ Sectoral Model with the specified names.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "create_gas_fields_e_fuels",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create two Gas Field objects named 'e-kerosene import' and 'e-methanol import' in the TJ Sectoral Model; when adding properties, use the web-search results as the property inputs (dependency).",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create new Gas Field objects in the TJ Sectoral Model. Their properties will be informed by the results of the web search.",
+      "dependencies": [
+        "google_search"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 3,
+      "task_name": "create_gas_pipelines_be01_to_e_fuels",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create two Gas Pipeline objects: 'BE01' -> 'e-kerosene import' and 'BE01' -> 'e-methanol import' with unlimited capacity.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', create new Gas Pipeline objects connecting 'BE01' to the newly created e-fuel import nodes, setting their capacity to unlimited.",
+      "dependencies": [
+        "create_gas_nodes_e_fuels"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

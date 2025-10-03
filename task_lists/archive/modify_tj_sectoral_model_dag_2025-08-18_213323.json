@@ -1,0 +1,39 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add a Nuclear SMR Generators in Germany (DE01). Add all of the template properties with a max capacity of 1000 MW.",
+  "author": "Assistant",
+  "tags": [
+    "modify",
+    "object",
+    "property",
+    "Nuclear",
+    "Germany",
+    "SMR"
+  ],
+  "date_created": "2025-08-18",
+  "time_created": "21:33:33",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "add_object",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a new object representing a Nuclear SMR Generator in Germany with identifier DE01 to the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Add a Nuclear SMR Generators in Germany (DE01). Add all of the template properties with a max capacity of 1000 MW.', select the most appropriate object from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_properties",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the newly added Nuclear SMR Generator by applying all of the template properties with a max capacity of 1000 MW.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the TJ Sectoral Model. Add a Nuclear SMR Generators in Germany (DE01). Add all of the template properties with a max capacity of 1000 MW.', select the most appropriate property from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

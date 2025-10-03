@@ -1,0 +1,99 @@
+{
+  "user_input": "Modify the DHEM model.  o\tGet the datafile attribute for the Gas Pipeline Capacity data file for the PCIPMI infrastrucutre level (use crud pipeline)  o\tCreate a variation of the Gas Pipeline Capacity data file for the PCIPMI infrastrucutre level by setting all values that aren't 0 to 999. Copy the H2\\Gas.  o\tCreate a new datafile object in the Datafile class using the Gas Pipeline category call it something relating to PCIPMI capacities Unlimited. Add the filename property with the name of the datafile just created.  o\tAdd a scenario called unlimited_pci_pmi_pipeline_capacities  o\tAdd a max flow property to each object in the H2 inteconnection and H2 Internal bottleneck categories in the gas pipeline class, with the datafile and scenario created in the previous step. Use the crud pipeline  o\tClone the model \"DHEM_v41_2030_PCIPMI_1995\" and add the new scenario. Call the model \u201cDHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline\u201d",
+  "author": "Dante",
+  "tags": [
+    "modify",
+    "DHEM",
+    "pipeline",
+    "model",
+    "crud",
+    "clone"
+  ],
+  "date_created": "2025-07-28",
+  "time_created": "01:36:51",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's request and the DHEM model specifications.",
+  "tasks": [
+    {
+      "task_name": "perform_crud_operation_get_datafile_attribute",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Read the datafile attribute for the Gas Pipeline Capacity data file for the PCIPMI infrastructure level.",
+      "target_level": "attribute",
+      "strategy_action": "read",
+      "entity_selection_context": "Based on the user's request, select the appropriate datafile attribute from the Gas Pipeline Capacity file at the PCIPMI level.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "modify_data_file_for_variation",
+      "function_name": "modify_data_file",
+      "function_args": {
+        "plexos_model_location": "/path/to/plexos/model",
+        "input_file_path": "H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv",
+        "user_input": "Set all nonzero values to 999 and copy the H2\\Gas file to create a variation for PCIPMI infrastructure level.",
+        "output_file_path": "H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLIMITED.csv"
+      },
+      "description": "Create a variation of the Gas Pipeline Capacity data file by copying the H2\\Gas file and setting all nonzero values to 999.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request, select the appropriate file to modify for creating the variation.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "add_new_datafile_object",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create a new datafile object in the Datafile class under the Gas Pipeline category, named to reflect 'PCIPMI capacities Unlimited'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request, select the appropriate class and category to add a new datafile object.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_datafile_with_filename_property",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add the filename property to the newly created datafile object with the name of the file created in the previous step.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request, attach the filename property to the new datafile object using the newly modified file name.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "perform_crud_operation_create_scenario",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a new scenario called 'unlimited_pci_pmi_pipeline_capacities'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request, create a scenario object with the name 'unlimited_pci_pmi_pipeline_capacities'.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_max_flow_h2_interconnection",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update each object in the H2 interconnection category of the Gas Pipeline class by adding a max flow property that references the newly created datafile and scenario.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request, select the H2 interconnection objects and add the max flow property linking to the new datafile and scenario.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "update_max_flow_h2_internal_bottleneck",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update each object in the H2 Internal bottleneck category of the Gas Pipeline class by adding a max flow property that references the newly created datafile and scenario.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request, select the H2 Internal bottleneck objects and add the max flow property linking to the new datafile and scenario.",
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_name": "clone_and_update_model",
+      "pipeline_name": "clone_pipeline.json",
+      "description": "Clone the model 'DHEM_v41_2030_PCIPMI_1995' and add the new scenario to produce the new model 'DHEM_v41_2030_PCIPMI_1995_unlmtd_pipeline'.",
+      "target_level": "object",
+      "strategy_action": "clone",
+      "entity_selection_context": "Based on the user's request, select the appropriate model to clone and attach the new scenario.",
+      "on_error": "abort"
+    }
+  ]
+}

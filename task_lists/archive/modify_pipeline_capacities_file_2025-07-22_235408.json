@@ -1,0 +1,27 @@
+{
+  "user_input": "Modify the H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv file and set all values, which aren\u2019t 0, to 999. Name the new file Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv",
+  "author": "Assistant",
+  "tags": [
+    "datafile",
+    "modify",
+    "csv"
+  ],
+  "date_created": "2025-07-22",
+  "time_created": "23:54:17",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified data file modification operation based on the user's input and the PLEXOS data handling guidelines.",
+  "tasks": [
+    {
+      "task_name": "modify_datafile",
+      "function_name": "modify_datafile",
+      "description": "Open the file 'H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv', update all values that are not 0 to 999, and save the modified file as 'Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv'.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv file and set all values, which aren\u2019t 0, to 999. Name the new file Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv', select the appropriate file to modify.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.1",
+  "last_updated": "2025-08-23",
+  "company": {
+    "name": "Terajoule Limited",
+    "aliases": ["Terajoule", "TeraJoule", "Joule Ltd (insurance contexts)"],
+    "tagline": "AI-powered energy modelling for faster, auditable transition decisions.",
+    "mission": "Accelerate decarbonization by making advanced energy-system modelling fast, transparent, and accessible for experts and non-experts.",
+    "vision": "Energy used efficiently, sustainably, and equitably, with open access to cutting-edge research and data.",
+    "values": ["Innovation", "Sustainability", "Collaboration", "Integrity"],
+    "legal_structure": "Private Company Limited by Shares (LTD)",
+    "company_number": "729897",
+    "incorporation_date": "2022-11-18",
+    "vat_number": "IE04090642NH",
+    "registered_office": "20 Harcourt Street, Dublin 2, D02 H364, Ireland",
+    "principal_activity": "Consultancy services"
+  },
+  "one_liner": "We turn complex energy systems into clear, AI-driven decisions you can trust and act on.",
+  "elevator_pitch_30s": "Terajoule accelerates decarbonization with AI-powered energy modelling and interactive digital reporting. Our interlinked Joule Model spans electricity, methane, hydrogen and e-fuels across power, buildings, industry and transport to test scenarios, optimize systems and quantify costs and risks. We pair this with dynamic dashboards and AI-generated reports that turn complex data into decisions for utilities, TSOs, governments, investors and NGOs. Our edge is depth plus accessibility: advanced modelling made fast, transparent and auditable.",
+  "core_offerings": {
+    "triad": ["Energy Modelling", "Open Research & Innovation", "Digital Reporting"],
+    "flagship_product": "Joule Model (interlinked electricity–hydrogen–methane–e-fuels model)",
+    "ai_integration": ["Nova (orchestration/assistant)", "Emil (model build/modify)", "Lola (reporting & narratives)"],
+    "capabilities": [
+      "Scenario design & optimization",
+      "KPI packs (cost, emissions, adequacy, flexibility)",
+      "Automated model build/modify/run pipelines (e.g., PLEXOS)",
+      "Explainable outputs with audit trails"
+    ]
+  },
+  "target_market": {
+    "segments": [
+      "TSOs/DSOs and gas network operators",
+      "Utilities and IPPs",
+      "Government & regulators",
+      "Financial institutions & investors",
+      "NGOs & think-tanks",
+      "Universities & research labs",
+      "Corporate sustainability & R&D teams"
+    ],
+    "geographies": ["EU/UK (primary)", "MENA", "North America", "Global partners"]
+  },
+  "unique_selling_points": {
+    "points": [
+      "AI + established simulators for speed and rigor",
+      "Interlinked multi-carrier scope (power–gas–H2–e-fuels)",
+      "Explainable, auditable outputs aligned with governance requirements",
+      "Interactive reporting for experts and decision-makers",
+      "Open research that accelerates learning and replication"]
+  },
+  "business_model": {
+    "revenue_streams": [
+      "Software/platform subscriptions (tiered, annual/monthly)",
+      "Project-based consulting & modelling",
+      "Training & accreditation",
+      "R&D sponsorships and grants"
+    ],
+    "pricing_model": "Tiered subscriptions + custom project fees",
+    "sales_channels": ["Direct enterprise sales", "Partnerships/co-delivery", "Online demos & trials"]
+  },
+  "go_to_market": {
+    "marketing": ["Thought leadership & webinars", "Conference speaking", "Case studies & demos", "Partner co-marketing"],
+    "sales_process": ["Lead", "Qualification", "Discovery/Scoping", "Demo/Pilot", "Proposal", "Delivery", "Expansion/CS"],
+    "customer_success": ["Onboarding playbooks", "Enablement kits", "Quarterly value reviews"]
+  },
+  "leadership": {
+    "founder_ceo": {
+      "name": "Dante Powell",
+      "roles": ["Managing Director", "CEO", "Project Lead & PI for Exajoule"],
+      "ppsn": "REDACTED",
+      "sensitive_note": "Government ID provided by user; masked here by default."
+    },
+    "director_administration": {
+      "name": "Darragh Barrett",
+      "employment_period": "2024-02 to 2025-02"
+    },
+    "assistant_to_md": {
+      "name": "Ava Kelleher",
+      "employment_start": "2025-01"
+    },
+    "key_team": [
+      {"name": "Jash Prakash Rana", "role": "Data Scientist & AI Energy Modeller (Intern)"},
+      {"name": "Suvajit Lodh", "role": "Software Engineer & NLP Specialist; AI Energy Analyst (Intern)"},
+      {"name": "Otis Powell", "role": "Energy Modeller & AI Integration Specialist"}
+    ]
+  },
+  "projects_and_partnerships": [
+    {
+      "partner": "Gas Networks Ireland (GNI)",
+      "engagement": "Consultancy for PLEXOS long-term modelling",
+      "commercials": "Up to €35,500 for up to 35 days contact time"
+    },
+    {
+      "partner": "ENTSOG",
+      "engagement": "Consultancy on system development & modelling",
+      "period": "2023-01 to 2024-12"
+    },
+    {
+      "partner": "MedTSO (TEASIMED 2) / CAMPUS TECH s.r.o.",
+      "engagement": "Consortium consulting services",
+      "commercials": "€91,000 paid by Terajoule to CAMPUS TECH"
+    },
+    {
+      "partner": "Academic",
+      "engagement": "Research and internships",
+      "institutions": ["University College Cork (UCC)", "National College of Ireland (NCI)"]
+    }
+  ],
+  "technology": {
+    "stack": ["PLEXOS", "PyPSA", "ANTARES", "Python data/ML stack", "LLM assistants (Nova, Emil, Lola)"],
+    "capabilities": [
+      "Model build/modify/run automation",
+      "Scenario orchestration & sensitivity analysis",
+      "Diagnostic log parsing & corrective actions",
+      "Result analysis, narratives, dashboard generation"
+    ],
+    "compliance": ["Audit trails", "Result provenance", "Explainable summaries"]
+  },
+  "data_sources_examples": [
+    "ENTSO-E Transparency Platform & Eurostat",
+    "Weather/climate datasets",
+    "Policy/regulatory datasets",
+    "Geospatial & satellite data",
+    "IoT/smart-meter data (where permitted)"
+  ],
+  "insurance": {
+    "as_of": "2025-06-01",
+    "professional_liability_per_claim_eur": "2,000,000",
+    "public_liability_per_claim_eur": "6,500,000",
+    "employers_liability_per_claim_eur": "13,000,000",
+    "annual_premium_eur": "1,729.15",
+    "covered_business_activities": ["Energy modelling"]
+  },
+  "workflow_example": {
+    "steps": [
+      "Discovery & scoping",
+      "Data ingestion & validation",
+      "Model build/modify & scenario setup",
+      "Runs & sensitivity analysis",
+      "Dashboards + AI narrative generation",
+      "Executive readout & decision support",
+      "Handover & training"
+    ],
+    "deliverables": ["Model files & configs", "Scenario results & KPIs", "Interactive dashboards", "Decision memos & playbooks"]
+  },
+  "metrics_kpis": [
+    "MRR/ARR",
+    "Sales conversion rate",
+    "Gross margin",
+    "Time-to-insight per study",
+    "CSAT/NPS",
+    "Model run success rate",
+    "Stakeholder dashboard adoption"
+  ],
+  "financials_summary": {
+    "revenue_projections_selected": {
+      "2025": {"energy_modelling": "€1,000,000", "digital_reporting": "€10,000"},
+      "2026": {"energy_modelling": "€3,000,000", "digital_reporting": "€50,000", "courses": "€50,000"},
+      "2027": {"energy_modelling": "€15,000,000", "digital_reporting": "€100,000", "courses": "€100,000"}
+    },
+    "profitability_projection": {
+      "year_1": "-€1,400,000",
+      "year_2": "-€600,000",
+      "year_3": "+€300,000",
+      "year_4": "+€3,700,000",
+      "year_5": "+€10,900,000"
+    }
+  },
+  "funding": {
+    "total_required_eur": "€15,350,000",
+    "use_of_funds": [
+      "Product & R&D (Joule Model, assistants, data)",
+      "Go-to-market (marketing, sales, partnerships)",
+      "Open Research & Innovation activities"
+    ],
+    "illustrative_split": {
+      "energy_modelling_and_digital_reporting_total_yr1_5": "€11,600,000",
+      "open_research_initiative_total_yr1_5": "€3,750,000"
+    },
+    "anticipated_sources": ["Equity", "Grants & donations", "Debt financing"]
+  },
+  "contact": {
+    "email": "info@terajoule.energy",
+    "website": "https://terajoule.energy",
+    "hq": "Ireland",
+    "eu_operations": "Spain"
+  },
+  "sharing_guidance": {
+    "internal_only_fields": ["leadership.founder_ceo.ppsn"],
+    "redaction_policy": "Mask government IDs and personal identifiers by default in any external output."
+  }
+}

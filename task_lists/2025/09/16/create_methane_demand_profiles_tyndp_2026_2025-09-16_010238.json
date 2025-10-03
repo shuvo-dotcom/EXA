@@ -1,0 +1,51 @@
+{
+  "user_input": "Please create the methane demand profiles for the TYNDP 2026 scenarios",
+  "author": "Dante",
+  "tags": [
+    "demand",
+    "profiles",
+    "methane",
+    "TYNDP2026"
+  ],
+  "date_created": "2025-09-16",
+  "time_created": "01:02:56",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "main_demand_processer_v2",
+      "function_name": "main_demand_processer_v2",
+      "function_args": {
+        "user_input": "Please create the methane demand profiles for the TYNDP 2026 scenarios"
+      },
+      "function_kwargs": {},
+      "description": "Generate methane demand profiles for the TYNDP 2026 scenarios.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Resolve function arguments using the user's request and DAG context. No PLEXOS entity selection is required for this function.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "export_tst_workbooks_methane",
+      "function_name": "build_tst_workbooks",
+      "function_args": {
+        "carrier": "Methane"
+      },
+      "function_kwargs": {},
+      "description": "Export the generated hourly methane demand profiles for the TYNDP 2026 scenario to the standard TST workbook format.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Use outputs from 'main_demand_processer_v2' to locate and export the methane demand profiles in the TST format. No PLEXOS entity selection is required.",
+      "dependencies": [
+        "main_demand_processer_v2"
+      ],
+      "on_error": "log_and_continue"
+    }
+  ]
+}

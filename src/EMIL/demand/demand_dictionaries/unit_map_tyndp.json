@@ -1,0 +1,8 @@
+{
+  "Electricity": "MWh",
+  "Hydrogen": "MWh",
+  "Methane": "MWh",
+  "Liquids": "MWh",
+  "AI": "MWh",
+  "Thermal_energy": "GJ"
+}

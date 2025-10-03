@@ -1,0 +1,38 @@
+{
+  "user_input": "Add a datafile object called 'unlimited_pci_pmi_pipeline_capacities' to the latest DHEM model.",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "datafile",
+    "create",
+    "update",
+    "DHEM"
+  ],
+  "date_created": "2025-07-22",
+  "time_created": "17:17:54",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "create_datafile_object",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create a new datafile object with the name 'unlimited_pci_pmi_pipeline_capacities'.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: 'Add a datafile object called 'unlimited_pci_pmi_pipeline_capacities' to the latest DHEM model.', select the most appropriate datafile object from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "add_datafile_to_model",
+      "pipeline_name": "update_pipeline.json",
+      "description": "Add the 'unlimited_pci_pmi_pipeline_capacities' datafile object to the latest DHEM model.",
+      "target_level": "object",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Add a datafile object called 'unlimited_pci_pmi_pipeline_capacities' to the latest DHEM model.', select the most appropriate model from the following list.",
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "user_input": "Use the Joule Model. Use the split operation to divide Nuclear generators in france into 2 objects one in north one in south keep the object name length to 4 characters",
+  "author": "Dante",
+  "tags": [
+    "crud",
+    "object",
+    "split",
+    "generator",
+    "nuclear",
+    "france"
+  ],
+  "date_created": "2025-09-19",
+  "time_created": "17:34:04",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Joule Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "read_model",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Read the Model object named 'Joule' to set the working context.",
+      "target_level": "object",
+      "strategy_action": "read",
+      "strategy_a": {
+        "category": "Model",
+        "object_name": "Joule",
+        "context_scope": "global"
+      },
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the correct Model object to set context to 'Joule'.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "split_objects",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Split Generator objects in France with Fuel=Nuclear into exactly two objects per source, assigned to 'north' and 'south', enforcing a maximum object name length of 4 characters.",
+      "target_level": "object",
+      "strategy_action": "split",
+      "strategy_a": {
+        "source": {
+          "category": "Generator",
+          "property_filters": {
+            "Fuel": [
+              "Nuclear"
+            ]
+          },
+          "membership_filters": {
+            "Region": [
+              "France"
+            ]
+          }
+        },
+        "destination": {
+          "count": 2,
+          "labels": [
+            "north",
+            "south"
+          ],
+          "membership_overrides": {
+            "RegionSubArea": {
+              "north": [
+                "north"
+              ],
+              "south": [
+                "south"
+              ]
+            }
+          }
+        },
+        "naming_scheme": {
+          "max_length": 4,
+          "case": "upper",
+          "suffix_map": {
+            "north": "N",
+            "south": "S"
+          },
+          "base_name_rule": "take first 3 alphanumerics of source name; append suffix; if shorter than 4, pad with last available alphanumeric; if collision, replace last char with 0-9",
+          "collision_policy": "increment_last_digit"
+        },
+        "property_allocation": {
+          "numeric_properties": "equal_split",
+          "non_numeric_properties": "copy",
+          "time_series": "equal_split"
+        },
+        "relationship_handling": {
+          "memberships": "inherit_then_apply_overrides",
+          "dependencies": "preserve"
+        },
+        "validation": {
+          "enforce_exact_two_outputs": true,
+          "fail_if_no_matches": true,
+          "ensure_unique_names": true
+        }
+      },
+      "entity_selection_context": "Based on the user's request: '{user_input}', identify the Generator objects in France with Fuel=Nuclear to serve as the split source, and ensure outputs reflect 'north' and 'south'.",
+      "dependencies": [
+        "read_model"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

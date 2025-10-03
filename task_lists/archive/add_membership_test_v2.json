@@ -1,0 +1,51 @@
+{
+  "pipeline_id": "add-membership-v1",
+  "version": "1.0.0",
+  "author": "Dante",
+  "tags": ["membership", "property", "crud"],
+  "date_created": "2024-10-01",
+  "time_created": "12:00:00",
+  "global_context": {
+    "plexos_model_location": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\ENTSOG\\DHEM\\NT2030\\TYNDP_2024_DHEM_Model_2030_V6_91_v40.xml",
+    "plexos_model_location2": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\ENTSOG\\DHEM\\NT2030\\TYNDP_2024_DHEM_Model_2030_V6_91_v40_Geo2.xml"
+  },
+  "retry_policy": { "count": 1, "strategy": "fixed" },
+  "tasks": [
+    {
+      "task_name": "add_membership_to_rskn_electricity_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Performs a single Create, Read, Update, or Delete operation on a target level within the PLEXOS hierarchy (Category, Object, Membership, or Property).",
+      "operation_pipeline": "crud_pipeline.json",
+      "initial_context": {
+        "user_input": "add membership to rskn electricity node",
+        "target_level": "membership",
+        "strategy_action": "create",
+        "static_context_strings": {
+          "default_llm_context": "You are an expert in PLEXOS modeling. You are executing a direct data modification request from the user.",
+          "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list."
+        }
+      },
+      "retry": { "count": 2, "backoff": "exponential" },
+      "on_error": "halt",
+      "next": ["add_properties_to_IS00_geothermal_generator"]
+    },
+    {
+      "task_name": "add_properties_to_IS00_geothermal_generator",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Performs a single Create, Read, Update, or Delete operation on a target level within the PLEXOS hierarchy (Category, Object, Membership, or Property).",
+      "operation_pipeline": "crud_pipeline.json",
+      "initial_context": {
+        "user_input": "add properties to IS00 Geothermal Generator",
+        "target_level": "property",
+        "strategy_action": "create",
+        "static_context_strings": {
+          "default_llm_context": "You are an expert in PLEXOS modeling. You are executing a direct data modification request from the user.",
+          "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate {entity_type} from the following list."
+        }
+      },
+      "retry": { "count": 2, "backoff": "exponential" },
+      "on_error": "halt",
+      "next": []
+    }
+  ]
+}

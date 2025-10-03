@@ -1,0 +1,37 @@
+{
+  "user_input": "Modify the H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv file and set all values, which aren\u2019t 0, to 999. Name the new file Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv",
+  "author": "Assistant",
+  "tags": [
+    "modify",
+    "csv",
+    "file",
+    "update"
+  ],
+  "date_created": "2025-07-22",
+  "time_created": "23:23:22",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified file modification operations based on the user's input, ensuring that non-zero values in the CSV are changed to 999 and the file is saved under the new name.",
+  "tasks": [
+    {
+      "task_name": "modify_file_values",
+      "function_name": "modify_datafile",
+      "description": "Modify the H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv file by updating all values that are not 0 to 999.",
+      "target_level": "file",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: 'Modify the H2\\Gas Pipeline\\Capacities_H2_Year_FID+PCI+PMI.csv file and set all values which aren\u2019t 0 to 999. Name the new file Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv', select the appropriate file for modification.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "save_modified_file",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Save the modified file with the new name Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv.",
+      "target_level": "file",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request, ensure that the modified file is saved under the name Pipeline\\Capacities_H2_Year_FID+PCI+PMI_UNLMITED.csv.",
+      "on_error": "retry"
+    }
+  ]
+}

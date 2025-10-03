@@ -1,0 +1,10 @@
+{
+    "Joule Model": {
+        "description": "The 2050 multi-carrier model created by terajoule. May also be called the TJ model or the Terajoule Model.",
+        "location": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\Sectoral Model"
+    },
+    "DHEM Model": {
+        "description": "The District Heating and Cooling Energy Model.",
+        "location": "C:\\Users\\ENTSOE\\Tera-joule\\Terajoule - Terajoule\\Projects\\ENTSOG\\DHEM"
+    }
+}

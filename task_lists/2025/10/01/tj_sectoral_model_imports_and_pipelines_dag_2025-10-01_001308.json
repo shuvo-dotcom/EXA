@@ -1,0 +1,172 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add 2 new Gas Nodes 1 called 'e-kerosene import' and the other 'e-methanol import'. Add 2 new Gas Fields 1 called 'e-kerosene import' and the other 'e-methanol import'. Perform a web search/LLM call to find import terminals for kerosene and methanol into Europe by ship and yearly capacity including any information on seasonal capacities. Ensure we have the city name so we can link them to the hydrogen nodes by locating and reading the NUTS regions e-highway file in the nodes and lines folder. Create pipelines to link the kerosene import nodes to the relevant hydrogen node. Make the capacity of the pipelines match the import terminal capacities.",
+  "author": "AI Assistant",
+  "tags": [
+    "crud",
+    "create",
+    "update",
+    "gas_nodes",
+    "gas_fields",
+    "pipelines",
+    "web_search",
+    "llm",
+    "file_operations"
+  ],
+  "date_created": "2025-10-01",
+  "time_created": "00:13:53",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the TJ Sectoral Model specifications.",
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "create_e_kerosene_import_gas_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Node 'e-kerosene import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's input, create a Gas Node object named 'e-kerosene import' within the TJ Sectoral Model.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 1,
+      "task_name": "create_e_methanol_import_gas_node",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Node 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's input, create a Gas Node object named 'e-methanol import' within the TJ Sectoral Model.",
+      "dependencies": [
+        "create_e_kerosene_import_gas_node"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 2,
+      "task_name": "create_e_kerosene_import_gas_field",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Field 'e-kerosene import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's input, create a Gas Field object named 'e-kerosene import' within the TJ Sectoral Model.",
+      "dependencies": [
+        "create_e_kerosene_import_gas_node"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 3,
+      "task_name": "create_e_methanol_import_gas_field",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create Gas Field 'e-methanol import' in the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's input, create a Gas Field object named 'e-methanol import' within the TJ Sectoral Model.",
+      "dependencies": [
+        "create_e_methanol_import_gas_node"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 4,
+      "task_name": "search_kerosene_methanol_import_terminals",
+      "function_name": "google_search",
+      "function_args": {
+        "query": "kerosene and methanol import terminals Europe by ship yearly and seasonal capacities"
+      },
+      "function_kwargs": {},
+      "description": "Search the web for import terminals for kerosene and methanol into Europe by ship, including yearly capacities and any seasonal capacity information.",
+      "target_level": "attribute",
+      "strategy_action": "read",
+      "entity_selection_context": "Perform a web search to gather details on kerosene and methanol import terminals in Europe, including capacity data.",
+      "dependencies": [],
+      "on_error": "log_and_continue"
+    },
+    {
+      "task_id": 5,
+      "task_name": "extract_and_structure_terminal_data_llm",
+      "function_name": "run_open_ai_ns",
+      "function_args": {
+        "prompt": "From the provided search results, extract and structure the following details for kerosene and methanol import terminals into Europe: terminal names, their associated cities, annual capacities, and any seasonal capacity information.",
+        "context": "{search_kerosene_methanol_import_terminals.output}",
+        "model": "gpt-4"
+      },
+      "function_kwargs": {},
+      "description": "Call the LLM to extract and structure terminal names, cities, and annual/seasonal capacities for kerosene and methanol imports into Europe using the search results as context.",
+      "target_level": "attribute",
+      "strategy_action": "create",
+      "entity_selection_context": "Utilize the LLM to process the search results from '{search_kerosene_methanol_import_terminals}' and extract structured information about import terminals.",
+      "dependencies": [
+        "search_kerosene_methanol_import_terminals"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 6,
+      "task_name": "find_nuts_regions_e_highway_file",
+      "function_name": "find_file",
+      "function_args": {
+        "user_input": "NUTS regions e-highway file in the nodes and lines folder"
+      },
+      "function_kwargs": {},
+      "description": "Locate the 'NUTS regions e-highway' file in the nodes and lines folder.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Locate the 'NUTS regions e-highway' file as specified, typically found in a 'nodes and lines' directory.",
+      "dependencies": [],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 7,
+      "task_name": "read_nuts_regions_e_highway_file",
+      "function_name": "perform_file_crud",
+      "function_args": {
+        "user_input": "Read the 'NUTS regions e-highway' file to obtain city names and NUTS mappings.",
+        "context": "File path is provided by 'find_nuts_regions_e_highway_file'.",
+        "action": "read",
+        "input_file_path": "{find_nuts_regions_e_highway_file.output}"
+      },
+      "function_kwargs": {},
+      "description": "Read the located 'NUTS regions e-highway' file to obtain city names and NUTS mappings.",
+      "target_level": "file",
+      "strategy_action": "read",
+      "entity_selection_context": "Read the content of the file found in '{find_nuts_regions_e_highway_file}' to extract city names and their corresponding NUTS mappings.",
+      "dependencies": [
+        "find_nuts_regions_e_highway_file"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 8,
+      "task_name": "create_kerosene_import_pipelines",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Create pipeline object(s) to link the 'e-kerosene import' Gas Node to the relevant hydrogen node(s).",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Using the extracted terminal locations from '{extract_and_structure_terminal_data_llm}' and NUTS mappings from '{read_nuts_regions_e_highway_file}', identify appropriate hydrogen nodes and create new pipeline objects linking them to the 'e-kerosene import' Gas Node.",
+      "dependencies": [
+        "create_e_kerosene_import_gas_node",
+        "extract_and_structure_terminal_data_llm",
+        "read_nuts_regions_e_highway_file"
+      ],
+      "on_error": "abort"
+    },
+    {
+      "task_id": 9,
+      "task_name": "update_kerosene_pipeline_capacities",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the capacity property of the created kerosene pipeline object(s) to match the identified import terminal capacities.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "For the pipeline objects created in '{create_kerosene_import_pipelines}', update their capacity properties with the corresponding import terminal capacities obtained from '{extract_and_structure_terminal_data_llm}'.",
+      "dependencies": [
+        "create_kerosene_import_pipelines",
+        "extract_and_structure_terminal_data_llm"
+      ],
+      "on_error": "abort"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+tso_review_pack:
+  metadata:
+    title: "TSO Review Pack — Hourly Demand Profiling Methodology"
+    version: "Draft v1"
+    date: "2025-09-01"
+    purpose: "Explain conversion of ETM annual demands into hourly demand profiles by sector/subsector & carrier."
+
+    Intro:
+      copy: |
+        This report describes how annual energy demands from the Energy Transition Model (ETM) are converted into country‑specific hourly demand
+        profiles across sectors, subsectors, and energy carriers. Its purpose is to provide TSOs with a transparent and reviewable basis for
+        energy modelling. Hourly profiles are generated for multiple scenarios (example National Trends, High Economy and Low Economy).
+
+    scope:
+      copy: |
+        The tool can produce profiles for a variety of energy carriers. Hydrogen entries include direct final uses reported in the ETM, District Heating
+        and ammonia feedstock where countries submit that information. Hydrogen used to produce synthetic fuels is excluded from these hourly sectoral 
+        profiles and is modelled separately as flat offtake profiles to avoid double counting. Additionally, District heating is considered in the 
+        profiles as delivered heat demand and is modelled using temperature‑driven hourly shapes.
+
+    scenarios_framework:
+      copy: |
+        The methodology supports the NT, NT_HE and NT_LE scenario family across the years 2030, 2035, 2040 and 2050. Hydrogen allocation uses two
+        zoning concepts: Zone 1 for local distribution networks and pilots, and Zone 2 for a backbone network and industrial clusters. The
+        default geographic resolution is one node per country, with exceptions for countries that require multiple nodes. Representative climate
+        years aligned to SSP2‑4.5 are used to drive weather‑sensitive loads and enable weather sensitivity analysis.
+
+    inputs_data_sources:
+      copy: |
+        The primary inputs are ETM annual values by sector, subsector and carrier; hourly temperature series for multiple representative climate years;
+        country district heating submissions; reference industry hourly shapes from public and academic datasets (ELMAS); and transport activity patterns (EUROSTAT).
+        Car/bus/freight profiles are based on activity curves calibrated to annual energy and carrier mix, while aviation uses monthly kerosene
+        profiles (EUROSTAT).
+
+    methodology_overview:
+      copy: |
+        The processing steps are: collect ETM annuals, temperature series, reference shapes and zone/climate selections, select a driver model
+        for each subsector (e.g. temperature regression for space heating or representative operating shapes for industry), generate a
+        base hourly shape for the chosen climate year, normalize and scale that shape to the ETM annual for the sector/subsector/carrier, allocate
+        hydrogen between zones per national guidance. Driver models include
+        heat‑sensitive regressions, near‑flat domestic hot water profiles with AM/PM peaks, representative industry shapes and activity‑based
+        transport disaggregation.
+
+    temperature_regression:
+      copy: |
+        Heat‑sensitive loads are modelled with linear or piecewise regressions of hourly heat demand versus temperature (for example H_t = HDD.t + c
+        below a threshold) calibrated per country across multiple climate years. A chosen climate‑year hourly temperature series is applied to
+        generate the subsector hourly shape, which is then scaled to the ETM annual total and adjusted for technology efficiencies where required.
+        This approach preserves cold‑snap and shoulder‑season behaviour, ensures comparability across countries and maintains weather sensitivity.
+
+    zones_allocation_h2:
+      copy: |
+        Hydrogen end‑uses are assigned to Zone 1 or Zone 2 based on national network and backbone plans. Zone 1 covers networks; 
+        Zone 2 covers hydrogen hubs and backbone. The hourly H2 profiles for Zone 1 and Zone 2 always sum to the total H2 hourly demand for each sector and subsector.
+
+  subsectors:
+    - sector: "buildings"
+      subsector: "space heating"
+      boundary: "tertiary space-heating demand (DH separate if accounted)."
+      carriers: ["electricity", "methane", "hydrogen", "liquids"]
+      drivers_data: ["hourly temperature regression model", "ETM annuals"]
+      method: "Country-specific linear/piecewise regression vs temperature; climate-year shape; scale to annual."
+      shape_traits: ["strong winter seasonality", "shoulder-season variability"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annual match", "winter peak plausibility", "historical comparisons where available"]
+      source: terajoule
+
+    - sector: "district heating"
+      subsector: "district heating"
+      boundary: "Delivered heat from DH networks (space heat + possibly DHW)."
+      carriers: ["delivered heat (carrier inputs tracked in ETM)"]
+      drivers_data: ["hourly temperature regression model", "ETM annuals"]
+      method: "Country-specific linear/piecewise regression vs temperature; climate-year shape; scale to annual. Only shapre follows only space heating"
+      shape_traits: ["seasonal with sharp cold-spell responses"]
+      zones_allocation: "Z2"
+      validation: ["annual match", "winter peak plausibility", "historical comparisons where available"]
+      source: terajoule
+
+    - sector: "households"
+      subsector: "hot water"
+      boundary: "Domestic hot water (DHW) in residential buildings."
+      carriers: ["electricity", "methane", "hydrogen"]
+      drivers_data: ["occupancy/behavioral patterns", "ETM annuals"]
+      method: "Near-flat base with AM/PM peaks and modest winter uplift; scaled to annual."
+      shape_traits: ["low seasonality", "pronounced morning/evening peaks"]
+      zones_allocation: "H2 portions per Z1/Z2 logic."
+      validation: ["Daily profile shape with monthly seasonality"]
+      source: [assets.publishing.service.gov.uk, daneshyari.com, researchgate.net, etc ]
+
+    - sector: "households"
+      subsector: "space heating"
+      boundary: "Residential space heating (excludes DH where separate)."
+      carriers: ["electricity", "methane", "hydrogen", "liquids"]
+      drivers_data: ["hourly temperature regression model", "ETM annuals"]
+      method: "Country-specific linear/piecewise regression vs temperature; climate-year shape; scale to annual."
+      shape_traits: ["strong winter seasonality", "shoulder-season variability"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annual match", "winter peak plausibility", "historical comparisons where available"]
+      source: terajoule
+
+    - sector: "industry"
+      subsector: "chemicals"
+      boundary: "Chemical industry excluding fertilizer ammonia (separate)."
+      carriers: ["electricity", "methane", "hydrogen", "liquids"]
+      drivers_data: ["representative process operating schedules", "ETM annuals"]
+      method: "Representative hourly industry shape; scale to annual."
+      shape_traits: ["continuous/multi-shift", "moderate weekday/weekend contrast"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["weekday/weekend split and profile shape"]
+      source: []
+
+    - sector: "industry"
+      subsector: "fertilizers"
+      boundary: "Fertilizer production including ammonia (H2 feedstock where provided)."
+      carriers: ["hydrogen", "methane", "electricity"]
+      drivers_data: ["operating patterns", "ETM annuals"]
+      method: "Fertilizer hourly shape; scale to annual."
+      shape_traits: ["high baseload", "seasonal variability"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "seasonal variability"]
+      source: [https://fertiliser-society.org]
+
+    - sector: "industry"
+      subsector: "food"
+      boundary: "Food & beverage processing."
+      carriers: ["electricity", "methane", "hydrogen"]
+      drivers_data: ["daytime-dominant schedules", "ETM annuals"]
+      method: "Representative food-industry hourly shape; scale to annual."
+      shape_traits: ["weekday daytime peaks", "reduced weekends"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "weekday/weekend contrast"]
+      source: [www.researchgate.net]
+
+    - sector: "industry"
+      subsector: "paper"
+      boundary: "Pulp & paper mills."
+      carriers: ["electricity", "methane", "hydrogen"]
+      drivers_data: ["continuous processes", "ETM annuals"]
+      method: "Paper hourly operating shape; scale to annual."
+      shape_traits: ["flat"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals"]
+      source: [rakcorp.com]
+
+    - sector: "industry"
+      subsector: "refineries"
+      boundary: "Oil refineries including on-site hydrogen plants."
+      carriers: ["hydrogen", "methane", "electricity"]
+      drivers_data: ["continuous operation", "ETM annuals"]
+      method: "Refinery hourly shape; scale to demand."
+      shape_traits: ["flat baseload"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "baseload checks"]
+      source: []
+
+    - sector: "industry"
+      subsector: "steel"
+      boundary: "Steelmaking."
+      carriers: ["electricity", "methane", "hydrogen"]
+      drivers_data: ["close to flat profiles", "ETM annuals"]
+      method: "Steel hourly shape; scale to demand."
+      shape_traits: ["semi-continuous", "moderate weekday/weekend deltas"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "load factor checks"]
+      source: []
+
+    - sector: "transport"
+      subsector: "busses"
+      boundary: "Urban/regional bus fleets."
+      carriers: ["electricity", "hydrogen", "liquids"]
+      drivers_data: ["service schedules", "commuter peaks", "ETM annuals"]
+      method: "Daily activity curve with AM/PM peaks; lower nights/weekends; scale by carrier."
+      shape_traits: ["twin peaks on weekdays", "flatter weekends"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "peak timing vs schedules"]
+      source: [TYNDP 2024]
+
+    - sector: "transport"
+      subsector: "cars"
+      boundary: "Private LDVs."
+      carriers: ["electricity", "liquids", "hydrogen (where adopted)"]
+      drivers_data: ["traffic/commuter patterns", "ETM annuals"]
+      method: "Driving-pattern curves (AM/PM peaks); for EVs, end-use energy approximated at vehicle hourly; scale to annual."
+      shape_traits: ["weekday peaks", "lower nights", "weekend midday bump"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "peak alignment"]
+      source: [TYNDP 2024]
+
+    - sector: "transport"
+      subsector: "freight trains"
+      boundary: "Rail freight traction."
+      carriers: ["electricity", "hydrogen", "liquids"]
+      drivers_data: ["timetables/line usage", "ETM annuals"]
+      method: "Flatter weekday pattern; lower weekends; scale to annual."
+      shape_traits: ["low diurnal variation", "weekday bias"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["annuals", "weekday/weekend ratio"]
+      source: [TYNDP 2024]
+
+    - sector: "transport"
+      subsector: "planes"
+      boundary: "Domestic + international aviation energy attributed per ETM conventions."
+      carriers: ["liquids (kerosene)"]
+      drivers_data: ["monthly kerosene seasonality", "ETM annuals"]
+      method: "Seasonal pattern converted to hourly using typical daily flight waves; scale to annual."
+      shape_traits: ["strong summer peaks"]
+      zones_allocation: "H2 split per national guidance (Z1 local vs Z2 backbone)."
+      validation: ["seasonality vs known travel peaks"]
+      source: [EUROSTAT]
+
+  implementation_sketch:
+    space_heating:
+      - "Fit H = mT + c (or piecewise) per country & sector."
+      - "Generate hourly via chosen climate-year temperature."
+      - "Normalize & scale to ETM annual."
+      - "Allocate H2 by zone (if applicable)."
+    industry_transport:
+      - "Select representative hourly shape."
+      - "Normalize for calendar, apply weekday/weekend modifiers."
+      - "Scale to ETM annual per scenario/year."
+      - "Zone allocation for H2 if applicable."
+
+  change_log:
+    - version: "v1"
+      date: "2025-09-01"
+      notes: "Initial public draft for TSO review."

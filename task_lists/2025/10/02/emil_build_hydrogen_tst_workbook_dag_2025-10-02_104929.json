@@ -1,0 +1,16 @@
+{
+  "user_input": "Task ID: emil_build_hydrogen_tst_workbook\nDescription: Generate hydrogen demand profiles and export them as TST Excel workbooks for the TYNDP 2026 scenario\n\nScope: Use the main_demand_processer_v2 function to decompose hydrogen annual demand into hourly profiles if necessary, then invoke the build_tst_workbooks function with carrier=\"hydrogen\" to produce the standard TST Excel workbook. Ensure the workbook conforms to TYNDP 2026 formatting and includes all required sheets and metadata.\n\nExpected Outputs: hydrogen_tst_workbook.xlsx\n\nInput Requirements: hydrogen demand data (annual total or existing profile), carrier identifier set to \"hydrogen\"\n\nAdditional Notes: Emil should verify that the demand data aligns with the TYNDP 2026 scenario assumptions before exporting.",
+  "author": "Emil",
+  "tags": [
+    "hydrogen",
+    "demand",
+    "tst",
+    "tnydp2026"
+  ],
+  "date_created": "2025-10-02",
+  "time_created": "10:50:36",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  }
+}

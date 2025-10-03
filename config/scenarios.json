@@ -1,0 +1,9 @@
+{
+  "scenarios": [
+    "NT",
+    "NT_HE",
+    "NT_LE",
+    "Core Flexibility",
+    "Joule Model"
+  ]
+}

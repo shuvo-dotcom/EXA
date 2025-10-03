@@ -1,0 +1,39 @@
+{
+  "user_input": "Modify the TJ Sectoral Model. Add a Nuclear SMR Generators in Germany (DE01). Add all of the template properties with a max capacity of 1000 MW.",
+  "author": "PLEXOS Assistant",
+  "tags": [
+    "crud",
+    "object",
+    "update",
+    "template",
+    "nuclear",
+    "Germany"
+  ],
+  "date_created": "2025-08-18",
+  "time_created": "21:55:24",
+  "retry_policy": {
+    "count": 1,
+    "strategy": "fixed"
+  },
+  "default_llm_context": "Perform the specified operation based on the user's input and the Terajoule Model specifications.",
+  "tasks": [
+    {
+      "task_name": "add_object_Nuclear_SMR_Generators_DE01",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Add a new object 'Nuclear SMR Generators in Germany (DE01)' to the TJ Sectoral Model.",
+      "target_level": "object",
+      "strategy_action": "create",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate object from the following list.",
+      "on_error": "abort"
+    },
+    {
+      "task_name": "update_properties_Nuclear_SMR_Generators_DE01",
+      "pipeline_name": "crud_pipeline.json",
+      "description": "Update the newly added object with all template properties, including setting the max capacity to 1000 MW.",
+      "target_level": "property",
+      "strategy_action": "update",
+      "entity_selection_context": "Based on the user's request: '{user_input}', select the most appropriate property from the following list.",
+      "on_error": "log_and_continue"
+    }
+  ]
+}

@@ -1,0 +1,781 @@
+description: Show general examples for a variety of asset classes in the energy sector including generators, line, pipeline, renewable and many many more.
+              Explain the structure of how to build them including the primary classes and collections required
+
+schema:
+  asset_category:
+    sub_asset:
+      description: ...
+      primary_class:
+        name: ...
+        primary_collections: [...]
+      secondary_class:
+        name: ...
+        collections: [...]
+
+Electricity_Generation_Assets:
+  DSR:
+    complexity: simple
+    description: Demand-side response assets that adjust consumption based on supply conditions. Can me modelled as a generator with a offer price and quanity, 
+                  or directly in the node object using a bid price and quantity. Must be connected to a node.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes]
+    secondary_class: 
+      name: Node
+      primary_collections: [None]
+
+  Thermal Generation Units:
+    description: Thermal generation units including fossil fuel, nuclear, Concentrated Solar Thermal, and biomass plants. These typically link to a node and a fuel. 
+                 Gas assets can also link to gasnodes, but it is better to connect through fuels in order to set a commodity price rather than the gas marginal price.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorFuels, GeneratorStartFuels]
+      secondary_collections: [GeneratorGasNodes, GeneratorStartGasNodes]      
+    secondary_class: 
+      name: None
+      collections: None
+
+  Nuclear Fusion:
+    description:  Nuclear fusion assets generate electricity through the fusion of atomic nuclei. Modelling these assets is complex because it requires representing the tritium breeding process. 
+                  A typical model setup includes a 'Generator' object and a home 'Node' for the fusion plant itself, typically this node will already exist. It need to connect to a tritium Fuel object (new if doesn't exist).
+                  To model the tritium breeding, a 'Power2X' object should be created in a new Tritium breeding 'Node'. The tritium will be created will be created by the 'Power2X' object.
+                  A 'Line' connects the fusion plant's node to the tritium breeding node, to represent the nucleus from the fusion process. The tritium produced is represented by a 'Fuel' object, which is then supplied back to the fusion plant's 'Generator'.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorFuels, GeneratorStartFuels]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Variable Renewables:
+    description:  Variable renewable energy sources, such as wind, Solar PV, Tidal, Geothermal etc, have generation profiles that depend on weather conditions. 
+                  These assets are typically connected to a node and can be modeled as generators with specific characteristics.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Hydro Power (no storage):
+    description:  Hydro power plants without storage capabilities rely on river flow and are typically run-of-river plants. They are connected to a node and can be modeled as generators.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+Heating_Assets:
+  Heat Pumps:
+    description:  Heat pumps transfer heat from one place to another using a refrigeration cycle. They can be used for both heating and cooling applications.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Electric Boilers:
+    description:  Electric boilers use electricity to heat water for residential and commercial heating applications.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Gas Boilers:
+    description:  Gas boilers use natural gas as a fuel source to heat water for residential and commercial heating applications.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantGasNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Solar Thermal:
+    description: Solar heating use solar energy to heat water for residential and commercial applications.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Geothermal:
+    description: Geothermal heating uses heat from the Earth's interior to provide thermal energy for residential and commercial applications.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+    District Heating:
+    description: District heating systems provide thermal energy to multiple buildings from a centralized source. They can utilize various heat sources, including waste heat, biomass, and geothermal energy.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantNodes, HeatPlantGasNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Combined Heat and Power:
+    description: Combined heat and power (CHP) systems generate electricity and useful heat simultaneously from the same energy source. They can improve overall energy efficiency and reduce greenhouse gas emissions.
+    primary_class: 
+      name: HeatPlant
+      primary_collections: [HeatPlantHeatOutputNodes, HeatPlantNodes, HeatPlantGasNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+CO2_Assets:
+  Biogenic CO2:
+    description: Biogenic CO2 assets capture and utilize CO2 produced from biological sources, such as biomass combustion or fermentation processes. 
+                These assets can help reduce overall CO2 emissions by capturing and storing or utilizing the CO2 generated from renewable sources.
+    primary_class: 
+      name: GasPlant
+      primary_collections: [GasFieldGasPlant]
+    secondary_class: 
+      name: GasField
+      collections: [GasFieldGasNode]
+
+Energy Transport Assets:
+  Electricity Transmission Lines:
+    description: High-voltage power lines that transport electricity over long distances from generation sources to substations.
+    primary_class: 
+      name: Lines
+      primary_collections: [LineNodeFrom, LineNodeTo]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Hydrogen Pipeline:
+    description: Pipelines that transport hydrogen gas from production sites to end-users or storage facilities. If the gas module isn't being used, the Line class can be used instead, but pipelines is default.
+    primary_class: 
+      name: GasPipeline
+      primary_collections: [GasPipelineGasNodeFrom]
+    secondary_class: 
+      name: Line
+      collections: [LineNodeFrom, LineNodeTo]
+
+  Ammonia Pipeline:
+    description: Pipelines that transport ammonia from production sites to end-users or storage facilities.
+    primary_class: 
+      name: GasPipeline
+      primary_collections: [GasPipelineGasNodeFrom]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Methane Pipeline:
+    description: Pipelines that transport natural gas (methane) from production sites to end-users or storage facilities.
+    primary_class: 
+      name: GasPipeline
+      primary_collections: [GasPipelineGasNodeFrom]
+    secondary_class: 
+      name: None
+      collections: None
+
+  CO2 Pipeline:
+    description: Pipelines that transport carbon dioxide (CO2) from capture sites to storage or utilization locations.
+    primary_class: 
+      name: GasPipeline
+      primary_collections: [GasPipelineGasNodeFrom]
+    secondary_class: 
+      name: None
+      collections: None
+
+  LNG Shipping:
+    description: Tankers that transport liquefied natural gas (LNG) across oceans and seas.
+    primary_class: 
+      name: GasTransport
+      primary_collections: [GasTransportGasNodeFrom, GasTransportGasNodeTo]
+    secondary_class: 
+      name: GasField
+      collections: [GasFieldGasNode]
+
+  Ammonia Shipping:
+    description: Tankers that transport ammonia across oceans and seas.
+    primary_class: 
+      name: GasTransport
+      primary_collections: [GasTransportGasNodeFrom, GasTransportGasNodeTo]
+    secondary_class: 
+      name: GasField
+      collections: [GasFieldGasNode]
+
+  Offshore Wind Hubs to Home Electricity:
+    description: Electricity line which bring offshore wind electricity to onshore nodes.
+    primary_class: 
+      name: Lines
+      primary_collections: [LineNodeFrom, LineNodeTo]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Offshore Wind Hubs to Hydrogen:
+    description: Hydrogen pipeline which bring offshore wind electricity to onshore hydrogen nodes.
+    primary_class: 
+      name: GasPipeline
+      primary_collections: [GasPipelineGasNodeFrom, GasPipelineGasNodeTo]
+    secondary_class: 
+      name: Lines
+      primary_collections: [LineNodeFrom, LineNodeTo]
+
+Hydrogen_supply_assets:
+  Electrolyser:
+    description: Electrolysers use electricity to split water into hydrogen and oxygen. They can be powered by renewable energy sources, such as wind or solar power, to produce green hydrogen.
+    primary_class: 
+      name: Power2X
+      primary_collections: [Power2XNodes, Power2XGasNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Pyrolysis:
+    description: Methane pyrolysis splits natural gas into hydrogen and carbon black without producing CO2 emissions.
+    primary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+    secondary_class: 
+      name: Generator
+      collections: [GeneratorNode]
+
+  White Hydrogen:
+    description: Naturally occurring hydrogen extracted from underground reservoirs or geological formations.
+    primary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+    secondary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+
+  H2 Imports:
+    description: Import terminals and infrastructure for hydrogen from external sources.
+    primary_class: 
+      name: GasContract
+      primary_collections: [GasContractGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+  Steam Methane Reforming:
+    description: Industrial process that converts natural gas into hydrogen with CO2 as a byproduct. Can include carbon capture.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+  Ammonia Regasification:
+    description: Process of converting ammonia back to hydrogen for use in various applications.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+Methane_supply_assets:
+  Methane_Extraction:
+    description: Extraction using gas drilling techniques to access methane deposits.
+    primary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Methane_Reforming:
+    description: Process of converting natural gas into hydrogen and CO2.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+  Methane_Imports:
+    description: Import of methane from external sources.
+    primary_class: 
+      name: GasContract
+      primary_collections: [GasContractGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+  Methanation:
+    description: Process of producing synthetic methane from hydrogen and CO2 using the Sabatier reaction.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+  Biomethane:
+    description: Renewable methane produced from organic matter through anaerobic digestion or gasification.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+Electricity_Storage_Assets:
+  Batteries:
+    description: Electrochemical energy storage systems that can store and discharge electricity on demand.
+    primary_class: 
+      name: Battery
+      primary_collections: [BatteryNodes]
+    secondary_class: 
+      name: Storage
+      collections: [StorageNodes]
+
+  CAES:
+    description: Compressed Air Energy Storage systems that store energy by compressing air in underground caverns or tanks.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorHeadStorage, GeneratorTailStorage]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Pump_Storage:
+    description: Pumped hydro storage with artificial reservoirs not connected to natural water bodies.
+    primary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorHeadStorage, GeneratorTailStorage]
+    secondary_class: 
+      name: None
+      collections: None
+
+Gas_Storage_Assets:
+  Underground_Gas_Storage:
+    description: Storage of gases in underground formations such as depleted gas fields or salt caverns.
+    primary_class: 
+      name: GasStorage
+      primary_collections: [GasStorageGasNodes]
+    secondary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorHeadStorage, GeneratorTailStorage]
+
+  LNG_Storage:
+    description: Liquefied natural gas storage in cryogenic tanks.
+    primary_class: 
+      name: GasStorage
+      primary_collections: [GasStorageGasNodes]
+    secondary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorHeadStorage, GeneratorTailStorage]
+
+  Hydrogen_Storage:
+    description: Storage of hydrogen gas in various forms including compressed gas, liquid, or metal hydrides.
+    primary_class: 
+      name: GasStorage
+      primary_collections: [GasStorageGasNodes]
+    secondary_class: 
+      name: Generator
+      primary_collections: [GeneratorNodes, GeneratorHeadStorage, GeneratorTailStorage]
+
+Synthetic_Liquids_Production_assets:
+  Synthetic_kerosene:
+    description: Production of synthetic aviation fuel from hydrogen and CO2 through Fischer-Tropsch or similar processes.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+  Synthetic_methanol:
+    description: Production of synthetic methanol from hydrogen and CO2 for use as fuel or chemical feedstock.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+Electric_Vehicles_Assets:
+  Electric_Vehicles:
+    description: Electric vehicles that consume electricity and can potentially provide vehicle-to-grid services.
+    primary_class: 
+      name: Vehicle
+      primary_collections: [VehicleChargingStations]
+    secondary_class: 
+      name: Fleet
+      collections: [FleetVehicles]
+
+  Charging_Station:
+    description: Infrastructure for charging electric vehicles, can be residential, commercial, or public fast-charging.
+    primary_class: 
+      name: ChargingStation
+      primary_collections: [ChargingStationNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+Ammonia_supply_assets:
+  Ammonia_Terminals:
+    description: Import/export terminals for ammonia storage and handling.
+    primary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+    secondary_class: 
+      name: GasStorage
+      collections: [GasStorageGasNodes]
+
+  Ammonia_Production:
+    description: Production of ammonia from hydrogen and nitrogen through the Haber-Bosch process.
+    primary_class: 
+      name: GasPlant
+      collections: [GasPlantGasField, GasPlantGasNode]
+    secondary_class: 
+      name: GasField
+      primary_collections: [GasFieldGasNode]
+
+Water_Assets:
+  Water_Treatment_Plants:
+    description: Facilities for treating and purifying water for various uses.
+    primary_class: 
+      name: WaterPlant
+      primary_collections: [WaterPlantWaterNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Water_Storage:
+    description: Reservoirs and tanks for storing treated or raw water.
+    primary_class: 
+      name: WaterStorage
+      primary_collections: [WaterStorageWaterNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Water_Distribution:
+    description: Pipeline networks for distributing water to end users.
+    primary_class: 
+      name: WaterPipeline
+      primary_collections: [WaterPipelineWaterNodeFrom, WaterPipelineWaterNodeTo]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Water_Pumping:
+    description: Pumping stations for moving water through distribution systems.
+    primary_class: 
+      name: WaterPumpStation
+      primary_collections: [WaterPumpStationWaterNodes]
+    secondary_class: 
+      name: WaterPump
+      collections: [WaterPumpWaterNodes]
+
+Network_Infrastructure:
+  Electricity_Networks:
+    description: Electrical transmission and distribution infrastructure including transformers and control equipment.
+    primary_class: 
+      name: Node
+      primary_collections: [NodeRegion]
+    secondary_class: 
+      name: Zone
+      collections: [ZoneNodes]
+
+  Gas_Networks:
+    description: Gas transmission and distribution networks including compressor stations and pressure regulation.
+    primary_class: 
+      name: GasNode
+      primary_collections: [None]
+    secondary_class: 
+      name: GasZone
+      collections: [GasZoneGasNodes]
+
+  Heat_Networks:
+    description: District heating and cooling networks for thermal energy distribution.
+    primary_class: 
+      name: HeatNode
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+Market_and_Financial_Assets:
+  Emissions_Trading:
+    description: Systems for trading carbon emission allowances and credits.
+    primary_class: 
+      name: Emission
+      primary_collections: [None]
+    secondary_class: 
+      name: Abatement
+      collections: [None]
+
+  Financial_Contracts:
+    description: Financial instruments for hedging and trading energy commodities.
+    primary_class: 
+      name: FinancialContract
+      primary_collections: [None]
+    secondary_class: 
+      name: PhysicalContract
+      collections: [None]
+
+  Energy_Markets:
+    description: Organized markets for trading electricity, gas, and other energy commodities.
+    primary_class: 
+      name: Market
+      primary_collections: [None]
+    secondary_class: 
+      name: Pool
+      collections: [PoolNodes]
+
+Demand_Assets:
+  Electricity_Demand:
+    description: Electrical load requirements from residential, commercial, and industrial consumers.
+    primary_class: 
+      name: Load
+      primary_collections: [LoadNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Gas_Demand:
+    description: Natural gas and hydrogen demand from various sectors.
+    primary_class: 
+      name: GasDemand
+      primary_collections: [GasDemandGasNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Heat_Demand:
+    description: Thermal energy requirements for heating and cooling applications.
+    primary_class: 
+      name: HeatNode
+      primary_collections: []
+    secondary_class: 
+      name: None
+      collections: None
+
+  Water_Demand:
+    description: Water consumption requirements from various sectors.
+    primary_class: 
+      name: WaterDemand
+      primary_collections: [WaterDemandWaterNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+Constraints_and_Management_Assets:
+  Constraints:
+    description: System constraints that limit operations or enforce requirements.
+    primary_class: 
+      name: Constraint
+      primary_collections: [None]
+    secondary_class: 
+      name: NonlinearConstraint
+      collections: [None]
+
+  Decision_Variables:
+    description: Variables that the optimization engine can control and adjust.
+    primary_class: 
+      name: DecisionVariable
+      primary_collections: [None]
+    secondary_class: 
+      name: Variable
+      collections: [None]
+
+  Objectives:
+    description: Optimization objectives such as cost minimization or reliability maximization.
+    primary_class: 
+      name: Objective
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Maintenance_Schedules:
+    description: Planned maintenance activities for generation and transmission assets.
+    primary_class: 
+      name: Maintenance
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Contingency_Analysis:
+    description: Analysis of system behavior under equipment failure scenarios.
+    primary_class: 
+      name: Contingency
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+System_Services_Assets:
+  Reserve_Services:
+    description: Ancillary services for system reliability including spinning and non-spinning reserves.
+    primary_class: 
+      name: Reserve
+      primary_collections: [None]
+    secondary_class: 
+      name: Reliability
+      collections: [None]
+
+  Transmission_Rights:
+    description: Financial and physical rights for transmission capacity allocation.
+    primary_class: 
+      name: TransmissionRight
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Flow_Control:
+    description: Devices for controlling power flows in transmission networks.
+    primary_class: 
+      name: FlowControl
+      primary_collections: [FlowControlLines]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Interfaces:
+    description: Defined transfer interfaces between different system areas.
+    primary_class: 
+      name: Interface
+      primary_collections: [InterfaceLines]
+    secondary_class: 
+      name: None
+      collections: None
+
+Regional_and_Zonal_Assets:
+  Regions:
+    description: Large geographical areas for system planning and operation.
+    primary_class: 
+      name: Region
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Zones:
+    description: Operational zones within regions for load forecasting and planning.
+    primary_class: 
+      name: Zone
+      primary_collections: [ZoneNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Hubs:
+    description: Central connection points for multiple transmission lines or pipelines.
+    primary_class: 
+      name: Hub
+      primary_collections: [HubNodes]
+    secondary_class: 
+      name: None
+      collections: None
+
+Data_and_Scenario_Management:
+  Weather_Stations:
+    description: Sources of weather data for renewable energy forecasting.
+    primary_class: 
+      name: WeatherStation
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Scenarios:
+    description: Different future conditions and assumptions for planning studies.
+    primary_class: 
+      name: Scenario
+      primary_collections: [None]
+    secondary_class: 
+      name: Stochastic
+      collections: [None]
+
+  Data_Files:
+    description: External data sources and time series for model inputs.
+    primary_class: 
+      name: DataFile
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Timeslices:
+    description: Time period definitions for chronological and load duration curve modeling.
+    primary_class: 
+      name: Timeslice
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+Corporate_and_Economic_Assets:
+  Companies:
+    description: Corporate entities that own and operate energy assets.
+    primary_class: 
+      name: Company
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Commodities:
+    description: Tradeable energy commodities and their market characteristics.
+    primary_class: 
+      name: Commodity
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Facilities:
+    description: Industrial facilities and processes that consume or produce energy.
+    primary_class: 
+      name: Facility
+      primary_collections: [None]
+    secondary_class: 
+      name: Process
+      collections: [None]
+
+Multi_Commodity_Flow_Networks:
+  Flow_Networks:
+    description: Generic commodity flow networks for modeling complex supply chains.
+    primary_class: 
+      name: FlowNetwork
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Flow_Nodes:
+    description: Connection points in flow networks for commodity routing.
+    primary_class: 
+      name: FlowNode
+      primary_collections: [None]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Flow_Paths:
+    description: Transportation routes between flow nodes.
+    primary_class: 
+      name: FlowPath
+      primary_collections: [FlowPathFlowNodeFrom, FlowPathFlowNodeTo]
+    secondary_class: 
+      name: None
+      collections: None
+
+  Flow_Storage:
+    description: Storage facilities within flow networks.
+    primary_class: 
+      name: FlowStorage
+      primary_collections: [FlowStorageFlowNodes]
+    secondary_class: 
+      name: None
+      collections: None
